@@ -7,10 +7,25 @@ const gulp = require('gulp'),
       sourcemaps = require('gulp-sourcemaps'),
       imagemin = require('gulp-imagemin');
 
-const pages = ['landing', 'zoos', 'map'],
-      pages_count = pages.length,
-      images_folders = ['how-it-works', 'animals', 'popup', 'testimonials', 'hero'],
-      icons_folders = ['inspiration-mission-belief', 'map', 'pay-and-feed', 'social-media', 'testimonials'];
+const pages = [
+        'landing',
+        'zoos',
+        'map'
+      ],
+      images_folders = [
+        'how-it-works',
+        'animals',
+        'popup',
+        'testimonials',
+        'hero'
+      ],
+      icons_folders = [
+        'inspiration-mission-belief',
+        'map',
+        'pay-and-feed',
+        'social-media',
+        'testimonials'
+      ];
 
 /**
  * ----------------------------------------------------------------------------
@@ -19,15 +34,19 @@ const pages = ['landing', 'zoos', 'map'],
  */
 
 gulp.task('copy', () => {
-  for (let i = 0; i < pages_count; i++) {
+  let stream;
+  
+  pages.forEach(page => {
     // Normalize.css
     gulp.src('node_modules/normalize.css/normalize.css')
-        .pipe(gulp.dest(`pages/${ pages[i] }/css`));
+        .pipe(gulp.dest(`pages/${ page }/css`));
 
     // Lazysizes
-    gulp.src('node_modules/lazysizes/lazysizes.min.js')
-        .pipe(gulp.dest(`pages/${ pages[i] }/js`));
-  }
+    stream = gulp.src('node_modules/lazysizes/lazysizes.min.js')
+                 .pipe(gulp.dest(`pages/${ page }/js`));
+  });
+
+  return stream;
 });
 
 /**
@@ -41,11 +60,15 @@ gulp.task('copy', () => {
  ================================================================================ */
 
 gulp.task('sass', () => {
-  for (let i = 0; i < pages_count; i++) {
-    gulp.src(`pages/${ pages[i] }/scss/style.scss`)
-        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-        .pipe(gulp.dest(`pages/${ pages[i] }/css`));
-  }
+  let stream;
+
+  pages.forEach(page => {
+    stream = gulp.src(`pages/${ page }/scss/style.scss`)
+                 .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+                 .pipe(gulp.dest(`pages/${ page }/css`));
+  });
+
+  return stream;
 });
 
 /* WATCH ================================================================================ */
@@ -60,14 +83,18 @@ gulp.task('watch', () => {
  ================================================================================ */
 
 gulp.task('minify-css', () => {
-  for (let i = 0; i < pages_count; i++) {
-    gulp.src(`pages/${ pages[i] }/style.css`)
-        .pipe(sourcemaps.init())
-        .pipe(cleanCSS())
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(`pages/${ pages[i] }/css`));
-  }
+  let stream;
+
+  pages.forEach(page => {
+    stream = gulp.src(`pages/${ page }/style.css`)
+                 .pipe(sourcemaps.init())
+                 .pipe(cleanCSS())
+                 .pipe(rename({ suffix: '.min' }))
+                 .pipe(sourcemaps.write())
+                 .pipe(gulp.dest(`pages/${ page }/css`));
+  });
+
+  return stream;
 });
 
 /**
@@ -79,27 +106,39 @@ gulp.task('minify-css', () => {
 /* MINIFY ================================================================================ */
 
 gulp.task('image', () => {
-  for (let i = 0; i < images_folders.length; i++) {
-    gulp.src(`assets/images/${ images_folders[i] }/original/*.{jpg,png}`)
-        .pipe(imagemin())
-        .pipe(gulp.dest(`assets/images/${ images_folders[i] }`));
-  }
+  let stream;
+  
+  images_folders.forEach(folder => {
+    stream = gulp.src(`assets/images/${ folder }/original/*.{jpg,png}`)
+                 .pipe(imagemin())
+                 .pipe(gulp.dest(`assets/images/${ folder }`));
+  });
+
+  return stream;
 });
 
 gulp.task('icon', () => {
-  for (let i = 0; i < icons_folders.length; i++) {
-    gulp.src(`assets/icons/${ icons_folders[i] }/original/*`)
-        .pipe(imagemin())
-        .pipe(gulp.dest(`assets/icons/${ icons_folders[i] }`));
-  }
+  let stream;
+
+  icons_folders.forEach(folder => {
+    stream = gulp.src(`assets/icons/${ folder }/original/*`)
+                 .pipe(imagemin())
+                 .pipe(gulp.dest(`assets/icons/${ folder }`));
+  });
+
+  return stream;
 });
 
 /* CONVERT TO WEBP ================================================================================ */
 
 gulp.task('webp', () => {
-  for (let i = 0; i < images_folders.length; i++) {
-    gulp.src(`assets/images/${ images_folders[i] }/original/*.{jpg,png}`)
-      .pipe(webp())
-      .pipe(gulp.dest(`assets/images/${ images_folders[i] }`));
-  }
+  let stream;
+
+  images_folders.forEach(folder => {
+    stream = gulp.src(`assets/images/${ folder }/original/*.{jpg,png}`)
+                 .pipe(webp())
+                 .pipe(gulp.dest(`assets/images/${ folder }`));
+  });
+
+  return stream;
 });
