@@ -1,0 +1,33 @@
+{
+  "name": "online-zoo",
+  "version": "1.0.0",
+  "description": "Private repository for @wfz1",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rolling-scopes-school/wfz1-JSFE2021Q1.git/online-zoo"
+  },
+  "author": "Pavel Skumenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/wfz1-JSFE2021Q1/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/wfz1-JSFE2021Q1#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-watch": "^5.0.1",
+    "gulp-webp": "^4.0.1"
+  },
+  "dependencies": {
+    "lazysizes": "^5.3.0",
+    "normalize.css": "^8.0.1"
+  }
+}
