@@ -9,7 +9,38 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page page_light-mode">
+  <h1 class="visually-hidden">Online Zoo</h1>
+  <header class="header page__header">
+    <div class="header__wrapper wrapper row">
+      <a class="logo" href="./">
+        <span class="logo__text">Zoo</span>
+        <span class="logo__subtext">online</span>
+      </a>
+
+      <nav class="nav header__nav">
+        <ul class="nav__list row side-no-margin">
+          <li class="nav__item nav__item_first nav__item_active">
+            <a class="nav__link" href="./">About</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../zoos">Zoos</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../map">Map</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="../landing">Contact Us</a>
+          </li>
+          <li class="nav__item nav__item_last">
+            <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">Design</a>
+          </li>
+        </ul>
+      </nav>
+
+      <input class="toggle-color-mode header__toggle-color-mode" type="range" min="0" max="1" value="0" step="1">
+    </div>
+  </header>
   
   <script>
 		window.lazySizesConfig = { loadMode: 1 }; // only load visible elements

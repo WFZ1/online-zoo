@@ -4,6 +4,253 @@
 
 /**
  * ----------------------------------------------------------------------------
+ *  RESET
+ * ----------------------------------------------------------------------------
+ */
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  &:first-child { margin-top: 0; }
+}
+
+p {
+  margin-top: 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+img,
+svg {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a { text-decoration: none; }
+button { border: 0; }
+input[type=submit] { border: 0; } 
+
+/**
+ * ----------------------------------------------------------------------------
  *  BASE
  * ----------------------------------------------------------------------------
  */
+
+html {
+  font-family: $font-main;
+  color: $text-color;
+  font-size: $default-text-font-size;
+}
+
+.header,
+.main,
+.footer {
+  min-width: rem(320, $text-size);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  COMMON
+ * ----------------------------------------------------------------------------
+ */
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0 0 99.9% 99.9%);
+  clip-path: inset(0 0 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+}
+
+/* HIDDEN ================================================================================ */
+
+@include at($max, $phone - 1) {
+  .hidden-phone {
+    display: $hidden;
+  }
+}
+
+@include at($min, $phone) {
+  .hidden-phone-and-up {
+    display: $hidden;
+  }
+}
+
+@include at($max, $tablet - 1) {
+  .hidden-tablet {
+    display: $hidden;
+  }
+}
+
+@include at($min, $tablet) {
+  .hidden-tablet-and-up {
+    display: $hidden;
+  }
+}
+
+@include at($max, $lap - 1) {
+  .hidden-lap {
+    display: $hidden;
+  }
+}
+
+@include at($min, $lap) {
+  .hidden-lap-and-up {
+    display: $hidden;
+  }
+}
+
+@include at($max, $desk - 1) {
+  .hidden-desk {
+    display: $hidden;
+  }
+}
+
+@include at($min, $desk) {
+  .hidden-desk-and-up {
+    display: $hidden;
+  }
+}
+
+@include at($max, $widescreen - 1) {
+  .hidden-wide {
+    display: $hidden;
+  }
+}
+
+@include at($min, $widescreen) {
+  .hidden-wide-and-up {
+    display: $hidden;
+  }
+}
+
+/* WRAP ================================================================================ */
+
+.wrapper,
+.container {
+  margin: auto;
+}
+
+.wrapper { max-width: rem($wrapper, $text-size); }
+.container { max-width: rem($container, $text-size); }
+
+%inline-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+/* BUTTON & LINK ================================================================================ */
+
+.link { color: $link-color; }
+
+/* NAV ================================================================================ */
+
+.nav {
+  flex: 1;
+}
+
+.nav__list {
+  justify-content: center;
+}
+
+.nav__item {
+  margin: 0 em(40, $nav-item-font-size);
+  padding: 0 em(5, $nav-item-font-size) 0 em(1, $nav-item-font-size);
+  border-bottom: 1px solid transparent;
+  font-size: rem($nav-item-font-size, $text-size);
+  transition: font-weight $trans-duration, border-color $trans-duration;
+}
+
+.nav__item_active,
+.nav__item:hover {
+  font-weight: 900;
+  border-bottom-color: $nav-item-color;
+}
+
+.nav__link {
+  color: $nav-item-color;
+}
+
+.nav__item_first { margin-left: 0; }
+.nav__item_last { margin-right: 0; }
+
+/* LOGO ================================================================================ */
+
+.logo {
+  color: $title-color;
+  font-weight: 900;
+  text-align: center;
+}
+
+.logo__text {
+  display: block;
+  font-size: rem(36, $text-size);
+  text-transform: lowercase;
+}
+
+.logo__subtext {
+  display: block;
+  font-size: rem(18, $text-size);
+  line-height: em(5, 18);
+  letter-spacing: .08em;
+}
+
+/* TOGGLE COLOR MODE ================================================================================ */
+
+.toggle-color-mode {
+  -webkit-appearance: none; // hides the slider so that custom slider can be made
+          appearance: none;
+  width: rem(54, $text-size);
+  height: rem(30, $text-size);
+  margin-top: rem(15, $text-size);
+  padding: rem(5, $text-size) rem(6, $text-size);
+  background-color: #f2f2f2;
+  border-radius: rem(190, $text-size);
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+            appearance: none;
+    width: rem(20, $text-size);
+    height: rem(20, $text-size);
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 2px 4px 15px rgba(6,12,70,.15);
+  }
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  HEADER
+ * ----------------------------------------------------------------------------
+ */
+
+.header__wrapper {
+  padding : rem(16, $text-size) 0 rem(26, $text-size);
+}
+
+.header__nav {
+  margin: rem(25, $text-size) rem(20, $text-size) 0;
+}

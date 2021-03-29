@@ -24,7 +24,7 @@
 /* ROBOTO ================================================================================ */
 @font-face {
   font-family: Roboto;
-  src: url("assets/fonts/Roboto-Regular.woff2") format("woff2");
+  src: url("../../../assets/fonts/Roboto-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("assets/fonts/Roboto-Italic.woff2") format("woff2");
+  src: url("../../../assets/fonts/Roboto-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -40,7 +40,23 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("assets/fonts/Roboto-Bold.woff2") format("woff2");
+  src: url("../../../assets/fonts/Roboto-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../../assets/fonts/Roboto-MediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../../assets/fonts/Roboto-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -48,10 +64,80 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("assets/fonts/Roboto-BoldItalic.woff2") format("woff2");
+  src: url("../../../assets/fonts/Roboto-BoldItalic.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../../assets/fonts/Roboto-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../../assets/fonts/Roboto-BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  RESET
+ * ----------------------------------------------------------------------------
+ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+img,
+svg {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+}
+
+input[type=submit] {
+  border: 0;
 }
 
 /**
@@ -59,3 +145,205 @@
  *  BASE
  * ----------------------------------------------------------------------------
  */
+html {
+  font-family: Roboto, sans-serif;
+  color: #4f4f4f;
+  font-size: 14px;
+}
+
+.header,
+.main,
+.footer {
+  min-width: 22.85714rem;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  COMMON
+ * ----------------------------------------------------------------------------
+ */
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0 0 99.9% 99.9%);
+  clip-path: inset(0 0 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+}
+
+/* HIDDEN ================================================================================ */
+@media screen and (max-width: 639px) {
+  .hidden-phone {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .hidden-phone-and-up {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hidden-tablet {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hidden-tablet-and-up {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .hidden-lap {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hidden-lap-and-up {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .hidden-desk {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hidden-desk-and-up {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  .hidden-wide {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .hidden-wide-and-up {
+    display: none !important;
+  }
+}
+
+/* WRAP ================================================================================ */
+.wrapper,
+.container {
+  margin: auto;
+}
+
+.wrapper {
+  max-width: 115.71429rem;
+}
+
+.container {
+  max-width: 85.71429rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+/* BUTTON & LINK ================================================================================ */
+.link {
+  color: #4bd8b5;
+}
+
+/* NAV ================================================================================ */
+.nav {
+  flex: 1;
+}
+
+.nav__list {
+  justify-content: center;
+}
+
+.nav__item {
+  margin: 0 2.5em;
+  padding: 0 0.3125em 0 0.0625em;
+  border-bottom: 1px solid transparent;
+  font-size: 1.14286rem;
+  transition: font-weight 0.3s, border-color 0.3s;
+}
+
+.nav__item_active,
+.nav__item:hover {
+  font-weight: 900;
+  border-bottom-color: #333;
+}
+
+.nav__link {
+  color: #333;
+}
+
+.nav__item_first {
+  margin-left: 0;
+}
+
+.nav__item_last {
+  margin-right: 0;
+}
+
+/* LOGO ================================================================================ */
+.logo {
+  color: #333;
+  font-weight: 900;
+  text-align: center;
+}
+
+.logo__text {
+  display: block;
+  font-size: 2.57143rem;
+  text-transform: lowercase;
+}
+
+.logo__subtext {
+  display: block;
+  font-size: 1.28571rem;
+  line-height: 0.27778em;
+  letter-spacing: .08em;
+}
+
+/* TOGGLE COLOR MODE ================================================================================ */
+.toggle-color-mode {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 3.85714rem;
+  height: 2.14286rem;
+  margin-top: 1.07143rem;
+  padding: 0.35714rem 0.42857rem;
+  background-color: #f2f2f2;
+  border-radius: 13.57143rem;
+}
+
+.toggle-color-mode::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.42857rem;
+  height: 1.42857rem;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  HEADER
+ * ----------------------------------------------------------------------------
+ */
+.header__wrapper {
+  padding: 1.14286rem 0 1.85714rem;
+}
+
+.header__nav {
+  margin: 1.78571rem 1.42857rem 0;
+}

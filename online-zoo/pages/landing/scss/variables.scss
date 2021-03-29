@@ -10,9 +10,9 @@ $text-color: #4f4f4f;
 $text-secondary-color: #bdbdbd;
 $accent-color: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
 
-$title-primary-color: #333;
+$title-color: #333;
 $title-secondary-color: #313131;
-$subtitle-primary-color: #828282;
+$subtitle-color: #828282;
 $subtitle-secondary-color: #828282;
 
 $btn-color: #fff;
@@ -81,7 +81,7 @@ $widescreen:  1440px;
 
 /* TRANSITION ================================================================================ */
 
-$trans-duration: .5s;
+$trans-duration: .3s;
 $trans-color: color $trans-duration;
 $trans-fill: fill $trans-duration;
 $trans-bg: background-color $trans-duration;
