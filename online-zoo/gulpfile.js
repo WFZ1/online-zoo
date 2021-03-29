@@ -5,7 +5,8 @@ const gulp = require('gulp'),
       cleanCSS = require('gulp-clean-css'),
       rename = require('gulp-rename'),
       sourcemaps = require('gulp-sourcemaps'),
-      imagemin = require('gulp-imagemin');
+      imagemin = require('gulp-imagemin'),
+      responsive = require('gulp-responsive');
 
 const pages = [
         'landing',
@@ -137,6 +138,63 @@ gulp.task('webp', () => {
   images_folders.forEach(folder => {
     stream = gulp.src(`assets/images/${ folder }/original/*.{jpg,png}`)
                  .pipe(webp())
+                 .pipe(gulp.dest(`assets/images/${ folder }`));
+  });
+
+  return stream;
+});
+
+/* GENERATE DIFFERENT IMAGES SIZES ================================================================================ */
+
+const image_sizes = [
+  { 
+    width: 375,
+    rename: { suffix: '@sm' },
+    withoutEnlargement: false
+  },
+  { 
+    width: 640,
+    rename: { suffix: '@ph' },
+    withoutEnlargement: false
+  },
+  { 
+    width: 768,
+    rename: { suffix: '@tb' },
+    withoutEnlargement: false
+  },
+  { 
+    width: 1024,
+    rename: { suffix: '@lp' },
+    withoutEnlargement: false
+  },
+  { 
+    width: 1200,
+    rename: { suffix: '@ds' },
+    withoutEnlargement: false
+  },
+  { 
+    width: 1440,
+    rename: { suffix: '@ws' },
+    withoutEnlargement: false
+  },
+  { 
+    width: 1920,
+    rename: { suffix: '@fhd' },
+    withoutEnlargement: false
+  },
+  { 
+    width: 2560,
+    rename: { suffix: '@2k' },
+    withoutEnlargement: false
+  }
+];
+
+gulp.task('image-resize', () => {
+  let stream;
+
+  images_folders.forEach(folder => {
+    stream = gulp.src(`assets/images/${ folder }/*.{jpg,png}`)
+                 .pipe(responsive({ '*.{jpg,png}': image_sizes }))
                  .pipe(gulp.dest(`assets/images/${ folder }`));
   });
 
