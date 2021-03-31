@@ -21,7 +21,7 @@ const pages = [
         'hero'
       ],
       icons_folders = [
-        'inspiration-mission-belief',
+        'goals',
         'map',
         'pay-and-feed',
         'social-media',

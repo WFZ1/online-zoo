@@ -148,6 +148,10 @@ html {
   flex-direction: column;
 }
 
+.section_highlighted {
+  background-color: $content-primary-bg;
+}
+
 /* MARGINS ================================================================================ */
 
 .no-margin-top { margin-top: 0 !important; }
@@ -166,6 +170,7 @@ html {
 
 .subtitle {
   font-size: rem($subtitle-font-size, $text-size);
+  font-weight: 900;
   color: $subtitle-color;
 }
 
@@ -631,5 +636,30 @@ html {
 }
 
 .hero-carousel__image_top-position_71 { object-position: 0 71%; }
-
 .step-by-step-carousel__controls { margin-bottom: em(28, $text-size); }
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: GOALS
+ * ----------------------------------------------------------------------------
+ */
+
+.goals { padding: rem(100, $text-size) rem(10, $text-size) rem(130, $text-size); }
+
+.goals__wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: rem(30, $text-size);
+}
+
+.goals__image-wrap {
+  height: rem(80, $text-size);
+  margin-bottom: rem(15, $text-size);
+}
+
+.goals__subtitle {
+  margin: 0 0 rem(16, $text-size);
+  text-align: center;
+}
+
+.goals__text { line-height: em(16, 14); }

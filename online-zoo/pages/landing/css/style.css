@@ -267,6 +267,10 @@ html {
   flex-direction: column;
 }
 
+.section_highlighted {
+  background-color: #f2f2f2;
+}
+
 /* MARGINS ================================================================================ */
 .no-margin-top {
   margin-top: 0 !important;
@@ -294,7 +298,8 @@ html {
 
 .subtitle {
   font-size: 1.42857rem;
-  color: #828282;
+  font-weight: 900;
+  color: #333;
 }
 
 /* BUTTON & LINK ================================================================================ */
@@ -776,4 +781,33 @@ html {
 
 .step-by-step-carousel__controls {
   margin-bottom: 2em;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: GOALS
+ * ----------------------------------------------------------------------------
+ */
+.goals {
+  padding: 7.14286rem 0.71429rem 9.28571rem;
+}
+
+.goals__wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2.14286rem;
+}
+
+.goals__image-wrap {
+  height: 5.71429rem;
+  margin-bottom: 1.07143rem;
+}
+
+.goals__subtitle {
+  margin: 0 0 1.14286rem;
+  text-align: center;
+}
+
+.goals__text {
+  line-height: 1.14286em;
 }
