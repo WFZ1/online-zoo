@@ -148,6 +148,11 @@ gulp.task('webp', () => {
 
 const image_sizes = [
   { 
+    width: 320,
+    rename: { suffix: '@xsm' },
+    withoutEnlargement: false
+  },
+  { 
     width: 375,
     rename: { suffix: '@sm' },
     withoutEnlargement: false

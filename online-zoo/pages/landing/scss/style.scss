@@ -68,6 +68,8 @@ html {
  * ----------------------------------------------------------------------------
  */
 
+/* HIDDEN ================================================================================ */
+
 .visually-hidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -78,66 +80,44 @@ html {
   width: 1px;
 }
 
-/* HIDDEN ================================================================================ */
-
 @include at($max, $phone - 1) {
-  .hidden-phone {
-    display: $hidden;
-  }
+  .hidden-phone { display: $hidden; }
 }
 
 @include at($min, $phone) {
-  .hidden-phone-and-up {
-    display: $hidden;
-  }
+  .hidden-phone-and-up { display: $hidden; }
 }
 
 @include at($max, $tablet - 1) {
-  .hidden-tablet {
-    display: $hidden;
-  }
+  .hidden-tablet { display: $hidden; }
 }
 
 @include at($min, $tablet) {
-  .hidden-tablet-and-up {
-    display: $hidden;
-  }
+  .hidden-tablet-and-up { display: $hidden; }
 }
 
 @include at($max, $lap - 1) {
-  .hidden-lap {
-    display: $hidden;
-  }
+  .hidden-lap { display: $hidden; }
 }
 
 @include at($min, $lap) {
-  .hidden-lap-and-up {
-    display: $hidden;
-  }
+  .hidden-lap-and-up { display: $hidden; }
 }
 
 @include at($max, $desk - 1) {
-  .hidden-desk {
-    display: $hidden;
-  }
+  .hidden-desk { display: $hidden; }
 }
 
 @include at($min, $desk) {
-  .hidden-desk-and-up {
-    display: $hidden;
-  }
+  .hidden-desk-and-up { display: $hidden; }
 }
 
 @include at($max, $widescreen - 1) {
-  .hidden-wide {
-    display: $hidden;
-  }
+  .hidden-wide { display: $hidden; }
 }
 
 @include at($min, $widescreen) {
-  .hidden-wide-and-up {
-    display: $hidden;
-  }
+  .hidden-wide-and-up { display: $hidden; }
 }
 
 /* WRAP ================================================================================ */
@@ -161,9 +141,128 @@ html {
   align-items: center;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* MARGINS ================================================================================ */
+
+.no-margin-top { margin-top: 0 !important; }
+.no-margin-bottom { margin-bottom: 0 !important; }
+.no-margin-left { margin-left: 0 !important; }
+.no-margin-right { margin-right: 0 !important; }
+
+/* TITLES ================================================================================ */
+
+.title {
+  font-size: rem($title-font-size, $text-size);
+  color: $title-color;
+}
+
+.subtitle {
+  font-size: rem($subtitle-font-size, $text-size);
+  color: $subtitle-color;
+}
+
 /* BUTTON & LINK ================================================================================ */
 
-.link { color: $link-color; }
+%link-or-btn__icon {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+%link-or-btn__icon_type_play {
+  content: "";
+  display: block;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+}
+
+.link {
+  @extend %inline-box;
+  font-size: rem($link-font-size, $text-size);
+}
+
+.link__text {
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.link__icon {
+  @extend %link-or-btn__icon;
+
+  width: em(24, $link-font-size);
+  height: em(24, $link-font-size);
+  margin-right: em(2, $link-font-size);
+  align-items: center;
+}
+
+.link__icon_type_play::before {
+  @extend %link-or-btn__icon_type_play;
+  margin-left: em(2, $link-font-size);
+  border-width: em(4, $link-font-size) 0 em(4, $link-font-size) em(6, $link-font-size);
+}
+
+.link__icon_type_usd {
+  align-items: flex-end;
+  
+  &::before {
+    content: "$";
+    color: #fff;
+    font-weight: 500;
+    font-size: rem(18, $text-size);
+  }
+}
+
+.link_accent {
+  .link__text { color: $accent-color; }
+  .link__icon {
+    border-color: $accent-color;
+
+    &::before { border-left-color: $accent-color; }
+  }
+}
+
+.btn {
+  @extend %inline-box;
+
+  min-width: em(245, $btn-font-size);
+  min-height: em(55, $btn-font-size);
+  padding: em(11.5, $btn-font-size) em(15, $btn-font-size);
+  font-size: rem($btn-font-size, $text-size);
+  background-image: $btn-bg;
+  border-radius: em(3, $btn-font-size);
+  transition: filter .3s;
+
+  &:hover {
+    filter: drop-shadow(15px 16px 10px #333) grayscale(.6);
+  }
+}
+
+.btn__text {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $btn-color;
+}
+
+.btn__icon {
+  @extend %link-or-btn__icon;
+
+  width: em(32, $btn-font-size);
+  height: em(32, $btn-font-size);
+  margin-right: em(5, $btn-font-size);
+  align-items: center;
+}
+
+.btn__icon_type_play::before {
+  @extend %link-or-btn__icon_type_play;
+  margin-left: em(2, $btn-font-size);
+  border-width: em(5, $btn-font-size) 0 em(5, $btn-font-size) em(8, $btn-font-size);
+}
 
 /* NAV ================================================================================ */
 
@@ -176,7 +275,7 @@ html {
 }
 
 .nav__item {
-  margin: 0 em(40, $nav-item-font-size);
+  margin-right: em(80, $nav-item-font-size);
   padding: 0 em(5, $nav-item-font-size) 0 em(1, $nav-item-font-size);
   border-bottom: 1px solid transparent;
   font-size: rem($nav-item-font-size, $text-size);
@@ -193,51 +292,168 @@ html {
   color: $nav-item-color;
 }
 
-.nav__item_first { margin-left: 0; }
-.nav__item_last { margin-right: 0; }
-
 /* LOGO ================================================================================ */
 
 .logo {
   color: $title-color;
   font-weight: 900;
-  text-align: center;
+  text-transform: lowercase;
 }
 
 .logo__text {
   display: block;
-  font-size: rem(36, $text-size);
-  text-transform: lowercase;
+  font-size: rem(36, $text-size);  
 }
 
 .logo__subtext {
   display: block;
+  margin-top: em(-5, 18);
   font-size: rem(18, $text-size);
-  line-height: em(5, 18);
   letter-spacing: .08em;
 }
 
 /* TOGGLE COLOR MODE ================================================================================ */
 
 .toggle-color-mode {
-  -webkit-appearance: none; // hides the slider so that custom slider can be made
-          appearance: none;
   width: rem(54, $text-size);
   height: rem(30, $text-size);
-  margin-top: rem(15, $text-size);
+  margin-top: rem(10, $text-size);
   padding: rem(5, $text-size) rem(6, $text-size);
   background-color: #f2f2f2;
   border-radius: rem(190, $text-size);
 
   &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-            appearance: none;
     width: rem(20, $text-size);
     height: rem(20, $text-size);
     border-radius: 50%;
     background-color: #fff;
-    cursor: pointer;
     box-shadow: 2px 4px 15px rgba(6,12,70,.15);
+  }
+}
+
+/* SOCIAL MEDIA ================================================================================ */
+
+.social-media_row .social-media__item { margin-left: rem(15, $text-size); }
+.social-media_column .social-media__item { margin-bottom: rem(15, $text-size); }
+
+.social-media__link {
+  display: block;
+  width: rem(20, $text-size);
+  background-size: cover;
+  transition: filter .3s;
+
+  &:hover { filter: invert(74%) sepia(36%) saturate(611%) hue-rotate(113deg) brightness(300%) contrast(92%); }
+}
+
+.social-media__instagram {
+  height: rem(20, $text-size);
+  background-image: url("../../../assets/icons/social-media/icon-instagram.svg");
+}
+
+.social-media__twitter {
+  height: rem(17, $text-size);
+  background-image: url("../../../assets/icons/social-media/icon-twitter.svg");
+}
+
+.social-media__youtube {
+  height: rem(14, $text-size);
+  background-image: url("../../../assets/icons/social-media/icon-youtube.svg");
+}
+
+.social-media__vk {
+  height: rem(12, $text-size);
+  background-image: url("../../../assets/icons/social-media/icon-vk.svg");
+}
+
+/* SLIDER ================================================================================ */
+
+.slider {
+  -webkit-appearance: none;
+          appearance: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+            appearance: none;
+    cursor: pointer;
+  }
+}
+
+/* CAROUSEL ================================================================================ */
+
+.carousel__card {
+  position: relative;
+  cursor: pointer;
+}
+
+.carousel__card_active .carousel__info {
+  visibility: visible;
+  opacity: 1;
+}
+
+// INFO
+
+.carousel__info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s, visibility .3s;
+}
+
+.carousel-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  padding: rem(20, $text-size) rem(22, $text-size) rem(33, $text-size);
+  background-image: linear-gradient(357.17deg, #000 -56.45%, rgba(0,0,0,0) 65.03%);
+}
+
+.carousel-info__link_first { margin-right: em(12, $link-font-size); }
+
+.carousel__text {
+  max-width: em(185, 14);
+  font-size: rem(14, $text-size);
+  line-height: em(16, 14);
+  color: #fff;
+}
+
+// FRACTION
+
+.carousel__fraction { margin-bottom: rem(8, $text-size); }
+.carousel-fraction { text-align: center; }
+
+.carousel-fraction__current {
+  font-weight: 900;
+  font-size: rem(24, $text-size);
+  line-height: em(28, 24);
+  color: #fefefe;
+
+  &::after { content: "/"; }
+}
+
+.carousel-fraction__total {
+  margin-left: em(-3, 14);
+  font-weight: 900;
+  font-size: rem(14, $text-size);
+  line-height: em(16, 14);
+  color: $text-secondary-color;
+}
+
+// RANGE
+
+.carousel__range {
+  width: rem(245, $text-size);
+  height: rem(5, $text-size);
+  background-color: rgba(189,189,189,.57);
+
+  &::-webkit-slider-thumb {
+    width: rem(30, $text-size);
+    height: rem(10, $text-size);
+    margin-top: rem(-3, $text-size);
+    background-color: #fefefe;
   }
 }
 
@@ -248,9 +464,128 @@ html {
  */
 
 .header__wrapper {
-  padding : rem(16, $text-size) 0 rem(26, $text-size);
+  padding : rem(15, $text-size) 0 rem(23, $text-size);
 }
 
 .header__nav {
-  margin: rem(25, $text-size) rem(20, $text-size) 0;
+  margin: rem(20, $text-size) rem(20, $text-size) 0;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: HERO
+ * ----------------------------------------------------------------------------
+ */
+
+.hero {
+  position: relative;
+  height: rem(940, $text-size);
+  max-height: 100vh;
+}
+
+.hero__wrap {
+  position: relative;
+  height: 100%;
+  margin-left: calc((100vw - #{ rem($wrapper, $text-size) }) / 2);
+}
+
+.hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__header {
+  position: absolute;
+  top: rem(205, $text-size);
+  left: rem(210, $text-size);
+}
+
+.hero__title {
+  max-width: em(800, 89);
+  margin: 0 0 em(39, 89);
+  font-weight: 900;
+  font-size: rem(89, $text-size);
+  line-height: em(104, 89);
+  color: #fefefe;
+}
+
+.hero__social-media {
+  position: absolute;
+  left: 0;
+  bottom: rem(110, $text-size);
+}
+
+/* CAROUSEL ================================================================================ */
+
+.hero-carousel {
+  position: absolute;
+  bottom: rem(110, $text-size);
+  right: 0;
+}
+
+.hero-carousel__container {
+  position: relative;
+  display: flex;
+  max-width: rem(1080, $text-size);
+  margin-bottom: rem(20, $text-size);
+  padding-left: rem(135, $text-size);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 54%;
+    transform: translateY(-50%);
+    background-color: #fff;
+  }
+
+  &::before {
+    right: 0;
+    left: 7px;
+    height: 1px;
+  }
+
+  &::after {
+    left: 0;
+    width: 5px;
+    height: 5px;
+    padding: 3px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-clip: content-box;
+  }
+}
+
+.hero-carousel__card {
+  width: rem(140, $text-size);
+  height: rem(203, $text-size);
+  margin-top: rem(90, $text-size);
+  margin-right: rem(46, $text-size);
+  flex-shrink: 0;
+  transition: width .3s, height .3s;
+
+  &.carousel__card_active {
+    width: rem(245, $text-size);
+    height: rem(352, $text-size);
+    margin-top: 0;
+  }
+}
+
+.hero-carousel__image {
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(rem(5, $text-size) rem(4, $text-size) rem(50, $text-size) rgba(152,157,198,.25));
+  border-radius: rem(5, $text-size);
+}
+
+.hero-carousel__image_left-position_80 { object-position: 80%; }
+
+.hero-carousel__controls {
+  display: inline-block;
+  margin-left: rem(320, $text-size);
 }

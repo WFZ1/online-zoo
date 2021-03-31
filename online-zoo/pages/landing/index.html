@@ -15,12 +15,12 @@
     <div class="header__wrapper wrapper row">
       <a class="logo" href="./">
         <span class="logo__text">Zoo</span>
-        <span class="logo__subtext">online</span>
+        <span class="logo__subtext">Online</span>
       </a>
 
       <nav class="nav header__nav">
-        <ul class="nav__list row side-no-margin">
-          <li class="nav__item nav__item_first nav__item_active">
+        <ul class="nav__list row">
+          <li class="nav__item nav__item_active">
             <a class="nav__link" href="./">About</a>
           </li>
           <li class="nav__item">
@@ -32,20 +32,276 @@
           <li class="nav__item">
             <a class="nav__link" href="../landing">Contact Us</a>
           </li>
-          <li class="nav__item nav__item_last">
+          <li class="nav__item no-margin-right">
             <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">Design</a>
           </li>
         </ul>
       </nav>
 
-      <input class="toggle-color-mode header__toggle-color-mode" type="range" min="0" max="1" value="0" step="1">
+      <input class="toggle-color-mode header__toggle-color-mode slider" type="range" min="0" max="1" value="0" step="1">
     </div>
   </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero__image"
+           srcset="../../assets/images/hero/nature@xsm.jpg 320w,
+                        ../../assets/images/hero/nature@sm.jpg 375w,
+                        ../../assets/images/hero/nature@ph.jpg 640w,
+                        ../../assets/images/hero/nature@tb.jpg 768w,
+                        ../../assets/images/hero/nature@lp.jpg 1024w,
+                        ../../assets/images/hero/nature@ds.jpg 1200w,
+                        ../../assets/images/hero/nature@ws.jpg 1440w,
+                        ../../assets/images/hero/nature@fhd.jpg 1920w"
+           sizes="(max-width: 320px) 320px,
+                  (max-width: 375px) 375px,
+                  (max-width: 640px) 640px,
+                  (max-width: 768px) 768px,
+                  (max-width: 1024px) 1024px,
+                  (max-width: 1200px) 1200px,
+                  (max-width: 1440px) 1440px,
+                  (max-width: 1920px) 1920px,
+                  2560px"
+           src="../../assets/images/hero/nature.jpg"
+           alt="Nature">
+      
+      <div class="hero__wrap">
+        <header class="hero__header">
+          <h2 class="hero__title">Watch your favorite animal online</h2>
+
+          <a class="btn" href="#">
+            <span class="btn__icon btn__icon_type_play"></span>
+            <span class="btn__text">Watch online</span>
+          </a>
+        </header>
+
+        <div class="hero__carousel hero-carousel carousel">
+          <ul class="hero-carousel__container">
+            <li class="hero-carousel__card carousel__card">
+              <img class="hero-carousel__image"
+                   srcset="../../assets/images/animals/eagle@xsm.jpg 140w,
+                           ../../assets/images/animals/eagle@sm.jpg 245w"
+                   sizes="(max-width: 320px) 320px,
+                          245px"
+                   src="../../assets/images/animals/eagle@sm.jpg"
+                   alt="Eagle">
+
+              <div class="carousel__info carousel-info">
+                <p class="carousel__text">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+
+                <a class="link link_accent carousel-info__link carousel-info__link_first" href="#">
+                  <span class="link__icon link__icon_type_play"></span>
+                  <span class="link__text">Watch online</span>
+                </a>
+
+                <a class="link" href="#">
+                  <span class="link__icon link__icon_type_usd"></span>
+                  <span class="link__text">Donate</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="hero-carousel__card carousel__card carousel__card_active">
+              <img class="hero-carousel__image"
+                   srcset="../../assets/images/animals/panda@xsm.jpg 140w,
+                           ../../assets/images/animals/panda@sm.jpg 245w"
+                   sizes="(max-width: 320px) 320px,
+                          245px"
+                   src="../../assets/images/animals/panda@sm.jpg"
+                   alt="Eagle">
+
+              <div class="carousel__info carousel-info">
+                <p class="carousel__text">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+
+                <a class="link link_accent carousel-info__link carousel-info__link_first" href="#">
+                  <span class="link__icon link__icon_type_play"></span>
+                  <span class="link__text">Watch online</span>
+                </a>
+
+                <a class="link" href="#">
+                  <span class="link__icon link__icon_type_usd"></span>
+                  <span class="link__text">Donate</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="hero-carousel__card carousel__card">
+              <img class="hero-carousel__image"
+                   srcset="../../assets/images/animals/gorilla@xsm.jpg 140w,
+                           ../../assets/images/animals/gorilla@sm.jpg 245w"
+                   sizes="(max-width: 320px) 320px,
+                          245px"
+                   src="../../assets/images/animals/gorilla@sm.jpg"
+                   alt="Eagle">
+
+              <div class="carousel__info carousel-info">
+                <p class="carousel__text">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+
+                <a class="link link_accent carousel-info__link carousel-info__link_first" href="#">
+                  <span class="link__icon link__icon_type_play"></span>
+                  <span class="link__text">Watch online</span>
+                </a>
+
+                <a class="link" href="#">
+                  <span class="link__icon link__icon_type_usd"></span>
+                  <span class="link__text">Donate</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="hero-carousel__card carousel__card">
+              <img class="hero-carousel__image hero-carousel__image_left-position_80"
+                   srcset="../../assets/images/animals/alligator@xsm.jpg 140w,
+                           ../../assets/images/animals/alligator@sm.jpg 245w"
+                   sizes="(max-width: 320px) 320px,
+                          245px"
+                   src="../../assets/images/animals/alligator@sm.jpg"
+                   alt="Eagle">
+
+              <div class="carousel__info carousel-info">
+                <p class="carousel__text">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+
+                <a class="link link_accent carousel-info__link carousel-info__link_first" href="#">
+                  <span class="link__icon link__icon_type_play"></span>
+                  <span class="link__text">Watch online</span>
+                </a>
+
+                <a class="link" href="#">
+                  <span class="link__icon link__icon_type_usd"></span>
+                  <span class="link__text">Donate</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="hero-carousel__card carousel__card">
+              <img class="hero-carousel__image"
+                   srcset="../../assets/images/animals/fox@xsm.jpg 140w,
+                           ../../assets/images/animals/fox@sm.jpg 245w"
+                   sizes="(max-width: 320px) 320px,
+                          245px"
+                   src="../../assets/images/animals/fox@sm.jpg"
+                   alt="Eagle">
+
+              <div class="carousel__info carousel-info">
+                <p class="carousel__text">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+
+                <a class="link link_accent carousel-info__link carousel-info__link_first" href="#">
+                  <span class="link__icon link__icon_type_play"></span>
+                  <span class="link__text">Watch online</span>
+                </a>
+
+                <a class="link" href="#">
+                  <span class="link__icon link__icon_type_usd"></span>
+                  <span class="link__text">Donate</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="hero-carousel__card carousel__card" hidden>
+              <img class="hero-carousel__image"
+                   srcset="../../assets/images/animals/sloth@xsm.jpg 140w,
+                           ../../assets/images/animals/sloth@sm.jpg 245w"
+                   sizes="(max-width: 320px) 320px,
+                          245px"
+                   src="../../assets/images/animals/sloth@sm.jpg"
+                   alt="Eagle">
+
+              <div class="carousel__info carousel-info">
+                <p class="carousel__text">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+
+                <a class="link link_accent carousel-info__link carousel-info__link_first" href="#">
+                  <span class="link__icon link__icon_type_play"></span>
+                  <span class="link__text">Watch online</span>
+                </a>
+
+                <a class="link" href="#">
+                  <span class="link__icon link__icon_type_usd"></span>
+                  <span class="link__text">Donate</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="hero-carousel__card carousel__card" hidden>
+              <img class="hero-carousel__image"
+                   srcset="../../assets/images/animals/elephant@xsm.jpg 140w,
+                           ../../assets/images/animals/elephant@sm.jpg 245w"
+                   sizes="(max-width: 320px) 320px,
+                          245px"
+                   src="../../assets/images/animals/elephant@sm.jpg"
+                   alt="Eagle">
+
+              <div class="carousel__info carousel-info">
+                <p class="carousel__text">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+
+                <a class="link link_accent carousel-info__link carousel-info__link_first" href="#">
+                  <span class="link__icon link__icon_type_play"></span>
+                  <span class="link__text">Watch online</span>
+                </a>
+
+                <a class="link" href="#">
+                  <span class="link__icon link__icon_type_usd"></span>
+                  <span class="link__text">Donate</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="hero-carousel__card carousel__card no-margin-right" hidden>
+              <img class="hero-carousel__image"
+                   srcset="../../assets/images/animals/leopard@xsm.jpg 140w,
+                           ../../assets/images/animals/leopard@sm.jpg 245w"
+                   sizes="(max-width: 320px) 320px,
+                          245px"
+                   src="../../assets/images/animals/leopard@sm.jpg"
+                   alt="Eagle">
+
+              <div class="carousel__info carousel-info">
+                <p class="carousel__text">Panda’s name is Bei Bei. He is 2 years old. Bei Bei is from China. He loves bamboos.</p>
+
+                <a class="link link_accent carousel-info__link carousel-info__link_first" href="#">
+                  <span class="link__icon link__icon_type_play"></span>
+                  <span class="link__text">Watch online</span>
+                </a>
+
+                <a class="link" href="#">
+                  <span class="link__icon link__icon_type_usd"></span>
+                  <span class="link__text">Donate</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="hero-carousel__controls">
+            <div class="hero-carousel__fraction carousel__fraction carousel-fraction">
+              <span class="carousel-fraction__current">02</span>
+              <span class="carousel-fraction__total">08</span>
+            </div>
+
+            <input class="carousel__range slider" type="range" min="1" max="8" step="1" value="2">
+          </div>
+        </div>
+
+        <ul class="social-media social-media_column hero__social-media column">
+          <li class="social-media__item">
+            <a class="social-media__link social-media__instagram" href="https://www.instagram.com" target="_blank"></a>
+          </li>
+          <li class="social-media__item">
+            <a class="social-media__link social-media__twitter" href="http://twitter.com" target="_blank"></a>
+          </li>
+          <li class="social-media__item">
+            <a class="social-media__link social-media__youtube" href="https://www.youtube.com" target="_blank"></a>
+          </li>
+          <li class="social-media__item no-margin-bottom">
+            <a class="social-media__link social-media__vk" href="http://vk.com" target="_blank"></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
   
-  <script>
+  <!--<script>
 		window.lazySizesConfig = { loadMode: 1 }; // only load visible elements
 	</script>
-	<script src="js/lazysizes.min.js" async></script>
+	<script src="js/lazysizes.min.js" async></script>-->
   <!--<script src="js/script.js" defer></script>-->
 </body>
 </html>
