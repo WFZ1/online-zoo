@@ -16,8 +16,8 @@ const pages = [
       images_folders = [
         'how-it-works',
         'animals',
-        'popup',
-        'testimonials',
+        //'popup',
+        //'testimonials',
         'hero'
       ],
       icons_folders = [
@@ -146,60 +146,59 @@ gulp.task('webp', () => {
 
 /* GENERATE DIFFERENT IMAGES SIZES ================================================================================ */
 
-const image_sizes = [
-  { 
-    width: 320,
-    rename: { suffix: '@xsm' },
-    withoutEnlargement: false
-  },
-  { 
-    width: 375,
-    rename: { suffix: '@sm' },
-    withoutEnlargement: false
-  },
-  { 
-    width: 640,
-    rename: { suffix: '@ph' },
-    withoutEnlargement: false
-  },
-  { 
-    width: 768,
-    rename: { suffix: '@tb' },
-    withoutEnlargement: false
-  },
-  { 
-    width: 1024,
-    rename: { suffix: '@lp' },
-    withoutEnlargement: false
-  },
-  { 
-    width: 1200,
-    rename: { suffix: '@ds' },
-    withoutEnlargement: false
-  },
-  { 
-    width: 1440,
-    rename: { suffix: '@ws' },
-    withoutEnlargement: false
-  },
-  { 
-    width: 1920,
-    rename: { suffix: '@fhd' },
-    withoutEnlargement: false
-  },
-  { 
-    width: 2560,
-    rename: { suffix: '@2k' },
-    withoutEnlargement: false
-  }
-];
+const image_sizes = {
+  hero: [
+    { width: 320, rename: { suffix: '@xsm' }, withoutEnlargement: false },
+    { width: 375, rename: { suffix: '@sm' }, withoutEnlargement: false },
+    { width: 640, rename: { suffix: '@ph' }, withoutEnlargement: false },
+    { width: 768, rename: { suffix: '@tb' }, withoutEnlargement: false },
+    { width: 1024, rename: { suffix: '@lp' }, withoutEnlargement: false },
+    { width: 1200, rename: { suffix: '@ds' }, withoutEnlargement: false },
+    { width: 1440, rename: { suffix: '@ws' }, withoutEnlargement: false },
+    { width: 1920, rename: { suffix: '@fhd' }, withoutEnlargement: false },
+    { width: 2560, rename: { suffix: '@2k' }, withoutEnlargement: false }
+  ],
+  animals: [
+    { width: 113, rename: { suffix: '-113w' }, withoutEnlargement: false },
+    { width: 140, rename: { suffix: '-140w' }, withoutEnlargement: false },
+    { width: 245, rename: { suffix: '-245w' }, withoutEnlargement: false }
+  ],
+  'how-it-works': [
+    { width: 300, rename: { suffix: '-300w' }, withoutEnlargement: false },
+    { width: 600, rename: { suffix: '-600w' }, withoutEnlargement: false },
+    { width: 746, rename: { suffix: '-746w' }, withoutEnlargement: false },
+    { width: 790, rename: { suffix: '-790w' }, withoutEnlargement: false },
+  ],
+  testimonials: [
+    { width: 320, rename: { suffix: '@xsm' }, withoutEnlargement: false },
+    { width: 375, rename: { suffix: '@sm' }, withoutEnlargement: false },
+    { width: 640, rename: { suffix: '@ph' }, withoutEnlargement: false },
+    { width: 768, rename: { suffix: '@tb' }, withoutEnlargement: false },
+    { width: 1024, rename: { suffix: '@lp' }, withoutEnlargement: false },
+    { width: 1200, rename: { suffix: '@ds' }, withoutEnlargement: false },
+    { width: 1440, rename: { suffix: '@ws' }, withoutEnlargement: false },
+    { width: 1920, rename: { suffix: '@fhd' }, withoutEnlargement: false },
+    { width: 2560, rename: { suffix: '@2k' }, withoutEnlargement: false }
+  ],
+  popup: [
+    { width: 320, rename: { suffix: '@xsm' }, withoutEnlargement: false },
+    { width: 375, rename: { suffix: '@sm' }, withoutEnlargement: false },
+    { width: 640, rename: { suffix: '@ph' }, withoutEnlargement: false },
+    { width: 768, rename: { suffix: '@tb' }, withoutEnlargement: false },
+    { width: 1024, rename: { suffix: '@lp' }, withoutEnlargement: false },
+    { width: 1200, rename: { suffix: '@ds' }, withoutEnlargement: false },
+    { width: 1440, rename: { suffix: '@ws' }, withoutEnlargement: false },
+    { width: 1920, rename: { suffix: '@fhd' }, withoutEnlargement: false },
+    { width: 2560, rename: { suffix: '@2k' }, withoutEnlargement: false }
+  ]
+};
 
 gulp.task('image-resize', () => {
   let stream;
 
   images_folders.forEach(folder => {
     stream = gulp.src(`assets/images/${ folder }/*.{jpg,png}`)
-                 .pipe(responsive({ '*.{jpg,png}': image_sizes }))
+                 .pipe(responsive({ '*.{jpg,png}': image_sizes[folder] }))
                  .pipe(gulp.dest(`assets/images/${ folder }`));
   });
 

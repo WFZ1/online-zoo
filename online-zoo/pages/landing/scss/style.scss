@@ -56,6 +56,8 @@ html {
   font-size: $default-text-font-size;
 }
 
+.page { overflow-x: hidden; }
+
 .header,
 .main,
 .footer {
@@ -157,6 +159,8 @@ html {
 
 .title {
   font-size: rem($title-font-size, $text-size);
+  font-weight: 900;
+  line-height: em(56, 48);
   color: $title-color;
 }
 
@@ -290,6 +294,8 @@ html {
 
 .nav__link {
   color: $nav-item-color;
+
+  .nav__item_active & { cursor: default; }
 }
 
 /* LOGO ================================================================================ */
@@ -429,10 +435,12 @@ html {
   font-weight: 900;
   font-size: rem(24, $text-size);
   line-height: em(28, 24);
-  color: #fefefe;
 
   &::after { content: "/"; }
 }
+
+.carousel-fraction__current_color_light { color: #fefefe; }
+.carousel-fraction__current_color_dark { color: #333; }
 
 .carousel-fraction__total {
   margin-left: em(-3, 14);
@@ -450,12 +458,18 @@ html {
   background-color: rgba(189,189,189,.57);
 
   &::-webkit-slider-thumb {
-    width: rem(30, $text-size);
+    width: calc(245px / var(--max));
     height: rem(10, $text-size);
-    margin-top: rem(-3, $text-size);
-    background-color: #fefefe;
+    margin-top: rem(-1, $text-size);
   }
 }
+
+.carousel__range_color_light::-webkit-slider-thumb { background-color: #fefefe; }
+.carousel__range_color_dark::-webkit-slider-thumb { background-color: #333; }
+
+/* TYPOGRAPHY ================================================================================ */
+
+.center { text-align: center; }
 
 /**
  * ----------------------------------------------------------------------------
@@ -589,3 +603,33 @@ html {
   display: inline-block;
   margin-left: rem(320, $text-size);
 }
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: STEP BY STEP
+ * ----------------------------------------------------------------------------
+ */
+
+.main__step-by-step {
+  margin: rem(100, $text-size) auto;
+  width: rem(790, $text-size);
+}
+
+.step-by-step__title { margin-bottom: em(31, $title-font-size); }
+.step-by-step-carousel__container { margin-bottom: em(29, $text-size); }
+
+.step-by-step-carousel__text {
+  line-height: em(16, $text-font-size);
+  margin-bottom: em(29, $text-font-size);
+}
+
+.step-by-step-carousel__image {
+  width: 100%;
+  height: rem(323, $text-size);
+  object-fit: cover;
+  border-radius: rem(5, $text-size);
+}
+
+.hero-carousel__image_top-position_71 { object-position: 0 71%; }
+
+.step-by-step-carousel__controls { margin-bottom: em(28, $text-size); }

@@ -151,6 +151,10 @@ html {
   font-size: 14px;
 }
 
+.page {
+  overflow-x: hidden;
+}
+
 .header,
 .main,
 .footer {
@@ -283,6 +287,8 @@ html {
 /* TITLES ================================================================================ */
 .title {
   font-size: 3.42857rem;
+  font-weight: 900;
+  line-height: 1.16667em;
   color: #333;
 }
 
@@ -408,6 +414,10 @@ html {
 
 .nav__link {
   color: #333;
+}
+
+.nav__item_active .nav__link {
+  cursor: default;
 }
 
 /* LOGO ================================================================================ */
@@ -552,11 +562,18 @@ html {
   font-weight: 900;
   font-size: 1.71429rem;
   line-height: 1.16667em;
-  color: #fefefe;
 }
 
 .carousel-fraction__current::after {
   content: "/";
+}
+
+.carousel-fraction__current_color_light {
+  color: #fefefe;
+}
+
+.carousel-fraction__current_color_dark {
+  color: #333;
 }
 
 .carousel-fraction__total {
@@ -574,10 +591,22 @@ html {
 }
 
 .carousel__range::-webkit-slider-thumb {
-  width: 2.14286rem;
+  width: calc(245px / var(--max));
   height: 0.71429rem;
-  margin-top: -0.21429rem;
+  margin-top: -0.07143rem;
+}
+
+.carousel__range_color_light::-webkit-slider-thumb {
   background-color: #fefefe;
+}
+
+.carousel__range_color_dark::-webkit-slider-thumb {
+  background-color: #333;
+}
+
+/* TYPOGRAPHY ================================================================================ */
+.center {
+  text-align: center;
 }
 
 /**
@@ -709,4 +738,42 @@ html {
 .hero-carousel__controls {
   display: inline-block;
   margin-left: 22.85714rem;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: STEP BY STEP
+ * ----------------------------------------------------------------------------
+ */
+.main__step-by-step {
+  margin: 7.14286rem auto;
+  width: 56.42857rem;
+}
+
+.step-by-step__title {
+  margin-bottom: 0.64583em;
+}
+
+.step-by-step-carousel__container {
+  margin-bottom: 2.07143em;
+}
+
+.step-by-step-carousel__text {
+  line-height: 1.14286em;
+  margin-bottom: 2.07143em;
+}
+
+.step-by-step-carousel__image {
+  width: 100%;
+  height: 23.07143rem;
+  object-fit: cover;
+  border-radius: 0.35714rem;
+}
+
+.hero-carousel__image_top-position_71 {
+  object-position: 0 71%;
+}
+
+.step-by-step-carousel__controls {
+  margin-bottom: 2em;
 }
