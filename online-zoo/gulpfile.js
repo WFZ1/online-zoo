@@ -6,7 +6,8 @@ const gulp = require('gulp'),
       rename = require('gulp-rename'),
       sourcemaps = require('gulp-sourcemaps'),
       imagemin = require('gulp-imagemin'),
-      responsive = require('gulp-responsive');
+      responsive = require('gulp-responsive'),
+      del = require('del');
 
 const pages = [
         'landing',
@@ -16,8 +17,8 @@ const pages = [
       images_folders = [
         'how-it-works',
         'animals',
-        //'popup',
-        //'testimonials',
+        'popup',
+        'testimonials',
         'hero'
       ],
       icons_folders = [
@@ -35,19 +36,9 @@ const pages = [
  */
 
 gulp.task('copy', () => {
-  let stream;
-  
-  pages.forEach(page => {
-    // Normalize.css
-    gulp.src('node_modules/normalize.css/normalize.css')
-        .pipe(gulp.dest(`pages/${ page }/css`));
-
-    // Lazysizes
-    stream = gulp.src('node_modules/lazysizes/lazysizes.min.js')
-                 .pipe(gulp.dest(`pages/${ page }/js`));
-  });
-
-  return stream;
+  // Normalize.css
+  return gulp.src('node_modules/normalize.css/normalize.css')
+             .pipe(gulp.dest(`pages/${ page }/css`));
 });
 
 /**
@@ -106,7 +97,7 @@ gulp.task('minify-css', () => {
 
 /* MINIFY ================================================================================ */
 
-gulp.task('image', () => {
+gulp.task('images:minify', () => {
   let stream;
   
   images_folders.forEach(folder => {
@@ -118,7 +109,7 @@ gulp.task('image', () => {
   return stream;
 });
 
-gulp.task('icon', () => {
+gulp.task('icons:minify', () => {
   let stream;
 
   icons_folders.forEach(folder => {
@@ -132,7 +123,7 @@ gulp.task('icon', () => {
 
 /* CONVERT TO WEBP ================================================================================ */
 
-gulp.task('webp', () => {
+gulp.task('images:webp', () => {
   let stream;
 
   images_folders.forEach(folder => {
@@ -159,9 +150,12 @@ const image_sizes = {
     { width: 2560, rename: { suffix: '@2k' }, withoutEnlargement: false }
   ],
   animals: [
-    { width: 113, rename: { suffix: '-113w' }, withoutEnlargement: false },
     { width: 140, rename: { suffix: '-140w' }, withoutEnlargement: false },
-    { width: 245, rename: { suffix: '-245w' }, withoutEnlargement: false }
+    { width: 140, height: 203, rename: { suffix: '-140w203h' }, withoutEnlargement: false },
+    { width: 210, height: 301, rename: { suffix: '-210w301h' }, withoutEnlargement: false },
+    { width: 245, rename: { suffix: '-245w' }, withoutEnlargement: false },
+    { width: 245, height: 352, rename: { suffix: '-245w352h' }, withoutEnlargement: false },
+    { width: 278, height: 399, rename: { suffix: '-278w399h' }, withoutEnlargement: false }
   ],
   'how-it-works': [
     { width: 300, rename: { suffix: '-300w' }, withoutEnlargement: false },
@@ -193,7 +187,7 @@ const image_sizes = {
   ]
 };
 
-gulp.task('image-resize', () => {
+gulp.task('images:resize', () => {
   let stream;
 
   images_folders.forEach(folder => {
@@ -204,3 +198,17 @@ gulp.task('image-resize', () => {
 
   return stream;
 });
+
+/* DELETE IMAGES ================================================================================ */
+
+const images_folders_str = '{' + images_folders.join(',') + '}';
+
+gulp.task('images:clean', () => {
+  return del([
+    `assets/images/${ images_folders_str }/*.{jpg,png}`,
+  ]);
+});
+
+/* COMMON CALL ================================================================================ */
+
+gulp.task('images', gulp.series('images:clean', 'images:minify', 'images:resize'));
