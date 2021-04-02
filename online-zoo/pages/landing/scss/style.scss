@@ -69,6 +69,8 @@ html {
   min-width: rem(320, $text-size);
 }
 
+.main { background-color: #fbfbfb; }
+
 /**
  * ----------------------------------------------------------------------------
  *  COMMON
@@ -156,6 +158,8 @@ html {
 }
 
 .section_highlighted {
+  padding-top: rem(100, $text-size);
+  padding-bottom: rem(100, $text-size);
   background-color: $content-primary-bg;
 }
 
@@ -465,7 +469,7 @@ html {
 }
 
 .carousel__arrow_invert_left { transform: scale(-1, 1); }
-.carousel__arrow_type_prev { filter: invert(55%) sepia(15%) saturate(8%) hue-rotate(8deg) brightness(91%) contrast(92%); }
+.carousel__arrow_disabled { filter: invert(55%) sepia(15%) saturate(8%) hue-rotate(8deg) brightness(91%) contrast(92%); }
 
 // FRACTION
 
@@ -488,7 +492,7 @@ html {
   font-weight: 900;
   font-size: rem(14, $text-size);
   line-height: em(16, 14);
-  color: $text-secondary-color;
+  color: $slider-total-number;
 }
 
 // RANGE
@@ -528,6 +532,14 @@ html {
 
 /**
  * ----------------------------------------------------------------------------
+ *  MAIN
+ * ----------------------------------------------------------------------------
+ */
+
+.main__section { margin: rem(100, $text-size) auto; }
+
+/**
+ * ----------------------------------------------------------------------------
  *  SECTION: HERO
  * ----------------------------------------------------------------------------
  */
@@ -548,7 +560,6 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -654,11 +665,7 @@ html {
  * ----------------------------------------------------------------------------
  */
 
-.main__step-by-step {
-  margin: rem(100, $text-size) auto;
-  width: rem(790, $text-size);
-}
-
+.main__step-by-step { width: rem(790, $text-size); }
 .step-by-step__title { margin-bottom: em(31, $title-font-size); }
 .step-by-step__carousel { margin-bottom: em(28, $text-size); }
 .step-by-step-carousel__container { margin-bottom: em(29, $text-size); }
@@ -675,7 +682,8 @@ html {
   border-radius: rem(5, $text-size);
 }
 
-.hero-carousel__image_top-position_71 { object-position: 0 71%; }
+.step-by-step-carousel__image_top-position_71 { object-position: 0 71%; }
+.step-by-step-carousel__fraction .carousel-fraction__total { color: $text-secondary-color; }
 
 /**
  * ----------------------------------------------------------------------------
@@ -683,7 +691,7 @@ html {
  * ----------------------------------------------------------------------------
  */
 
-.goals { padding: rem(100, $text-size) rem(10, $text-size) rem(130, $text-size); }
+.goals { padding-bottom: rem(130, $text-size); }
 
 .goals__wrap {
   display: grid;
@@ -708,11 +716,6 @@ html {
  *  SECTION: FEATURED ITEMS
  * ----------------------------------------------------------------------------
  */
-
-.featured-items {
-  margin-top: rem(100, $text-size);
-  margin-bottom: rem(100, $text-size);
-}
 
 .featured-items__title { margin-bottom: em(35, $title-font-size); }
 
@@ -765,8 +768,7 @@ html {
  * ----------------------------------------------------------------------------
  */
 
-.steps { padding: rem(98, $text-size) 0 rem(100, $text-size); }
-.steps__title { margin-bottom: em(32, $title-font-size); }
+.steps__title { margin-bottom: em(30, $title-font-size); }
 .steps__subtext { margin-bottom: em(91, $text-size); }
 
 .steps__list {
@@ -832,4 +834,66 @@ html {
 .steps__chevron-right {
   width: auto;
   height: rem(14, $text-size);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: TESTIMONIALS
+ * ----------------------------------------------------------------------------
+ */
+
+.testimonials__title { margin-bottom: em(60, $title-font-size); }
+
+.testimonials-carousel {
+  position: relative;
+  margin-bottom: em(28, $text-size);
+}
+
+.testimonials-carousel__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: rem(30, $text-size);
+  margin-bottom: em(50, $text-size);
+  min-height: rem(310, $text-size);
+}
+
+.testimonials-carousel__item {
+  height: 100%;
+  padding: rem(47, $text-size) rem(73, $text-size);
+  cursor: pointer;  
+  background-color: #fefefe;
+  box-shadow: 2px 4px 15px rgba(6,12,70,.1);
+  border-radius: 5px;
+}
+
+.testimonials-carousel__image {
+  display: block;
+  width: rem(68, $text-size);
+  height: rem(68, $text-size);
+  margin-bottom: rem(18, $text-size);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 1px solid #bdbdbd;
+}
+
+.testimonials-carousel__image_vector {
+  background-image: url("../../../assets/icons/testimonials/icon-user.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.testimonials-carousel__name {
+  display: block;
+  margin-bottom: em(18, $subtitle-font-size);
+}
+
+.testimonials-carousel__review { line-height: em(16, $text-font-size); }
+
+.testimonials-carousel__arrow {
+  position: absolute;
+  top: 34%;
+
+  &.carousel__arrow_type_prev { left: rem(6, $text-size); }
+  &.carousel__arrow_type_next { right: rem(6, $text-size); }
 }

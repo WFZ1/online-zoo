@@ -49,7 +49,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="main">
 
     <!--
     * ----------------------------------------------------------------------------
@@ -317,14 +317,14 @@
     * ----------------------------------------------------------------------------
     -->
 
-    <section class="main__step-by-step step-by-step section">
+    <section class="main__step-by-step step-by-step section main__section">
       <h3 class="title step-by-step__title">How it works?</h3>
       <div class="step-by-step__carousel step-by-step-carousel carousel">
         <ul class="step-by-step-carousel__container">
           <li>
             <p class="step-by-step-carousel__text">As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat, and we are determined to assist in all aspects, including providing veterinary support and raising much-needed emergency funds. Zoo Online saves wildlife and inspires everyone to make conservation a priority in their lives. Animals have the right to a pain-free and happy life. They have equal claim to the resources of this planet, and deserve a life of dignity and compassion.As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.</p>
 
-            <img class="step-by-step-carousel__image hero-carousel__image_top-position_71"
+            <img class="step-by-step-carousel__image step-by-step-carousel__image_top-position_71"
                  srcset="../../assets/images/how-it-works/deers-300w.jpg 300w,
                          ../../assets/images/how-it-works/deers-600w.jpg 600w,
                          ../../assets/images/how-it-works/deers-746w.jpg 746w,
@@ -444,7 +444,7 @@
     * ----------------------------------------------------------------------------
     -->
 
-    <section class="section featured-items large-container">
+    <section class="section main__section featured-items large-container">
       <h3 class="title text-center featured-items__title">Pets in Zoo</h3>
 
       <div class="carousel featured-items-carousel">
@@ -642,7 +642,7 @@
           </li>
         </ul>
 
-        <button class="carousel__arrow carousel__arrow_type_prev carousel__arrow_invert_left featured-items-carousel__arrow"></button>
+        <button class="carousel__arrow carousel__arrow_type_prev carousel__arrow_disabled carousel__arrow_invert_left featured-items-carousel__arrow"></button>
         <button class="carousel__arrow carousel__arrow_type_next featured-items-carousel__arrow"></button>
 
         <div class="featured-items-carousel__controls text-center">
@@ -682,6 +682,7 @@
               <span class="steps__text">You pay with a VISA card</span>
             </div>
           </li>
+
           <li class="steps__figure">
             <svg class="steps__chevron-right" width="18" height="30" viewBox="0 0 18 30" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -693,6 +694,7 @@
               <path id="steps__chevron-right" d="M17.334 13.83L3.984.48A1.629 1.629 0 002.822 0c-.44 0-.852.17-1.16.48l-.984.982c-.64.64-.64 1.682 0 2.321l11.21 11.21L.668 26.218a1.63 1.63 0 00-.48 1.16c0 .44.171.852.48 1.161l.983.983c.309.309.72.479 1.16.479.44 0 .852-.17 1.16-.48l13.364-13.362c.31-.31.48-.724.478-1.164a1.63 1.63 0 00-.478-1.165z" fill="url(#steps__gradient)"/>
             </svg>
           </li>
+
           <li class="steps__item">
             <div class="steps__block">
               <div class="steps__image-wrap">
@@ -701,11 +703,13 @@
               <span class="steps__text">Payment goes to the Zoo</span>
             </div>
           </li>
+
           <li class="steps__figure">
             <svg class="steps__chevron-right" width="18" height="30" viewBox="0 0 18 30" xmlns="http://www.w3.org/2000/svg">
               <use href="#steps__chevron-right"/>
             </svg>
           </li>
+
           <li class="steps__item">
             <div class="steps__block">
               <div class="steps__image-wrap">
@@ -718,6 +722,80 @@
 
         <button class="btn">
           <span class="btn__text">Donate</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="testimonials main__section large-container">
+      <h3 class="title testimonials__title text-center">Testimonials</h3>
+
+      <div class="carousel testimonials-carousel">
+        <ul class="testimonials-carousel__container container">
+          <li class="testimonials-carousel__item">
+            <span class="testimonials-carousel__image testimonials-carousel__image_vector"></span>
+            <span class="testimonials-carousel__name subtitle text-center">Nastya Sidorova</span>
+            <p class="testimonials-carousel__review">As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.</p>
+          </li>
+
+          <li class="testimonials-carousel__item">
+            <img class="testimonials-carousel__image" src="../../assets/images/testimonials/author-2-68w68h.jpg" alt="Vlad Kim">
+            <span class="testimonials-carousel__name subtitle text-center">Vlad Kim</span>
+            <p class="testimonials-carousel__review">As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.</p>
+          </li>
+
+          <li class="testimonials-carousel__item" hidden>
+            <img class="testimonials-carousel__image" src="../../assets/images/testimonials/author-3-68w68h.jpg" alt="Nastya Sidorova">
+            <span class="testimonials-carousel__name subtitle text-center">Nastya Sidorova</span>
+            <p class="testimonials-carousel__review">As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.</p>
+          </li>
+
+          <li class="testimonials-carousel__item" hidden>
+            <img class="testimonials-carousel__image" src="../../assets/images/testimonials/author-1-68w68h.jpg" alt="Nastya Sidorova">
+            <span class="testimonials-carousel__name subtitle text-center">Nastya Sidorova</span>
+            <p class="testimonials-carousel__review">As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.</p>
+          </li>
+
+          <li class="testimonials-carousel__item" hidden>
+            <span class="testimonials-carousel__image testimonials-carousel__image_vector"></span>
+            <span class="testimonials-carousel__name subtitle text-center">User</span>
+            <p class="testimonials-carousel__review">Text text text text text text text text text text text text text text text text text text text text text text text text text text text.</p>
+          </li>
+
+          <li class="testimonials-carousel__item" hidden>
+            <span class="testimonials-carousel__image testimonials-carousel__image_vector"></span>
+            <span class="testimonials-carousel__name subtitle text-center">User</span>
+            <p class="testimonials-carousel__review">Text text text text text text text text text text text text text text text text text text text text text text text text text text text.</p>
+          </li>
+
+          <li class="testimonials-carousel__item" hidden>
+            <span class="testimonials-carousel__image testimonials-carousel__image_vector"></span>
+            <span class="testimonials-carousel__name subtitle text-center">User</span>
+            <p class="testimonials-carousel__review">Text text text text text text text text text text text text text text text text text text text text text text text text text text text.</p>
+          </li>
+
+          <li class="testimonials-carousel__item" hidden>
+            <span class="testimonials-carousel__image testimonials-carousel__image_vector"></span>
+            <span class="testimonials-carousel__name subtitle text-center">User</span>
+            <p class="testimonials-carousel__review">Text text text text text text text text text text text text text text text text text text text text text text text text text text text.</p>
+          </li>
+        </ul>
+
+        <button class="carousel__arrow carousel__arrow_type_prev carousel__arrow_invert_left testimonials-carousel__arrow"></button>
+        <button class="carousel__arrow carousel__arrow_type_next testimonials-carousel__arrow"></button>
+
+        <div class="testimonials-carousel__controls text-center">
+          <div class="testimonials-carousel__fraction carousel__fraction carousel-fraction">
+            <span class="carousel-fraction__current carousel-fraction__current_color_dark">02</span>
+            <span class="carousel-fraction__total">08</span>
+          </div>
+
+          <input class="carousel__range slider carousel__range_color_dark" type="range" min="1" max="8" step="1" value="2" style="--max: 8;">
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button class="btn">
+          <span class="btn__text">Leave feedback</span>
         </button>
       </div>
     </section>

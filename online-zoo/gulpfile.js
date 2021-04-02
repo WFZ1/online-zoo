@@ -164,15 +164,7 @@ const image_sizes = {
     { width: 790, rename: { suffix: '-790w' }, withoutEnlargement: false },
   ],
   testimonials: [
-    { width: 320, rename: { suffix: '@xsm' }, withoutEnlargement: false },
-    { width: 375, rename: { suffix: '@sm' }, withoutEnlargement: false },
-    { width: 640, rename: { suffix: '@ph' }, withoutEnlargement: false },
-    { width: 768, rename: { suffix: '@tb' }, withoutEnlargement: false },
-    { width: 1024, rename: { suffix: '@lp' }, withoutEnlargement: false },
-    { width: 1200, rename: { suffix: '@ds' }, withoutEnlargement: false },
-    { width: 1440, rename: { suffix: '@ws' }, withoutEnlargement: false },
-    { width: 1920, rename: { suffix: '@fhd' }, withoutEnlargement: false },
-    { width: 2560, rename: { suffix: '@2k' }, withoutEnlargement: false }
+    { width: 68, height: 68, rename: { suffix: '-68w68h' }, withoutEnlargement: false },
   ],
   popup: [
     { width: 320, rename: { suffix: '@xsm' }, withoutEnlargement: false },
