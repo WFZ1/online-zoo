@@ -252,6 +252,7 @@ html {
   font-size: rem($btn-font-size, $text-size);
   background-image: $btn-bg;
   border-radius: em(3, $btn-font-size);
+  cursor: pointer;
   transition: filter .3s;
 
   &:hover {
@@ -713,7 +714,7 @@ html {
   margin-bottom: rem(100, $text-size);
 }
 
-.featured-items__title { margin-bottom: rem(35, $text-size); }
+.featured-items__title { margin-bottom: em(35, $title-font-size); }
 
 .featured-items-carousel { 
   position: relative;
@@ -757,3 +758,78 @@ html {
 }
 
 .featured-items-carousel__card:hover .featured-items-carousel__info { transform: translateY(0); }
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: STEPS
+ * ----------------------------------------------------------------------------
+ */
+
+.steps { padding: rem(98, $text-size) 0 rem(100, $text-size); }
+.steps__title { margin-bottom: em(32, $title-font-size); }
+.steps__subtext { margin-bottom: em(91, $text-size); }
+
+.steps__list {
+  display: grid;
+  grid-template-columns: rem(245, $text-size) 1fr rem(245, $text-size) 1fr rem(245, $text-size);
+  grid-column-gap: rem(63, $text-size);
+  margin-bottom: rem(60, $text-size);
+  align-items: center;
+}
+
+.steps__item {
+  position: relative;
+  width: rem(245, $text-size);
+  height: rem(245, $text-size);
+  padding: rem(3, $text-size);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: $accent-gradient;
+    border-radius: 50%;
+  }
+}
+
+.steps__block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: rem(40, $text-size);
+  align-items: center;
+  justify-content: center;
+  background-color: $content-primary-bg;
+  border-radius: 50%;
+}
+
+.steps__image-wrap {
+  display: flex;
+  min-height: rem(65, $text-size);
+  margin-bottom: rem(18, $text-size);
+  align-items: flex-end;
+}
+
+.steps__text {
+  max-width: rem(135, $text-size);;
+  font-weight: 900;
+  font-size: rem(20, $text-size);
+}
+
+.steps__figure {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: rem(2, $text-size);
+  background-image: $accent-gradient;
+}
+
+.steps__chevron-right {
+  width: auto;
+  height: rem(14, $text-size);
+}

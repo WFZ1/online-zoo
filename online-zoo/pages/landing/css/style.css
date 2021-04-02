@@ -375,6 +375,7 @@ html {
   font-size: 1.28571rem;
   background-image: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
   border-radius: 0.16667em;
+  cursor: pointer;
   transition: filter .3s;
 }
 
@@ -868,7 +869,7 @@ html {
 }
 
 .featured-items__title {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.72917em;
 }
 
 .featured-items-carousel {
@@ -921,4 +922,86 @@ html {
 
 .featured-items-carousel__card:hover .featured-items-carousel__info {
   transform: translateY(0);
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: STEPS
+ * ----------------------------------------------------------------------------
+ */
+.steps {
+  padding: 7rem 0 7.14286rem;
+}
+
+.steps__title {
+  margin-bottom: 0.66667em;
+}
+
+.steps__subtext {
+  margin-bottom: 6.5em;
+}
+
+.steps__list {
+  display: grid;
+  grid-template-columns: 17.5rem 1fr 17.5rem 1fr 17.5rem;
+  grid-column-gap: 4.5rem;
+  margin-bottom: 4.28571rem;
+  align-items: center;
+}
+
+.steps__item {
+  position: relative;
+  width: 17.5rem;
+  height: 17.5rem;
+  padding: 0.21429rem;
+}
+
+.steps__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  border-radius: 50%;
+}
+
+.steps__block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.85714rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+}
+
+.steps__image-wrap {
+  display: flex;
+  min-height: 4.64286rem;
+  margin-bottom: 1.28571rem;
+  align-items: flex-end;
+}
+
+.steps__text {
+  max-width: 9.64286rem;
+  font-weight: 900;
+  font-size: 1.42857rem;
+}
+
+.steps__figure {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 0.14286rem;
+  background-image: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+}
+
+.steps__chevron-right {
+  width: auto;
+  height: 1rem;
 }
