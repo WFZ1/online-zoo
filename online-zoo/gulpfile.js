@@ -19,6 +19,7 @@ const pages = [
         'animals',
         'popup',
         'testimonials',
+        'map',
         'hero'
       ],
       icons_folders = [
@@ -150,6 +151,9 @@ const image_sizes = {
     { width: 2560, rename: { suffix: '@2k' }, withoutEnlargement: false }
   ],
   animals: [
+    { width: 21, height: 21, rename: { suffix: '-21w21h' }, withoutEnlargement: false },
+    { width: 43, height: 43, rename: { suffix: '-43w43h' }, withoutEnlargement: false },
+    { width: 65, height: 65, rename: { suffix: '-65w65h' }, withoutEnlargement: false },
     { width: 140, rename: { suffix: '-140w' }, withoutEnlargement: false },
     { width: 140, height: 203, rename: { suffix: '-140w203h' }, withoutEnlargement: false },
     { width: 210, height: 301, rename: { suffix: '-210w301h' }, withoutEnlargement: false },
@@ -164,7 +168,14 @@ const image_sizes = {
     { width: 790, rename: { suffix: '-790w' }, withoutEnlargement: false },
   ],
   testimonials: [
-    { width: 68, height: 68, rename: { suffix: '-68w68h' }, withoutEnlargement: false },
+    { width: 68, height: 68, rename: { suffix: '-68w68h' }, withoutEnlargement: false }
+  ],
+  map: [
+    { width: 320, rename: { suffix: '@xsm' }, withoutEnlargement: false },
+    { width: 375, rename: { suffix: '@sm' }, withoutEnlargement: false },
+    { width: 640, rename: { suffix: '@ph' }, withoutEnlargement: false },
+    { width: 768, rename: { suffix: '@tb' }, withoutEnlargement: false },
+    { width: 1024, rename: { suffix: '@lp' }, withoutEnlargement: false }
   ],
   popup: [
     { width: 320, rename: { suffix: '@xsm' }, withoutEnlargement: false },

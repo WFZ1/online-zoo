@@ -171,6 +171,11 @@ html {
  *  COMMON
  * ----------------------------------------------------------------------------
  */
+/* TYPOGRAPHY ================================================================================ */
+.text-center {
+  text-align: center;
+}
+
 /* HIDDEN ================================================================================ */
 .visually-hidden {
   position: absolute;
@@ -653,9 +658,87 @@ html {
   background-color: #333;
 }
 
-/* TYPOGRAPHY ================================================================================ */
-.text-center {
-  text-align: center;
+/* IMAGE HOTSPOTS ================================================================================ */
+.image-hotspots {
+  position: relative;
+}
+
+.image-hotspots__item {
+  position: absolute;
+}
+
+.image-hotspots__point {
+  height: 6.78571rem;
+  padding: 0.89286rem 0.85714rem;
+  background-image: url("../../../assets/icons/map/icon-map-marker.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 15px rgba(6, 12, 70, 0.15));
+}
+
+.image-hotspots__item:hover .image-hotspots__point {
+  background-image: url("../../../assets/icons/map/icon-map-marker-active.svg");
+}
+
+.image-hotspots__point-image {
+  width: 3.07143rem;
+  height: 3.07143rem;
+  border-radius: 50%;
+}
+
+.tooltip {
+  position: absolute;
+  top: 5.42857rem;
+  display: flex;
+  width: 31.14286rem;
+  min-height: 10.35714rem;
+  padding: 2.85714rem 3.14286rem;
+  align-items: flex-start;
+  background-color: #fefefe;
+  box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, visibility .3s;
+}
+
+.image-hotspots__item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip_side_left {
+  right: 50%;
+}
+
+.tooltip_side_right {
+  left: 50%;
+}
+
+.tooltip__tooltip-image {
+  flex-shrink: 0;
+  margin-right: 1.42857rem;
+  border-radius: 50%;
+}
+
+.tooltip__title {
+  display: block;
+  margin-bottom: 0.57143rem;
+  color: #333;
+  font-weight: 900;
+  font-size: 1.28571rem;
+}
+
+.tooltip__info {
+  display: flex;
+  margin-bottom: 0.35714rem;
+}
+
+.tooltip__subtitle {
+  margin-right: 0.35714rem;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.14286rem;
 }
 
 /**
@@ -1082,4 +1165,37 @@ html {
 
 .testimonials-carousel__arrow.carousel__arrow_type_next {
   right: 0.42857rem;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: MAP
+ * ----------------------------------------------------------------------------
+ */
+.map__title {
+  margin-bottom: 4.21429rem;
+}
+
+.map__image-hotspots {
+  margin-bottom: 2.5rem;
+}
+
+.map__hotspot_num_1 {
+  top: 15.06024%;
+  left: 10.16667%;
+}
+
+.map__hotspot_num_2 {
+  top: 20.68273%;
+  left: 20.41667%;
+}
+
+.map__hotspot_num_3 {
+  top: 38.05221%;
+  left: 47.66667%;
+}
+
+.map__hotspot_num_4 {
+  top: 18.17269%;
+  right: 20.04167%;
 }

@@ -77,6 +77,10 @@ html {
  * ----------------------------------------------------------------------------
  */
 
+/* TYPOGRAPHY ================================================================================ */
+
+.text-center { text-align: center; }
+
 /* HIDDEN ================================================================================ */
 
 .visually-hidden {
@@ -512,9 +516,81 @@ html {
 .carousel__range_color_light::-webkit-slider-thumb { background-color: #fefefe; }
 .carousel__range_color_dark::-webkit-slider-thumb { background-color: #333; }
 
-/* TYPOGRAPHY ================================================================================ */
+/* IMAGE HOTSPOTS ================================================================================ */
 
-.text-center { text-align: center; }
+.image-hotspots { position: relative; }
+.image-hotspots__item { position: absolute; }
+
+// POINT
+
+.image-hotspots__point {
+  height: rem(95, $text-size);
+  padding: rem(12.5, $text-size) rem(12, $text-size);
+  background-image: url("../../../assets/icons/map/icon-map-marker.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 15px rgba(6,12,70,.15));
+}
+
+.image-hotspots__item:hover .image-hotspots__point { background-image: url("../../../assets/icons/map/icon-map-marker-active.svg"); }
+
+.image-hotspots__point-image {
+  width: rem(43, $text-size);
+  height: rem(43, $text-size);
+  border-radius: 50%;
+}
+
+// TOOLTIP
+
+.tooltip {
+  position: absolute;
+  top: rem(76, $text-size);
+  display: flex;
+  width: rem(436, $text-size);
+  min-height: rem(145, $text-size);
+  padding: rem(40, $text-size) rem(44, $text-size);
+  align-items: flex-start;
+  background-color: #fefefe;
+  box-shadow: 2px 4px 15px rgba(6,12,70,.15);
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, visibility .3s;
+}
+
+.image-hotspots__item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip_side_left { right: 50%; }
+.tooltip_side_right { left: 50%; }
+
+.tooltip__tooltip-image {
+  flex-shrink: 0;
+  margin-right: rem(20, $text-size);
+  border-radius: 50%;
+}
+
+.tooltip__title {
+  display: block;
+  margin-bottom: rem(8, $text-size);
+  color: $title-color;
+  font-weight: 900;
+  font-size: rem(18, $text-size);
+}
+
+.tooltip__info {
+  display: flex;
+  margin-bottom: rem(5, $text-size);
+}
+
+.tooltip__subtitle {
+  margin-right: rem(5, $text-size);
+  color: $title-color;
+  font-weight: 500;
+  line-height: rem(16, $text-font-size);
+}
 
 /**
  * ----------------------------------------------------------------------------
@@ -896,4 +972,33 @@ html {
 
   &.carousel__arrow_type_prev { left: rem(6, $text-size); }
   &.carousel__arrow_type_next { right: rem(6, $text-size); }
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: MAP
+ * ----------------------------------------------------------------------------
+ */
+
+.map__title { margin-bottom: rem(59, $text-size); }
+.map__image-hotspots { margin-bottom: rem(35, $text-size); }
+
+.map__hotspot_num_1 {
+  top: 75 / 498 * 100%;
+  left: 122 / 1200 * 100%;
+}
+
+.map__hotspot_num_2 {
+  top: 103 / 498 * 100%;
+  left: 245 / 1200 * 100%;
+}
+
+.map__hotspot_num_3 {
+  top: 189.5 / 498 * 100%;
+  left: 572 / 1200 * 100%;
+}
+
+.map__hotspot_num_4 {
+  top: 90.5 / 498 * 100%;
+  right: 240.5 / 1200 * 100%;
 }
