@@ -76,6 +76,11 @@ html {
   min-width: rem(320, $text-size);
 }
 
+.header {
+  position: relative;
+  box-shadow: 0px 4px 8px rgba(44,101,77,.08);
+}
+
 .main { background-color: #fbfbfb; }
 
 /**
@@ -519,7 +524,10 @@ html {
   filter: drop-shadow(2px 4px 15px rgba(6,12,70,.15));
 }
 
-.image-hotspots__item:hover .image-hotspots__point { background-image: url("../../../assets/icons/map/icon-map-marker-active.svg"); }
+.image-hotspots__item_active .image-hotspots__point,
+.image-hotspots__item:hover .image-hotspots__point {
+  background-image: url("../../../assets/icons/map/icon-map-marker-active.svg");
+}
 
 .image-hotspots__point-image {
   width: rem(43, $text-size);
@@ -1022,6 +1030,7 @@ html {
 .footer__logo {
   position: relative;
   top: rem(-10, $text-size);
+  max-width: max-content;
   color: inherit;
 }
 

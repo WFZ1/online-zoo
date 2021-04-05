@@ -37,7 +37,7 @@
             <a class="nav__link" href="../map">Map</a>
           </li>
           <li class="header-nav__item nav__item">
-            <a class="nav__link" href="./">Contact Us</a>
+            <a class="nav__link" href="#footer__contact-us">Contact Us</a>
           </li>
           <li class="header-nav__item nav__item no-margin-right">
             <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">Design</a>
@@ -1017,7 +1017,7 @@
           <span class="btn__text">Donate for volunteers</span>
         </button>
 
-        <form class="footer__form" action="#">
+        <form class="footer__form" id="footer__contact-us" action="#">
           <h4 class="footer__subtitle subtitle">Contact us</h4>
 
           <input class="footer__field" type="text" name="name" placeholder="Name" required>
@@ -1025,7 +1025,7 @@
 
           <fieldset class="footer__message">
             <legend class="footer__message-legend">Please enter your message</legend>
-            <textarea class="footer__message-field" name="message" rows="5" required></textarea>
+            <textarea class="footer__message-field" name="message" rows="5" maxlength="280" required></textarea>
           </fieldset>
 
           <label class="footer__agree">

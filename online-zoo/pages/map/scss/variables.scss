@@ -1,0 +1,92 @@
+/**
+ * --------------------------------------------------------------------------------
+ *  VARIABLES
+ * --------------------------------------------------------------------------------
+ */
+
+/* COLORS ================================================================================ */
+
+$text-color: #4f4f4f;
+$text-secondary-color: #bdbdbd;
+$accent-color: #4bd8b5;
+$accent-gradient: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+
+$title-color: #333;
+$title-secondary-color: #313131;
+$subtitle-color: #333;
+$subtitle-secondary-color: #828282;
+
+$btn-color: #fff;
+$btn-bg: $accent-gradient;
+//$btn-bg-hover: ;
+//$btn-bg-pressed: ;
+
+//$link-color: ;
+//$link-hover: ;
+//$link-pressed: ;
+
+$nav-item-color-dark: #333;
+$nav-item-color-light: #fefefe;
+
+$content-primary-bg: #f2f2f2;
+$content-secondary-bg: #333;
+
+$border-accent: linear-gradient(103.3deg, #07EEE0 -15.1%, #DF496D 92.15%);
+$map-marker-color: #EB5757;
+
+$arrow-color: #333;
+$arrow-color-disable: #828282;
+
+$dots-color: #c4c4c4;
+$dots-color-active: $accent-gradient;
+
+$slider-track: rgba(189, 189, 189, .57);
+$slider-btn: #333;
+$slider-number:#333;
+$slider-total-number: #828282;
+
+/* TYPOGRAPHY ================================================================================ */
+
+$font-main: Roboto, sans-serif;
+
+$text-size: 14;
+$default-text-font-size: $text-size + px;
+
+$title-font-size: 48;
+$title-secondary-font-size: 24;
+$subtitle-font-size: 20;
+$text-font-size: 14;
+
+$link-font-size: 12;
+$btn-font-size: 18;
+
+$field-font-size: 14;
+$nav-item-font-size: 16;
+
+/* VIEWPORT ================================================================================ */
+
+$wrapper: 1620;
+$container: 1200;
+$large-container: 1300;
+
+$min: min-width;
+$max: max-width;
+
+$phone:       640px;
+$tablet:      768px;
+$lap:         1024px;
+$desk:        1200px;
+$widescreen:  1440px;
+
+/* TRANSITION ================================================================================ */
+
+$trans-duration: .3s;
+$trans-color: color $trans-duration;
+$trans-fill: fill $trans-duration;
+$trans-bg: background-color $trans-duration;
+$trans-box: background-color $trans-duration, color $trans-duration;
+$trans-border-box: background-color $trans-duration, color $trans-duration, border $trans-duration;
+
+/* OTHER ================================================================================ */
+
+$hidden: none !important;

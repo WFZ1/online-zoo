@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/png">
+  <title>Online ZOO</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page page-map page_light-mode">
+  <h1 class="visually-hidden">Online Zoo</h1>
+
+  <!--
+  * ----------------------------------------------------------------------------
+  *  HEADER
+  * ----------------------------------------------------------------------------
+  -->
+
+  <header class="header page__header">
+    <div class="header__wrapper wrapper row">
+      <a class="logo" href="../landing">
+        <span class="logo__text">Zoo</span>
+        <span class="logo__subtext">Online</span>
+      </a>
+
+      <nav class="nav header__nav header-nav nav_color_dark">
+        <ul class="header-nav__list nav__list row">
+          <li class="header-nav__item nav__item">
+            <a class="nav__link" href="../landing">About</a>
+          </li>
+          <li class="header-nav__item nav__item">
+            <a class="nav__link" href="../zoos">Zoos</a>
+          </li>
+          <li class="header-nav__item nav__item header-nav__item_active">
+            <a class="nav__link" href="./">Map</a>
+          </li>
+          <li class="header-nav__item nav__item">
+            <a class="nav__link" href="#footer__contact-us">Contact Us</a>
+          </li>
+          <li class="header-nav__item nav__item no-margin-right">
+            <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">Design</a>
+          </li>
+        </ul>
+      </nav>
+
+      <input class="toggle-color-mode header__toggle-color-mode slider" type="range" min="0" max="1" value="0" step="1">
+    </div>
+  </header>
+
+  <!--
+  * ----------------------------------------------------------------------------
+  *  MAIN
+  * ----------------------------------------------------------------------------
+  -->
+
+  <main class="page-map__main main">
+    <section class="page-map__section container">
+      <h3 class="title text-center page-map__title">Choose your favorite</h3>
+      <p class="page-map__text">As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat, and we are determined to assist in all aspects, including providing veterinary support and raising much-needed emergency funds. Zoo Online saves wildlife and inspires everyone to make conservation a priority in their lives. Animals have the right to a pain-free and happy life. They have equal claim to the resources of this planet, and deserve a life of dignity and compassion.As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.</p>
+  
+      <div class="carousel page-map__carousel page-map-carousel">
+        <ul class="page-map-carousel__container row">
+          <li class="page-map-carousel__item">
+            <img class="page-map-carousel__image"
+                 srcset="../../assets/images/animals/gorilla-75w75h.jpg 75w,
+                         ../../assets/images/animals/gorilla-137w137h.jpg 137w"
+                 sizes="(max-width: 320px) 75px,
+                        137px"
+                 src="../../assets/images/animals/gorilla.jpg"
+                 alt="Gorilla">
+          </li>
+          <li class="page-map-carousel__item page-map-carousel__item_active">
+            <img class="page-map-carousel__image"
+                 srcset="../../assets/images/animals/panda-75w75h.jpg 75w,
+                         ../../assets/images/animals/panda-137w137h.jpg 137w"
+                 sizes="(max-width: 320px) 75px,
+                        137px"
+                 src="../../assets/images/animals/panda.jpg"
+                 alt="Panda">
+          </li>
+          <li class="page-map-carousel__item">
+            <img class="page-map-carousel__image page-map-carousel__image_left-position_87"
+                 srcset="../../assets/images/animals/alligator-75w75h.jpg 75w,
+                         ../../assets/images/animals/alligator-140w.jpg 140w"
+                 sizes="(max-width: 320px) 75px,
+                        137px"
+                 src="../../assets/images/animals/alligator.jpg"
+                 alt="Alligator">
+          </li>
+          <li class="page-map-carousel__item">
+            <img class="page-map-carousel__image"
+                 srcset="../../assets/images/animals/eagle-75w75h.jpg 75w,
+                         ../../assets/images/animals/eagle-137w137h.jpg 137w"
+                 sizes="(max-width: 320px) 75px,
+                        137px"
+                 src="../../assets/images/animals/eagle.jpg"
+                 alt="Eagle">
+          </li>
+          <li class="page-map-carousel__item">
+            <img class="page-map-carousel__image"
+                 srcset="../../assets/images/animals/tiger-75w75h.jpg 75w,
+                         ../../assets/images/animals/tiger-137w137h.jpg 137w"
+                 sizes="(max-width: 320px) 75px,
+                        137px"
+                 src="../../assets/images/animals/tiger.jpg"
+                 alt="Tiger">
+          </li>
+          <li class="page-map-carousel__item">
+            <img class="page-map-carousel__image"
+                 srcset="../../assets/images/animals/elephant-2-75w75h.jpg 75w,
+                         ../../assets/images/animals/elephant-2-137w137h.jpg 137w"
+                 sizes="(max-width: 320px) 75px,
+                        137px"
+                 src="../../assets/images/animals/elephant-2.jpg"
+                 alt="Elephant">
+          </li>
+          <li class="page-map-carousel__item">
+            <img class="page-map-carousel__image"
+                 srcset="../../assets/images/animals/lion-75w75h.jpg 75w,
+                         ../../assets/images/animals/lion-137w137h.jpg 137w"
+                 sizes="(max-width: 320px) 75px,
+                        137px"
+                 src="../../assets/images/animals/lion.jpg"
+                 alt="Lion">
+          </li>
+          <li class="page-map-carousel__item no-margin-right">
+            <img class="page-map-carousel__image"
+                 srcset="../../assets/images/animals/zebra-75w75h.jpg 75w,
+                         ../../assets/images/animals/zebra-137w137h.jpg 137w"
+                 sizes="(max-width: 320px) 75px,
+                        137px"
+                 src="../../assets/images/animals/zebra.jpg"
+                 alt="Zebra">
+          </li>
+        </ul>
+
+        <button class="carousel__arrow carousel__arrow_type_prev carousel__arrow_disabled carousel__arrow_invert_left page-map-carousel__arrow"></button>
+        <button class="carousel__arrow carousel__arrow_type_next carousel__arrow_disabled page-map-carousel__arrow"></button>
+
+        <div class="page-map-carousel__controls text-center">
+          <div class="page-map-carousel__fraction carousel__fraction carousel-fraction">
+            <span class="carousel-fraction__current carousel-fraction__current_color_dark">02</span>
+            <span class="carousel-fraction__total">08</span>
+          </div>
+
+          <input class="carousel__range slider carousel__range_color_dark" type="range" min="1" max="8" step="1" value="2" style="--max: 8;">
+        </div>
+      </div>
+
+      <div class="image-hotspots page-map__image-hotspots container">
+        <img class="page-map__image"
+             srcset="../../assets/images/map/map@xsm.png 320w,
+                     ../../assets/images/map/map@sm.png 375w,
+                     ../../assets/images/map/map@ph.png 640w,
+                     ../../assets/images/map/map@tb.png 768w,
+                     ../../assets/images/map/map@lp.png 1024w,
+                     ../../assets/images/map/map.png 1200w"
+             sizes="(max-width: 320px) 320px,
+                    (max-width: 375px) 375px,
+                    (max-width: 640px) 640px,
+                    (max-width: 768px) 768px,
+                    (max-width: 1024px) 1024px,
+                    1200px"
+             src="../../assets/images/map/map.png"
+             alt="Map">
+
+        <div class="image-hotspots__item page-map__hotspot page-map__hotspot_num_1">
+          <div class="image-hotspots__point">
+            <img class="image-hotspots__point-image"
+                 srcset="../../assets/images/animals/eagle-21w21h.jpg 21w,
+                         ../../assets/images/animals/eagle-43w43h.jpg 43w"
+                 sizes="(max-width: 320px) 21px,
+                        43px"
+                 src="../../assets/images/animals/eagle.jpg" 
+                 alt="Eagle">
+          </div>
+
+          <div class="image-hotspots__tooltip tooltip tooltip_side_left">
+            <img class="tooltip__tooltip-image"
+                 srcset="../../assets/images/animals/eagle-2-43w43h.jpg 43w,
+                         ../../assets/images/animals/eagle-2-65w65h.jpg 65w"
+                 sizes="(max-width: 320px) 43px,
+                        65px"
+                 src="../../assets/images/animals/eagle-2.jpg" 
+                 alt="Eagle">
+
+            <div class="tooltip__content">
+              <span class="tooltip__title">West End Bald Eagle</span>
+              <div class="tooltip__info">
+                <span class="tooltip__subtitle">Region:</span>
+                <p>on an island near Los Angeles</p>
+              </div>
+
+              <div class="tooltip__info">
+                <span class="tooltip__subtitle">Population:</span>
+                <p>more than 270 pairs in 2013</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-hotspots__item page-map__hotspot page-map__hotspot_num_2">
+          <div class="image-hotspots__point">
+            <img class="image-hotspots__point-image"
+                 srcset="../../assets/images/animals/alligator-21w21h.jpg 21w,
+                         ../../assets/images/animals/alligator-43w43h.jpg 43w"
+                 sizes="(max-width: 320px) 21px,
+                        43px"
+                 src="../../assets/images/animals/alligator.jpg" 
+                 alt="Alligator">
+          </div>
+
+          <div class="image-hotspots__tooltip tooltip tooltip_side_left">
+            <img class="tooltip__tooltip-image"
+                 srcset="../../assets/images/animals/alligator-43w43h.jpg 43w,
+                         ../../assets/images/animals/alligator-65w65h.jpg 65w"
+                 sizes="(max-width: 320px) 43px,
+                        65px"
+                 src="../../assets/images/animals/alligator.jpg" 
+                 alt="Alligator">
+
+            <div class="tooltip__content">
+              <span class="tooltip__title">Alligator</span>
+              <div class="tooltip__info">
+                <span class="tooltip__subtitle">Region:</span>
+                <p>text text text text text text text</p>
+              </div>
+
+              <div class="tooltip__info">
+                <span class="tooltip__subtitle">Population:</span>
+                <p>text text text text text</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-hotspots__item page-map__hotspot page-map__hotspot_num_3">
+          <div class="image-hotspots__point">
+            <img class="image-hotspots__point-image"
+                 srcset="../../assets/images/animals/gorilla-21w21h.jpg 21w,
+                         ../../assets/images/animals/gorilla-43w43h.jpg 43w"
+                 sizes="(max-width: 320px) 21px,
+                        43px"
+                 src="../../assets/images/animals/gorilla.jpg" 
+                 alt="Gorilla">
+          </div>
+
+          <div class="image-hotspots__tooltip tooltip tooltip_side_left">
+            <img class="tooltip__tooltip-image"
+                 srcset="../../assets/images/animals/gorilla-43w43h.jpg 43w,
+                         ../../assets/images/animals/gorilla-65w65h.jpg 65w"
+                 sizes="(max-width: 320px) 43px,
+                        65px"
+                 src="../../assets/images/animals/gorilla.jpg" 
+                 alt="Gorilla">
+
+            <div class="tooltip__content">
+              <span class="tooltip__title">Gorilla</span>
+              <div class="tooltip__info">
+                <span class="tooltip__subtitle">Region:</span>
+                <p>text text text text text text</p>
+              </div>
+
+              <div class="tooltip__info">
+                <span class="tooltip__subtitle">Population:</span>
+                <p>text text text text text</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-hotspots__item image-hotspots__item_active page-map__hotspot page-map__hotspot_num_4">
+          <div class="image-hotspots__point">
+            <img class="image-hotspots__point-image"
+                 srcset="../../assets/images/animals/panda-21w21h.jpg 21w,
+                         ../../assets/images/animals/panda-43w43h.jpg 43w"
+                 sizes="(max-width: 320px) 21px,
+                        43px"
+                 src="../../assets/images/animals/panda.jpg" 
+                 alt="Panda">
+          </div>
+
+          <div class="image-hotspots__tooltip tooltip tooltip_side_left">
+            <img class="tooltip__tooltip-image"
+                 srcset="../../assets/images/animals/panda-43w43h.jpg 43w,
+                         ../../assets/images/animals/panda-65w65h.jpg 65w"
+                 sizes="(max-width: 320px) 43px,
+                        65px"
+                 src="../../assets/images/animals/panda.jpg" 
+                 alt="Panda">
+
+            <div class="tooltip__content">
+              <span class="tooltip__title">Panda</span>
+              <div class="tooltip__info">
+                <span class="tooltip__subtitle">Region:</span>
+                <p>text text text text text text text</p>
+              </div>
+
+              <div class="tooltip__info">
+                <span class="tooltip__subtitle">Population:</span>
+                <p>text text text text text text text</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a class="btn" href="#">
+          <span class="btn__icon btn__icon_type_play"></span>
+          <span class="btn__text">Watch online</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!--
+  * ----------------------------------------------------------------------------
+  *  FOOTER
+  * ----------------------------------------------------------------------------
+  -->
+
+  <footer class="footer">
+    <div class="footer__wrapper wrapper">
+      <div class="footer__content">
+        <a class="footer__logo logo" href="../landing">
+          <span class="logo__text">Zoo</span>
+          <span class="logo__subtext">Online</span>
+        </a>
+
+        <nav class="nav footer__nav footer-nav nav_color_light">
+          <ul class="footer-nav__list nav__list row">
+            <li class="footer-nav__item nav__item">
+              <a class="nav__link" href="../landing">About</a>
+            </li>
+            <li class="footer-nav__item nav__item">
+              <a class="nav__link" href="../zoos">Zoos</a>
+            </li>
+            <li class="footer-nav__item nav__item">
+              <a class="nav__link" href="./">Map</a>
+            </li>
+            <li class="footer-nav__item nav__item no-margin-right">
+              <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">Design</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="btn footer__btn">
+          <span class="btn__text">Donate for volunteers</span>
+        </button>
+
+        <form class="footer__form" id="footer__contact-us" action="#">
+          <h4 class="footer__subtitle subtitle">Contact us</h4>
+
+          <input class="footer__field" type="text" name="name" placeholder="Name" required>
+          <input class="footer__field footer__field_last" type="email" name="email" placeholder="Email" required>
+
+          <fieldset class="footer__message">
+            <legend class="footer__message-legend">Please enter your message</legend>
+            <textarea class="footer__message-field" name="message" rows="5" maxlength="280" required></textarea>
+          </fieldset>
+
+          <label class="footer__agree">
+            <input class="footer__agree-field" type="checkbox" required>
+            <p class="footer__agree-text">I agree to the processing of Personal Data</p>
+          </label>
+
+          <div class="text-right">
+            <button class="footer__form-submit" type="submit">Send</button>
+          </div>
+        </form>
+
+        <div class="footer__contacts footer-contacts">
+          <h4 class="footer-contacts__title text-uppercase">ZOO Online Centre</h4>
+          <address class="footer-contacts__address">
+            <p class="footer-contacts__info">132, Address District, Street</p>
+            <p class="footer-contacts__info footer-contacts__info_indented">Open Daily 10:00 am - 5:00 pm</p>
+            <p class="footer-contacts__info"><a class="footer-contacts__link" href="tel:7021633433">T(702) 163-3433</a></p>
+            <p class="footer-contacts__info"><a class="footer-contacts__link" href="mailto:zoo.online@gmail.com">zoo.online@gmail.com</a></p>
+          </address>
+
+          <ul class="social-media social-media_direction_row footer__social-media row">
+            <li class="social-media__item">
+              <a class="social-media__link social-media__instagram" href="https://www.instagram.com" target="_blank"></a>
+            </li>
+            <li class="social-media__item">
+              <a class="social-media__link social-media__twitter" href="https://twitter.com" target="_blank"></a>
+            </li>
+            <li class="social-media__item social-media__item_type_youtube">
+              <a class="social-media__link social-media__youtube" href="https://www.youtube.com" target="_blank"></a>
+            </li>
+            <li class="social-media__item no-margin-bottom">
+              <a class="social-media__link social-media__vk" href="https://vk.com" target="_blank"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer__hr">
+      <div class="footer__copyrights">
+        <small class="footer__copyrights-text">©Noora Sagnayeva</small>
+        <small class="footer__copyrights-text">©RSSchool and ©Yem Digital - 2021</small>
+      </div>
+    </div>
+  </footer>
+
+  <!--<script src="js/script.js" defer></script>-->
+</body>
+</html>

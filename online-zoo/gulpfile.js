@@ -154,6 +154,8 @@ const image_sizes = {
     { width: 21, height: 21, rename: { suffix: '-21w21h' }, withoutEnlargement: false },
     { width: 43, height: 43, rename: { suffix: '-43w43h' }, withoutEnlargement: false },
     { width: 65, height: 65, rename: { suffix: '-65w65h' }, withoutEnlargement: false },
+    { width: 75, height: 75, rename: { suffix: '-75w75h' }, withoutEnlargement: false },
+    { width: 137, height: 137, rename: { suffix: '-137w137h' }, withoutEnlargement: false },
     { width: 140, rename: { suffix: '-140w' }, withoutEnlargement: false },
     { width: 140, height: 203, rename: { suffix: '-140w203h' }, withoutEnlargement: false },
     { width: 210, height: 301, rename: { suffix: '-210w301h' }, withoutEnlargement: false },

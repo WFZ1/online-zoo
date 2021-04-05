@@ -171,6 +171,11 @@ html {
   min-width: 22.85714rem;
 }
 
+.header {
+  position: relative;
+  box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+}
+
 .main {
   background-color: #fbfbfb;
 }
@@ -683,6 +688,7 @@ html {
   filter: drop-shadow(2px 4px 15px rgba(6, 12, 70, 0.15));
 }
 
+.image-hotspots__item_active .image-hotspots__point,
 .image-hotspots__item:hover .image-hotspots__point {
   background-image: url("../../../assets/icons/map/icon-map-marker-active.svg");
 }
@@ -1249,6 +1255,7 @@ html {
 .footer__logo {
   position: relative;
   top: -0.71429rem;
+  max-width: max-content;
   color: inherit;
 }
 
