@@ -611,6 +611,8 @@ html {
   border-bottom-color: $nav-item-color-dark;
 }
 
+.header-nav__item_active .nav__link { cursor: auto; }
+
 /**
  * ----------------------------------------------------------------------------
  *  MAIN

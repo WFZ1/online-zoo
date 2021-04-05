@@ -788,6 +788,10 @@ html {
   border-bottom-color: #333;
 }
 
+.header-nav__item_active .nav__link {
+  cursor: auto;
+}
+
 /**
  * ----------------------------------------------------------------------------
  *  MAIN
