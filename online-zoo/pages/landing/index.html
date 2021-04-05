@@ -25,21 +25,21 @@
         <span class="logo__subtext">Online</span>
       </a>
 
-      <nav class="nav header__nav">
-        <ul class="nav__list row">
-          <li class="nav__item nav__item_active">
+      <nav class="nav header__nav header-nav nav_color_dark">
+        <ul class="header-nav__list nav__list row">
+          <li class="header-nav__item nav__item header-nav__item_active">
             <a class="nav__link" href="./">About</a>
           </li>
-          <li class="nav__item">
+          <li class="header-nav__item nav__item">
             <a class="nav__link" href="../zoos">Zoos</a>
           </li>
-          <li class="nav__item">
+          <li class="header-nav__item nav__item">
             <a class="nav__link" href="../map">Map</a>
           </li>
-          <li class="nav__item">
-            <a class="nav__link" href="../landing">Contact Us</a>
+          <li class="header-nav__item nav__item">
+            <a class="nav__link" href="./">Contact Us</a>
           </li>
-          <li class="nav__item no-margin-right">
+          <li class="header-nav__item nav__item no-margin-right">
             <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">Design</a>
           </li>
         </ul>
@@ -294,7 +294,7 @@
           </div>
         </div>
 
-        <ul class="social-media social-media_column hero__social-media column">
+        <ul class="social-media social-media_direction_column hero__social-media column">
           <li class="social-media__item">
             <a class="social-media__link social-media__instagram" href="https://www.instagram.com" target="_blank"></a>
           </li>
@@ -305,7 +305,7 @@
             <a class="social-media__link social-media__youtube" href="https://www.youtube.com" target="_blank"></a>
           </li>
           <li class="social-media__item no-margin-bottom">
-            <a class="social-media__link social-media__vk" href="http://vk.com" target="_blank"></a>
+            <a class="social-media__link social-media__vk" href="https://vk.com" target="_blank"></a>
           </li>
         </ul>
       </div>
@@ -726,6 +726,12 @@
       </div>
     </section>
 
+    <!--
+    * ----------------------------------------------------------------------------
+    *  SECTION: TESTIMONIALS
+    * ----------------------------------------------------------------------------
+    -->
+
     <section class="testimonials main__section large-container">
       <h3 class="title testimonials__title text-center">Testimonials</h3>
 
@@ -799,6 +805,12 @@
         </button>
       </div>
     </section>
+
+    <!--
+    * ----------------------------------------------------------------------------
+    *  SECTION: MAP
+    * ----------------------------------------------------------------------------
+    -->
 
     <section class="map section section_highlighted">
       <h3 class="title text-center map__title">Map</h3>
@@ -969,7 +981,97 @@
       </div>
     </section>
   </main>
-  
+
+  <!--
+  * ----------------------------------------------------------------------------
+  *  FOOTER
+  * ----------------------------------------------------------------------------
+  -->
+
+  <footer class="footer">
+    <div class="footer__wrapper wrapper">
+      <div class="footer__content">
+        <a class="footer__logo logo" href="./">
+          <span class="logo__text">Zoo</span>
+          <span class="logo__subtext">Online</span>
+        </a>
+
+        <nav class="nav footer__nav footer-nav nav_color_light">
+          <ul class="footer-nav__list nav__list row">
+            <li class="footer-nav__item nav__item">
+              <a class="nav__link" href="./">About</a>
+            </li>
+            <li class="footer-nav__item nav__item">
+              <a class="nav__link" href="../zoos">Zoos</a>
+            </li>
+            <li class="footer-nav__item nav__item">
+              <a class="nav__link" href="../map">Map</a>
+            </li>
+            <li class="footer-nav__item nav__item no-margin-right">
+              <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" target="_blank">Design</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="btn footer__btn">
+          <span class="btn__text">Donate for volunteers</span>
+        </button>
+
+        <form class="footer__form" action="#">
+          <h4 class="footer__subtitle subtitle">Contact us</h4>
+
+          <input class="footer__field" type="text" name="name" placeholder="Name" required>
+          <input class="footer__field footer__field_last" type="email" name="email" placeholder="Email" required>
+
+          <fieldset class="footer__message">
+            <legend class="footer__message-legend">Please enter your message</legend>
+            <textarea class="footer__message-field" name="message" rows="5" required></textarea>
+          </fieldset>
+
+          <label class="footer__agree">
+            <input class="footer__agree-field" type="checkbox" required>
+            <p class="footer__agree-text">I agree to the processing of Personal Data</p>
+          </label>
+
+          <div class="text-right">
+            <button class="footer__form-submit" type="submit">Send</button>
+          </div>
+        </form>
+
+        <div class="footer__contacts footer-contacts">
+          <h4 class="footer-contacts__title text-uppercase">ZOO Online Centre</h4>
+          <address class="footer-contacts__address">
+            <p class="footer-contacts__info">132, Address District, Street</p>
+            <p class="footer-contacts__info footer-contacts__info_indented">Open Daily 10:00 am - 5:00 pm</p>
+            <p class="footer-contacts__info"><a class="footer-contacts__link" href="tel:7021633433">T(702) 163-3433</a></p>
+            <p class="footer-contacts__info"><a class="footer-contacts__link" href="mailto:zoo.online@gmail.com">zoo.online@gmail.com</a></p>
+          </address>
+
+          <ul class="social-media social-media_direction_row footer__social-media row">
+            <li class="social-media__item">
+              <a class="social-media__link social-media__instagram" href="https://www.instagram.com" target="_blank"></a>
+            </li>
+            <li class="social-media__item">
+              <a class="social-media__link social-media__twitter" href="https://twitter.com" target="_blank"></a>
+            </li>
+            <li class="social-media__item social-media__item_type_youtube">
+              <a class="social-media__link social-media__youtube" href="https://www.youtube.com" target="_blank"></a>
+            </li>
+            <li class="social-media__item no-margin-bottom">
+              <a class="social-media__link social-media__vk" href="https://vk.com" target="_blank"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer__hr">
+      <div class="footer__copyrights">
+        <small class="footer__copyrights-text">©Noora Sagnayeva</small>
+        <small class="footer__copyrights-text">©RSSchool and ©Yem Digital - 2021</small>
+      </div>
+    </div>
+  </footer>
+
   <!--<script src="js/script.js" defer></script>-->
 </body>
 </html>

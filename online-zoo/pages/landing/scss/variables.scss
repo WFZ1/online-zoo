@@ -25,7 +25,8 @@ $btn-bg: $accent-gradient;
 //$link-hover: ;
 //$link-pressed: ;
 
-$nav-item-color: #333;
+$nav-item-color-dark: #333;
+$nav-item-color-light: #fefefe;
 
 $content-primary-bg: #f2f2f2;
 $content-secondary-bg: #333;
@@ -47,7 +48,6 @@ $slider-total-number: #828282;
 /* TYPOGRAPHY ================================================================================ */
 
 $font-main: Roboto, sans-serif;
-//$font-extra: ;
 
 $text-size: 14;
 $default-text-font-size: $text-size + px;

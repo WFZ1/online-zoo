@@ -47,7 +47,14 @@ button {
   background-color: transparent;
 }
 
+input,
+textarea {
+  background-color: transparent;
+}
+
 input[type=submit] { border: 0; } 
+
+address { font-style: normal; }
 
 /**
  * ----------------------------------------------------------------------------
@@ -80,6 +87,9 @@ html {
 /* TYPOGRAPHY ================================================================================ */
 
 .text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
 
 /* HIDDEN ================================================================================ */
 
@@ -291,33 +301,10 @@ html {
 
 /* NAV ================================================================================ */
 
-.nav {
-  flex: 1;
-}
-
-.nav__list {
-  justify-content: center;
-}
-
-.nav__item {
-  margin-right: em(80, $nav-item-font-size);
-  padding: 0 em(5, $nav-item-font-size) 0 em(1, $nav-item-font-size);
-  border-bottom: 1px solid transparent;
-  font-size: rem($nav-item-font-size, $text-size);
-  transition: font-weight $trans-duration, border-color $trans-duration;
-}
-
-.nav__item_active,
-.nav__item:hover {
-  font-weight: 900;
-  border-bottom-color: $nav-item-color;
-}
-
-.nav__link {
-  color: $nav-item-color;
-
-  .nav__item_active & { cursor: default; }
-}
+.nav__item { font-size: rem($nav-item-font-size, $text-size); }
+.nav__item_active .nav__link { cursor: default; }
+.nav_color_dark .nav__link { color: $nav-item-color-dark; }
+.nav_color_light .nav__link { color: $nav-item-color-light; }
 
 /* LOGO ================================================================================ */
 
@@ -360,8 +347,8 @@ html {
 
 /* SOCIAL MEDIA ================================================================================ */
 
-.social-media_row .social-media__item { margin-left: rem(15, $text-size); }
-.social-media_column .social-media__item { margin-bottom: rem(15, $text-size); }
+.social-media_direction_row .social-media__item { margin-right: rem(15, $text-size); }
+.social-media_direction_column .social-media__item { margin-bottom: rem(15, $text-size); }
 
 .social-media__link {
   display: block;
@@ -598,12 +585,22 @@ html {
  * ----------------------------------------------------------------------------
  */
 
-.header__wrapper {
-  padding : rem(15, $text-size) 0 rem(23, $text-size);
+.header__wrapper { padding : rem(15, $text-size) 0 rem(23, $text-size); }
+.header__nav { margin: rem(20, $text-size) rem(20, $text-size) 0; }
+.header-nav { flex: 1; }
+.header-nav__list { justify-content: center; }
+
+.header-nav__item {
+  margin-right: em(80, $nav-item-font-size);
+  padding: 0 em(5, $nav-item-font-size) 0 em(1, $nav-item-font-size);
+  border-bottom: 1px solid transparent;
+  transition: font-weight $trans-duration, border-color $trans-duration;
 }
 
-.header__nav {
-  margin: rem(20, $text-size) rem(20, $text-size) 0;
+.header-nav__item_active,
+.header-nav__item:hover {
+  font-weight: 900;
+  border-bottom-color: $nav-item-color-dark;
 }
 
 /**
@@ -1001,4 +998,179 @@ html {
 .map__hotspot_num_4 {
   top: 90.5 / 498 * 100%;
   right: 240.5 / 1200 * 100%;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  FOOTER
+ * ----------------------------------------------------------------------------
+ */
+
+.footer {
+  padding: rem(100, $text-size) 0 rem(72, $text-size);
+  background-color: $content-secondary-bg;
+  color: #fefefe;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: rem(56, $text-size) rem(140, $text-size);
+  margin-bottom: rem(59, $text-size);
+}
+
+.footer__logo {
+  position: relative;
+  top: rem(-10, $text-size);
+  color: inherit;
+}
+
+.footer__btn {
+  min-width: rem(275, $text-size);
+  &:hover { filter: drop-shadow(15px 16px 10px #4f4f4f) grayscale(.6); }
+}
+
+// NAV
+
+.footer-nav { align-self: center; }
+
+.footer-nav__item {
+  margin-right: em(73, $nav-item-font-size);
+  font-weight: 500;
+}
+
+.footer-nav .nav__link {
+  color: inherit;
+  transition: color .3s;
+
+  &:hover { color: $accent-color; }
+}
+
+// FORM
+
+.footer__form { max-width: rem(383, $text-size); }
+
+.footer__subtitle {
+  margin-bottom: rem(26, $text-size);
+  color: inherit;
+}
+
+.footer__field {
+  width: 100%;
+  margin-bottom: rem(13, $text-size);
+  padding: rem(8, $text-size) 0;
+  border-width: 0 0 1px;
+  border-color: #bdbdbd;
+  color: #e0e0e0;
+  
+  &::placeholder { color: #e0e0e0; }
+}
+
+.footer__field_last { margin-bottom: rem(22, $text-size); }
+
+.footer__message {
+  margin: 0 0 rem(26, $text-size);
+  border: rem(1, $text-size) solid #bdbdbd;
+  border-radius: rem(3, $text-size);
+  color: $text-secondary-color;
+}
+
+.footer__message-legend {
+  padding-left: em(3, 12);
+  padding-right: em(5, 12);
+  font-size: rem(12, $text-size);
+}
+
+.footer__message-field {
+  width: 100%;
+  padding: rem(5, $text-size);
+  resize: none;
+  border: 0;
+  color: #e0e0e0;
+}
+
+.footer__agree {
+  display: inline-flex;
+  margin-left: rem(2, $text-size);
+  margin-bottom: rem(20, $text-size);
+  align-items: center;
+  color: $text-secondary-color;
+  cursor: pointer;
+}
+
+.footer__agree-field {
+  -webkit-appearance: none;
+          appearance: none;
+  width: rem(13, $text-size);
+  height: rem(13, $text-size);
+  margin-right: rem(6, $text-size);
+  border: rem(1, $text-size) solid #bdbdbd;
+  border-radius: rem(1, $text-size);
+  cursor: pointer;
+
+  &:checked {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMzczIDEwMjQiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0zNTMgNzE1TDE4MiA1NDJsOTQtOTQgMjU3IDI1OCA1NjQtNTcwIDk0IDk1LTMyNSAzMjhDNjg3IDc0MCA1MzcgODg4IDUzMiA4ODhzLTg1LTc4LTE3OS0xNzN6Ii8+PC9zdmc+");
+    background-position: 50%;
+  }
+}
+
+.footer__agree-text { font-size: rem(12, $text-size); }
+
+.footer__form-submit {
+  display: inline-flex;
+  margin-right: rem(14, $text-size);
+  padding: 0;
+  align-items: baseline;
+  text-transform: uppercase;
+  color: inherit;
+  line-height: 1;
+  cursor: pointer;
+
+  &::after {
+    content: url("../../../assets/icons/icon-chevron-right-light.svg");
+    display: flex;
+    width: rem(48, $text-size);
+    height: 0;
+    margin-left: rem(24, $text-size);
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #fefefe;
+    transition: width .3s;
+  }
+
+  &:hover::after { width: rem(75, $text-size); }
+}
+
+// CONTACTS
+
+.footer-contacts__title { margin-bottom: rem(35, $text-size); }
+.footer-contacts__address { margin-bottom: rem(20, $text-size); }
+
+.footer-contacts__link {
+  color: inherit;
+  transition: color .3s;
+
+  &:hover { color: $accent-color; }
+}
+
+.footer-contacts__info { margin-bottom: rem(5, $text-size); }
+.footer-contacts__info_indented { margin-bottom: rem(20, $text-size); }
+.footer__social-media .social-media__item_type_youtube { order: 1; }
+
+// COPYRIGHTS
+
+.footer__hr {
+  width: 100%;
+  margin: rem(30, $text-size) 0;
+  border-width: .5px 0 0;
+  border-color: inherit;
+}
+
+.footer__copyrights-text {
+  display: block;
+  margin-bottom: rem(5, $text-size);
+  color: $text-secondary-color;
+  font-size: rem(12, $text-size);
+
+  &:last-child { margin-bottom: 0; }
 }
