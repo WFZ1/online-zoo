@@ -724,8 +724,7 @@ html {
  */
 .page-zoo__main {
   display: flex;
-  padding: 4.28571rem 0 7.14286rem;
-  margin-right: 11.21429rem;
+  padding: 4.28571rem 11.21429rem 7.14286rem 0;
   align-items: flex-start;
 }
 

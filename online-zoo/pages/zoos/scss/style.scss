@@ -544,8 +544,7 @@ html {
 
 .page-zoo__main {
   display: flex;
-  padding: rem(60, $text-size) 0 rem(100, $text-size);
-  margin-right: rem(157, $text-size);
+  padding: rem(60, $text-size) rem(157, $text-size) rem(100, $text-size) 0;
   align-items: flex-start;
 }
 
