@@ -1045,22 +1045,21 @@ html {
   display: inline-flex;
   margin-right: 1rem;
   padding: 0;
-  align-items: baseline;
+  align-items: center;
   text-transform: uppercase;
   color: inherit;
   line-height: 1;
   cursor: pointer;
+  background: url("../../../assets/icons/icon-chevron-right-light.svg") no-repeat right center;
 }
 
 .footer__form-submit::after {
-  content: url("../../../assets/icons/icon-chevron-right-light.svg");
-  display: flex;
-  width: 3.42857rem;
-  height: 0;
+  content: "";
+  width: 3.35714rem;
+  height: 0.07143rem;
   margin-left: 1.71429rem;
-  align-items: center;
-  justify-content: flex-end;
-  border-top: 1px solid #fefefe;
+  margin-right: 0.07143rem;
+  background-color: #fefefe;
   transition: width .3s;
 }
 

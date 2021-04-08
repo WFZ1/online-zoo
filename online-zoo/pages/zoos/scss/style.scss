@@ -826,21 +826,20 @@ html {
   display: inline-flex;
   margin-right: rem(14, $text-size);
   padding: 0;
-  align-items: baseline;
+  align-items: center;
   text-transform: uppercase;
   color: inherit;
   line-height: 1;
   cursor: pointer;
+  background: url("../../../assets/icons/icon-chevron-right-light.svg") no-repeat right center;
 
   &::after {
-    content: url("../../../assets/icons/icon-chevron-right-light.svg");
-    display: flex;
-    width: rem(48, $text-size);
-    height: 0;
+    content: "";
+    width: rem(47, $text-size);
+    height: rem(1, $text-size);
     margin-left: rem(24, $text-size);
-    align-items: center;
-    justify-content: flex-end;
-    border-top: 1px solid #fefefe;
+    margin-right: rem(1, $text-size);
+    background-color: #fefefe;
     transition: width .3s;
   }
 
