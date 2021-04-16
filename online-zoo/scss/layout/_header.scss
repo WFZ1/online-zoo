@@ -1,0 +1,30 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  HEADER
+ * ----------------------------------------------------------------------------
+ */
+
+.header {
+  position: relative;
+  box-shadow: 0px 4px 8px rgba(44,101,77,.08);
+}
+
+.header__wrapper { padding : rem(15, $text-size) 0 rem(23, $text-size); }
+.header__nav { margin: rem(20, $text-size) rem(20, $text-size) 0; }
+.header-nav { flex: 1; }
+.header-nav__list { justify-content: center; }
+
+.header-nav__item {
+  margin-right: em(80, $nav-item-font-size);
+  padding: 0 em(5, $nav-item-font-size) 0 em(1, $nav-item-font-size);
+  border-bottom: 1px solid transparent;
+  transition: font-weight $trans-duration, border-color $trans-duration;
+}
+
+.header-nav__item_active,
+.header-nav__item:hover {
+  font-weight: 900;
+  border-bottom-color: $nav-item-color-dark;
+}
+
+.header-nav__item_active .nav__link { cursor: auto; }

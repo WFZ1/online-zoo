@@ -1,0 +1,25 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: STEP BY STEP
+ * ----------------------------------------------------------------------------
+ */
+
+.main__step-by-step { width: rem(790, $text-size); }
+.step-by-step__title { margin-bottom: em(31, $title-font-size); }
+.step-by-step__carousel { margin-bottom: em(28, $text-size); }
+.step-by-step-carousel__container { margin-bottom: em(29, $text-size); }
+
+.step-by-step-carousel__text {
+  line-height: em(16, $text-font-size);
+  margin-bottom: em(29, $text-font-size);
+}
+
+.step-by-step-carousel__image {
+  width: 100%;
+  height: rem(323, $text-size);
+  object-fit: cover;
+  border-radius: rem(5, $text-size);
+}
+
+.step-by-step-carousel__image_top-position_71 { object-position: 0 71%; }
+.step-by-step-carousel__fraction .carousel-fraction__total { color: $text-secondary-color; }

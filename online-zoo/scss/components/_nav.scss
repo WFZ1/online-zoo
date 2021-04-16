@@ -1,0 +1,6 @@
+/* NAV ================================================================================ */
+
+.nav__item { font-size: rem($nav-item-font-size, $text-size); }
+.nav__item_active .nav__link { cursor: default; }
+.nav_color_dark .nav__link { color: $nav-item-color-dark; }
+.nav_color_light .nav__link { color: $nav-item-color-light; }

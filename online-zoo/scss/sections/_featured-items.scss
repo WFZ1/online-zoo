@@ -1,0 +1,50 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: FEATURED ITEMS
+ * ----------------------------------------------------------------------------
+ */
+
+.featured-items__title { margin-bottom: em(35, $title-font-size); }
+
+.featured-items-carousel { 
+  position: relative;
+  margin-bottom: rem(29, $text-size);
+}
+
+.featured-items-carousel__container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: rem(30, $text-size);
+  margin-bottom: rem(30, $text-size);
+}
+
+.featured-items-carousel__arrow {
+  position: absolute;
+  top: 38.5%;
+
+  &.carousel__arrow_type_prev { left: rem(6, $text-size); }
+  &.carousel__arrow_type_next { right: rem(6, $text-size); }
+}
+
+.featured-items-carousel__card {
+  width: rem(278, $text-size);
+  height: rem(399, $text-size);
+  overflow: hidden;
+
+  &::before { background-image: linear-gradient(348.75deg, #000 10.15%, rgba(0,0,0,0) 59%); }
+}
+
+.featured-items-carousel__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: rem(5, $text-size);
+}
+
+.featured-items-carousel__info { 
+  padding-bottom: rem(42, $text-size);
+  transform: translateY(100%);
+  transition: transform .5s;
+}
+
+.featured-items-carousel__card:hover .featured-items-carousel__info { transform: translateY(0); }

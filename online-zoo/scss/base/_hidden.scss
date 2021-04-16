@@ -1,0 +1,51 @@
+/* HIDDEN ================================================================================ */
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0 0 99.9% 99.9%);
+  clip-path: inset(0 0 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+}
+
+@include at($max, $phone - 1) {
+  .hidden-phone { display: $hidden; }
+}
+
+@include at($min, $phone) {
+  .hidden-phone-and-up { display: $hidden; }
+}
+
+@include at($max, $tablet - 1) {
+  .hidden-tablet { display: $hidden; }
+}
+
+@include at($min, $tablet) {
+  .hidden-tablet-and-up { display: $hidden; }
+}
+
+@include at($max, $lap - 1) {
+  .hidden-lap { display: $hidden; }
+}
+
+@include at($min, $lap) {
+  .hidden-lap-and-up { display: $hidden; }
+}
+
+@include at($max, $desk - 1) {
+  .hidden-desk { display: $hidden; }
+}
+
+@include at($min, $desk) {
+  .hidden-desk-and-up { display: $hidden; }
+}
+
+@include at($max, $widescreen - 1) {
+  .hidden-wide { display: $hidden; }
+}
+
+@include at($min, $widescreen) {
+  .hidden-wide-and-up { display: $hidden; }
+}

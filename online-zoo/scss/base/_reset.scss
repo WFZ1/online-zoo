@@ -1,0 +1,54 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  RESET
+ * ----------------------------------------------------------------------------
+ */
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  &:first-child { margin-top: 0; }
+}
+
+p {
+  margin-top: 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+img,
+svg,
+iframe {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a { text-decoration: none; }
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+input,
+textarea {
+  background-color: transparent;
+}
+
+input[type=submit] { border: 0; } 
+
+address { font-style: normal; }

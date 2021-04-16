@@ -1,0 +1,119 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: HERO
+ * ----------------------------------------------------------------------------
+ */
+
+.hero {
+  position: relative;
+  height: rem(940, $text-size);
+}
+
+.hero__wrap {
+  position: relative;
+  height: 100%;
+  margin-left: calc((100vw - #{ rem($wrapper, $text-size) }) / 2);
+}
+
+.hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__header {
+  position: absolute;
+  top: rem(205, $text-size);
+  left: rem(210, $text-size);
+}
+
+.hero__title {
+  max-width: em(800, 89);
+  margin: 0 0 em(39, 89);
+  font-weight: 900;
+  font-size: rem(89, $text-size);
+  line-height: em(104, 89);
+  color: #fefefe;
+}
+
+.hero__social-media {
+  position: absolute;
+  left: 0;
+  bottom: rem(110, $text-size);
+}
+
+/* CAROUSEL ================================================================================ */
+
+.hero-carousel {
+  position: absolute;
+  bottom: rem(110, $text-size);
+  right: 0;
+}
+
+.hero-carousel__container {
+  position: relative;
+  display: flex;
+  max-width: rem(1080, $text-size);
+  margin-bottom: rem(20, $text-size);
+  padding-left: rem(135, $text-size);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 54%;
+    transform: translateY(-50%);
+    background-color: #fff;
+  }
+
+  &::before {
+    right: 0;
+    left: 7px;
+    height: 1px;
+  }
+
+  &::after {
+    left: 0;
+    width: 5px;
+    height: 5px;
+    padding: 3px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-clip: content-box;
+  }
+}
+
+.hero-carousel__card {
+  width: rem(140, $text-size);
+  height: rem(203, $text-size);
+  margin-top: rem(90, $text-size);
+  margin-right: rem(46, $text-size);
+  flex-shrink: 0;
+  transition: width .3s, height .3s;
+
+  &::before { background-image: linear-gradient(357.17deg, #000 -56.45%, rgba(0,0,0,0) 65.03%); }
+
+  &.carousel__card_active {
+    width: rem(245, $text-size);
+    height: rem(352, $text-size);
+    margin-top: 0;
+  }
+}
+
+.hero-carousel__image {
+  height: 100%;
+  object-fit: cover;
+  filter: drop-shadow(rem(5, $text-size) rem(4, $text-size) rem(50, $text-size) rgba(152,157,198,.25));
+  border-radius: rem(5, $text-size);
+}
+
+.hero-carousel__info { padding-bottom: rem(33, $text-size); }
+.hero-carousel__image_left-position_80 { object-position: 80%; }
+
+.hero-carousel__controls {
+  display: inline-block;
+  margin-left: rem(320, $text-size);
+}

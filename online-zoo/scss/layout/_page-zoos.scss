@@ -1,0 +1,154 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  MAIN
+ * ----------------------------------------------------------------------------
+ */
+
+.page-zoo__main {
+  display: flex;
+  padding: rem(60, $text-size) rem(157, $text-size) rem(100, $text-size) 0;
+  align-items: flex-start;
+}
+
+// FIXED CAROUSEL
+
+.page-zoo__carousel {
+  position: sticky;
+  top: rem(60, $text-size);
+  left: rem(26, $text-size);
+
+  @include at ($min, '1920px') {
+    left: calc((100vw - 1920px) / 2 + 26px);
+  }
+}
+
+.page-zoo-carousel { width: rem(157, $text-size); }
+
+.page-zoo-carousel__container {
+  height: rem(511, $text-size);
+  margin: rem(44, $text-size) 0;
+  align-items: center;
+  overflow: hidden;
+}
+
+.page-zoo-carousel__item {
+  margin-bottom: rem(10, $text-size);
+  cursor: pointer;
+}
+
+.page-zoo-carousel__image {
+  width: rem(108, $text-size);
+  height: rem(108, $text-size);
+  object-fit: cover;
+  border-radius: 50%;
+  transition: width .3s, height .3s;
+}
+
+.page-zoo-carousel__image_left-position_87 { object-position: 87%; }
+.page-zoo-carousel__image_left-position_100 { object-position: 100%; }
+
+.page-zoo-carousel__item_active {
+  position: relative;
+  padding: rem(10, $text-size);
+  background-image: linear-gradient(90deg, #07eee0 -20%, #df496d 93%);
+  border-radius: 50%;
+  cursor: auto;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: rem(3, $text-size);
+    bottom: rem(3, $text-size);
+    left: rem(3, $text-size);
+    right: rem(3, $text-size);
+    background-color: #fbfbfb;
+    border-radius: 50%;
+  }
+
+  .page-zoo-carousel__image {
+    position: relative;
+    z-index: 1;
+    width: rem(137, $text-size);
+    height: rem(137, $text-size);
+  }
+}
+
+.page-zoo-carousel__arrow {
+  position: absolute;
+  left: 45%;
+  width: rem(15, $text-size);
+  height: rem(23, $text-size);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &.carousel__arrow_type_prev { top: rem(0, $text-size); }
+  &.carousel__arrow_type_next { bottom: rem(0, $text-size); }
+}
+
+.page-zoo-carousel__item_active a { cursor: auto; }
+
+// CONTENT
+
+.page-zoo__title { margin-bottom: rem(40, $text-size); }
+.page-zoo__content { align-items: flex-start; }
+
+.page-zoo__videos {
+  max-width: rem(790, $text-size);
+  margin-right: rem(30, $text-size);
+}
+
+.page-zoo__main-video {
+  width: 100%;
+  height: rem(442, $text-size);
+  margin-bottom: rem(30, $text-size);
+  border-radius: rem(5, $text-size);
+}
+
+.page-zoo__thumbnails {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: rem(26, $text-size);
+  margin-bottom: rem(30, $text-size);
+}
+
+.page-zoo__thumbnail {
+  width: 100%;
+  height: rem(141, $text-size);
+  object-fit: cover;
+  border-radius: rem(5, $text-size);
+}
+
+.page-zoo__dots { justify-content: center; }
+
+.page-zoo__dot {
+  width: rem(8, $text-size);
+  height: rem(8, $text-size);
+  margin-right: rem(5, $text-size);
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.page-zoo__dot_active {
+  width: rem(11, $text-size);
+  height: rem(11, $text-size);
+  background-image: $accent-gradient;
+}
+
+.page-zoo__description {
+  max-width: rem(380, $text-size);
+  margin-bottom: rem(35, $text-size);
+}
+
+.page-zoo__subtitle {
+  margin-top: 0;
+  margin-bottom: rem(6, $text-size);
+}
+
+.page-zoo__text {
+  line-height: rem(16, 14);
+  margin-bottom: rem(13, $text-size);
+}
+
+.page-zoo__text_last { margin-right: rem(20, $text-size); }
+.page-zoo__btn { min-width: rem(194, $text-size); }

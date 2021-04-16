@@ -1,0 +1,33 @@
+/* SOCIAL MEDIA ================================================================================ */
+
+.social-media_direction_row .social-media__item { margin-right: rem(15, $text-size); }
+.social-media_direction_column .social-media__item { margin-bottom: rem(15, $text-size); }
+
+.social-media__link {
+  display: block;
+  width: rem(20, $text-size);
+  background-size: cover;
+  transition: filter .3s;
+
+  &:hover { filter: invert(74%) sepia(36%) saturate(611%) hue-rotate(113deg) brightness(300%) contrast(92%); }
+}
+
+.social-media__instagram {
+  height: rem(20, $text-size);
+  background-image: url("../assets/icons/social-media/icon-instagram.svg");
+}
+
+.social-media__twitter {
+  height: rem(17, $text-size);
+  background-image: url("../assets/icons/social-media/icon-twitter.svg");
+}
+
+.social-media__youtube {
+  height: rem(14, $text-size);
+  background-image: url("../assets/icons/social-media/icon-youtube.svg");
+}
+
+.social-media__vk {
+  height: rem(12, $text-size);
+  background-image: url("../assets/icons/social-media/icon-vk.svg");
+}

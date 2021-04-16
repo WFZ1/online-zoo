@@ -1,0 +1,33 @@
+/* WRAP ================================================================================ */
+
+.wrapper,
+.container,
+.large-container {
+  margin: auto;
+}
+
+.wrapper { max-width: rem($wrapper, $text-size); }
+.container { max-width: rem($container, $text-size); }
+.large-container { max-width: rem($large-container, $text-size); }
+
+%inline-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.section_highlighted {
+  padding-top: rem(100, $text-size);
+  padding-bottom: rem(100, $text-size);
+  background-color: $content-primary-bg;
+}

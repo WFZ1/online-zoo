@@ -9,12 +9,7 @@ const gulp = require('gulp'),
       responsive = require('gulp-responsive'),
       del = require('del');
 
-const pages = [
-        'landing',
-        'zoos',
-        'map'
-      ],
-      images_folders = [
+const images_folders = [
         'how-it-works',
         'animals',
         'popup',
@@ -39,7 +34,7 @@ const pages = [
 gulp.task('copy', () => {
   // Normalize.css
   return gulp.src('node_modules/normalize.css/normalize.css')
-             .pipe(gulp.dest(`pages/${ page }/css`));
+             .pipe(gulp.dest('css'));
 });
 
 /**
@@ -53,21 +48,15 @@ gulp.task('copy', () => {
  ================================================================================ */
 
 gulp.task('sass', () => {
-  let stream;
-
-  pages.forEach(page => {
-    stream = gulp.src(`pages/${ page }/scss/style.scss`)
-                 .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-                 .pipe(gulp.dest(`pages/${ page }/css`));
-  });
-
-  return stream;
+  return gulp.src('scss/pages/*.scss')
+             .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+             .pipe(gulp.dest('css'));
 });
 
 /* WATCH ================================================================================ */
 
 gulp.task('watch', () => {
-  return gulp.watch('pages/**/scss/*.scss', gulp.series(['sass']));
+  return gulp.watch('scss/**/*.scss', gulp.series(['sass']));
 });
 
 /* Minify CSS
@@ -75,19 +64,13 @@ gulp.task('watch', () => {
  * Generate Source Maps
  ================================================================================ */
 
-gulp.task('minify-css', () => {
-  let stream;
-
-  pages.forEach(page => {
-    stream = gulp.src(`pages/${ page }/style.css`)
-                 .pipe(sourcemaps.init())
-                 .pipe(cleanCSS())
-                 .pipe(rename({ suffix: '.min' }))
-                 .pipe(sourcemaps.write())
-                 .pipe(gulp.dest(`pages/${ page }/css`));
-  });
-
-  return stream;
+gulp.task('minify-css', () => {  
+  return gulp.src('css/*.css')
+             .pipe(sourcemaps.init())
+             .pipe(cleanCSS())
+             .pipe(rename({ suffix: '.min' }))
+             .pipe(sourcemaps.write())
+             .pipe(gulp.dest('css'));
 });
 
 /**
@@ -209,9 +192,7 @@ gulp.task('images:resize', () => {
 const images_folders_str = '{' + images_folders.join(',') + '}';
 
 gulp.task('images:clean', () => {
-  return del([
-    `assets/images/${ images_folders_str }/*.{jpg,png}`,
-  ]);
+  return del([`assets/images/${ images_folders_str }/*.{jpg,png}`]);
 });
 
 /* COMMON CALL ================================================================================ */

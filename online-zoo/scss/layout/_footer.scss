@@ -1,0 +1,174 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  FOOTER
+ * ----------------------------------------------------------------------------
+ */
+
+.footer {
+  padding: rem(100, $text-size) 0 rem(72, $text-size);
+  background-color: $content-secondary-bg;
+  color: #fefefe;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: rem(56, $text-size) rem(140, $text-size);
+  margin-bottom: rem(59, $text-size);
+}
+
+.footer__logo {
+  position: relative;
+  top: rem(-10, $text-size);
+  max-width: max-content;
+  color: inherit;
+}
+
+.footer__btn {
+  min-width: rem(275, $text-size);
+  &:hover { filter: drop-shadow(15px 16px 10px #4f4f4f) grayscale(.6); }
+}
+
+// NAV
+
+.footer-nav { align-self: center; }
+
+.footer-nav__item {
+  margin-right: em(73, $nav-item-font-size);
+  font-weight: 500;
+}
+
+.footer-nav .nav__link {
+  color: inherit;
+  transition: color .3s;
+
+  &:hover { color: $accent-color; }
+}
+
+// FORM
+
+.footer__form { max-width: rem(383, $text-size); }
+
+.footer__subtitle {
+  margin-bottom: rem(26, $text-size);
+  color: inherit;
+}
+
+.footer__field {
+  width: 100%;
+  margin-bottom: rem(13, $text-size);
+  padding: rem(8, $text-size) 0;
+  border-width: 0 0 1px;
+  border-color: #bdbdbd;
+  color: #e0e0e0;
+  
+  &::placeholder { color: #e0e0e0; }
+}
+
+.footer__field_last { margin-bottom: rem(22, $text-size); }
+
+.footer__message {
+  margin: 0 0 rem(26, $text-size);
+  border: rem(1, $text-size) solid #bdbdbd;
+  border-radius: rem(3, $text-size);
+  color: $text-secondary-color;
+}
+
+.footer__message-legend {
+  padding-left: em(3, 12);
+  padding-right: em(5, 12);
+  font-size: rem(12, $text-size);
+}
+
+.footer__message-field {
+  width: 100%;
+  padding: rem(5, $text-size);
+  resize: none;
+  border: 0;
+  color: #e0e0e0;
+}
+
+.footer__agree {
+  display: inline-flex;
+  margin-left: rem(2, $text-size);
+  margin-bottom: rem(20, $text-size);
+  align-items: center;
+  color: $text-secondary-color;
+  cursor: pointer;
+}
+
+.footer__agree-field {
+  -webkit-appearance: none;
+          appearance: none;
+  width: rem(13, $text-size);
+  height: rem(13, $text-size);
+  margin-right: rem(6, $text-size);
+  border: rem(1, $text-size) solid #bdbdbd;
+  border-radius: rem(1, $text-size);
+  cursor: pointer;
+
+  &:checked {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMzczIDEwMjQiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0zNTMgNzE1TDE4MiA1NDJsOTQtOTQgMjU3IDI1OCA1NjQtNTcwIDk0IDk1LTMyNSAzMjhDNjg3IDc0MCA1MzcgODg4IDUzMiA4ODhzLTg1LTc4LTE3OS0xNzN6Ii8+PC9zdmc+");
+    background-position: 50%;
+  }
+}
+
+.footer__agree-text { font-size: rem(12, $text-size); }
+
+.footer__form-submit {
+  display: inline-flex;
+  margin-right: rem(14, $text-size);
+  padding: 0;
+  align-items: center;
+  text-transform: uppercase;
+  color: inherit;
+  line-height: 1;
+  cursor: pointer;
+  background: url("../assets/icons/icon-chevron-right-light.svg") no-repeat right center;
+
+  &::after {
+    content: "";
+    width: rem(47, $text-size);
+    height: rem(1, $text-size);
+    margin-left: rem(24, $text-size);
+    margin-right: rem(1, $text-size);
+    background-color: #fefefe;
+    transition: width .3s;
+  }
+
+  &:hover::after { width: rem(75, $text-size); }
+}
+
+// CONTACTS
+
+.footer-contacts__title { margin-bottom: rem(35, $text-size); }
+.footer-contacts__address { margin-bottom: rem(20, $text-size); }
+
+.footer-contacts__link {
+  color: inherit;
+  transition: color .3s;
+
+  &:hover { color: $accent-color; }
+}
+
+.footer-contacts__info { margin-bottom: rem(5, $text-size); }
+.footer-contacts__info_indented { margin-bottom: rem(20, $text-size); }
+.footer__social-media .social-media__item_type_youtube { order: 1; }
+
+// COPYRIGHTS
+
+.footer__hr {
+  width: 100%;
+  margin: rem(30, $text-size) 0;
+  border-width: .5px 0 0;
+  border-color: inherit;
+}
+
+.footer__copyrights-text {
+  display: block;
+  margin-bottom: rem(5, $text-size);
+  color: $text-secondary-color;
+  font-size: rem(12, $text-size);
+
+  &:last-child { margin-bottom: 0; }
+}

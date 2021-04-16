@@ -1,0 +1,99 @@
+/* BUTTON & LINK ================================================================================ */
+
+%link-or-btn__icon {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+%link-or-btn__icon_type_play {
+  content: "";
+  display: block;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+}
+
+.link {
+  @extend %inline-box;
+  font-size: rem($link-font-size, $text-size);
+}
+
+.link__text {
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.link__icon {
+  @extend %link-or-btn__icon;
+
+  width: em(24, $link-font-size);
+  height: em(24, $link-font-size);
+  margin-right: em(2, $link-font-size);
+  align-items: center;
+}
+
+.link__icon_type_play::before {
+  @extend %link-or-btn__icon_type_play;
+  margin-left: em(2, $link-font-size);
+  border-width: em(4, $link-font-size) 0 em(4, $link-font-size) em(6, $link-font-size);
+}
+
+.link__icon_type_usd {
+  align-items: flex-end;
+  
+  &::before {
+    content: "$";
+    color: #fff;
+    font-weight: 500;
+    font-size: rem(18, $text-size);
+  }
+}
+
+.link_accent {
+  .link__text { color: $accent-color; }
+  .link__icon {
+    border-color: $accent-color;
+
+    &::before { border-left-color: $accent-color; }
+  }
+}
+
+.btn {
+  @extend %inline-box;
+
+  min-width: em(245, $btn-font-size);
+  min-height: em(55, $btn-font-size);
+  padding: em(11.5, $btn-font-size) em(15, $btn-font-size);
+  font-size: rem($btn-font-size, $text-size);
+  background-image: $btn-bg;
+  border-radius: em(3, $btn-font-size);
+  cursor: pointer;
+  transition: filter .3s;
+
+  &:hover {
+    filter: drop-shadow(15px 16px 10px #333) grayscale(.6);
+  }
+}
+
+.btn__text {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $btn-color;
+}
+
+.btn__icon {
+  @extend %link-or-btn__icon;
+
+  width: em(32, $btn-font-size);
+  height: em(32, $btn-font-size);
+  margin-right: em(5, $btn-font-size);
+  align-items: center;
+}
+
+.btn__icon_type_play::before {
+  @extend %link-or-btn__icon_type_play;
+  margin-left: em(2, $btn-font-size);
+  border-width: em(5, $btn-font-size) 0 em(5, $btn-font-size) em(8, $btn-font-size);
+}

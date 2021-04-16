@@ -1,0 +1,19 @@
+/* LOGO ================================================================================ */
+
+.logo {
+  color: $title-color;
+  font-weight: 900;
+  text-transform: lowercase;
+}
+
+.logo__text {
+  display: block;
+  font-size: rem(36, $text-size);  
+}
+
+.logo__subtext {
+  display: block;
+  margin-top: em(-5, 18);
+  font-size: rem(18, $text-size);
+  letter-spacing: .08em;
+}

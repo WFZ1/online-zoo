@@ -1,0 +1,25 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  SECTION: GOALS
+ * ----------------------------------------------------------------------------
+ */
+
+.goals { padding-bottom: rem(130, $text-size); }
+
+.goals__wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: rem(30, $text-size);
+}
+
+.goals__image-wrap {
+  height: rem(80, $text-size);
+  margin-bottom: rem(15, $text-size);
+}
+
+.goals__subtitle {
+  margin: 0 0 rem(16, $text-size);
+  text-align: center;
+}
+
+.goals__text { line-height: em(16, 14); }

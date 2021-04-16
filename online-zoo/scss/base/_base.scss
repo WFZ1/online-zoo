@@ -1,0 +1,21 @@
+/**
+ * ----------------------------------------------------------------------------
+ *  BASE
+ * ----------------------------------------------------------------------------
+ */
+
+html {
+  font-family: $font-main;
+  color: $text-color;
+  font-size: $default-text-font-size;
+}
+
+.page { overflow-x: hidden; }
+
+.header,
+.main,
+.footer {
+  min-width: rem(320, $text-size);
+}
+
+.main { background-color: #fbfbfb; }
