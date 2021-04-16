@@ -59,6 +59,7 @@
   max-width: rem(1080, $text-size);
   margin-bottom: rem(20, $text-size);
   padding-left: rem(135, $text-size);
+  overflow: hidden;
 
   &::before,
   &::after {

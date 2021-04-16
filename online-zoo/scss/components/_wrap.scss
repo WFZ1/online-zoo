@@ -6,7 +6,13 @@
   margin: auto;
 }
 
-.wrapper { max-width: rem($wrapper, $text-size); }
+.wrapper { 
+  max-width: rem($wrapper, $text-size);
+
+  @include at($max, $desk) {
+    max-width: rem($wrapper_desk, $text-size);
+  }
+}
 .container { max-width: rem($container, $text-size); }
 .large-container { max-width: rem($large-container, $text-size); }
 

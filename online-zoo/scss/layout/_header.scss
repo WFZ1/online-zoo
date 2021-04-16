@@ -6,19 +6,43 @@
 
 .header {
   position: relative;
+  padding: 0 rem($desktop-container-gutter, $text-size);
   box-shadow: 0px 4px 8px rgba(44,101,77,.08);
+
+  @include at($max, $phone-sm) {
+    padding: 0 rem($mobile-container-gutter, $text-size);
+  }
 }
 
 .header__wrapper { padding : rem(15, $text-size) 0 rem(23, $text-size); }
-.header__nav { margin: rem(20, $text-size) rem(20, $text-size) 0; }
+
+.header__logo {
+  @include at($max, $phone) {
+    margin-right: auto;
+  }
+}
+
+.header__nav { margin: rem(20, $text-size) rem(50, $text-size) 0; }
 .header-nav { flex: 1; }
-.header-nav__list { justify-content: center; }
+
+.header-nav__list {
+  padding-left: rem(5, $text-size);
+  justify-content: center;
+}
 
 .header-nav__item {
   margin-right: em(80, $nav-item-font-size);
   padding: 0 em(5, $nav-item-font-size) 0 em(1, $nav-item-font-size);
   border-bottom: 1px solid transparent;
   transition: font-weight $trans-duration, border-color $trans-duration;
+
+  @include at($max, $desk) {
+    margin-right: 11.35%;
+  }
+
+  @include at($max, $tablet) {
+    margin-right: rem(25, $text-size);
+  }
 }
 
 .header-nav__item_active,
@@ -28,3 +52,14 @@
 }
 
 .header-nav__item_active .nav__link { cursor: auto; }
+
+.header__hamburger-menu {
+  @include at($max, $phone) {
+    margin-top: rem(9, $text-size);
+    margin-left: rem(34, $text-size);
+  }
+
+  @include at($max, $phone-sm) {
+    margin-left: rem(24, $text-size);
+  }
+}

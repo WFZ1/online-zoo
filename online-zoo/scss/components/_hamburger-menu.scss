@@ -1,0 +1,31 @@
+%hamburger-bars {
+  height: rem(3, $text-size);
+  background-color: $nav-item-color-dark;
+}
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  width: rem(40, $text-size);
+  padding: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    margin-bottom: rem(6, $text-size);
+
+    @extend %hamburger-bars;
+  }
+
+  &::before {}
+  &::after {}
+}
+
+.hamburger-menu__bar {
+  width: rem(33, $text-size);
+  order: 1;
+  align-self: flex-end;
+
+  @extend %hamburger-bars;
+}

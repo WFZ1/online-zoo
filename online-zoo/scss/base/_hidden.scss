@@ -10,42 +10,50 @@
   width: 1px;
 }
 
-@include at($max, $phone - 1) {
+@include at($max, $phone-sm) {
+  .hidden-phone-sm { display: $hidden; }
+}
+
+@include at($min, $phone-sm + 1) {
+  .hidden-phone-sm-and-up { display: $hidden; }
+}
+
+@include at($max, $phone) {
   .hidden-phone { display: $hidden; }
 }
 
-@include at($min, $phone) {
+@include at($min, $phone + 1) {
   .hidden-phone-and-up { display: $hidden; }
 }
 
-@include at($max, $tablet - 1) {
+@include at($max, $tablet) {
   .hidden-tablet { display: $hidden; }
 }
 
-@include at($min, $tablet) {
+@include at($min, $tablet + 1) {
   .hidden-tablet-and-up { display: $hidden; }
 }
 
-@include at($max, $lap - 1) {
+@include at($max, $lap) {
   .hidden-lap { display: $hidden; }
 }
 
-@include at($min, $lap) {
+@include at($min, $lap + 1) {
   .hidden-lap-and-up { display: $hidden; }
 }
 
-@include at($max, $desk - 1) {
+@include at($max, $desk) {
   .hidden-desk { display: $hidden; }
 }
 
-@include at($min, $desk) {
+@include at($min, $desk + 1) {
   .hidden-desk-and-up { display: $hidden; }
 }
 
-@include at($max, $widescreen - 1) {
+@include at($max, $widescreen) {
   .hidden-wide { display: $hidden; }
 }
 
-@include at($min, $widescreen) {
+@include at($min, $widescreen + 1) {
   .hidden-wide-and-up { display: $hidden; }
 }
