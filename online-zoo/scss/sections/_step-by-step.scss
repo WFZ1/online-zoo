@@ -4,14 +4,56 @@
  * ----------------------------------------------------------------------------
  */
 
-.main__step-by-step { width: rem(790, $text-size); }
-.step-by-step__title { margin-bottom: em(31, $title-font-size); }
-.step-by-step__carousel { margin-bottom: em(28, $text-size); }
-.step-by-step-carousel__container { margin-bottom: em(29, $text-size); }
+.main__step-by-step {
+  max-width: rem(830, $text-size);
+  padding: 0 rem($desktop-container-gutter, $text-size);
+
+  @include at($max, $desk) {
+    max-width: rem(786, $text-size);
+  }
+
+  @include at($max, $phone) {
+    margin-bottom: rem(68, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    padding: 0 rem($mobile-container-gutter, $text-size);
+    margin: rem(50, $text-size) 0;
+  }
+}
+
+.step-by-step__title {
+  margin-bottom: em(31, $title-font-size);
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(25, $title-font-size);
+    font-size: rem(36, $text-size);
+    line-height: em(42, 36);
+  }
+}
+.step-by-step__carousel { 
+  margin-bottom: em(28, $text-size);
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(20, $text-size);
+  }
+}
+
+.step-by-step-carousel__container {
+  margin-bottom: em(29, $text-size);
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(20, $text-size);
+  }
+}
 
 .step-by-step-carousel__text {
   line-height: em(16, $text-font-size);
   margin-bottom: em(29, $text-font-size);
+
+  @include at('', $lap, $desk) {
+    margin-bottom: em(14, $text-font-size);
+  }
 }
 
 .step-by-step-carousel__image {
@@ -21,5 +63,17 @@
   border-radius: rem(5, $text-size);
 }
 
+.step-by-step-carousel__controls  {
+  @include at($max, $phone-xl) {
+    margin-left: rem(10, $text-size);
+  }
+}
+
 .step-by-step-carousel__image_top-position_71 { object-position: 0 71%; }
 .step-by-step-carousel__fraction .carousel-fraction__total { color: $text-secondary-color; }
+
+.step-by-step-carousel__btn {
+  @include at($max, $phone-xl) {
+    margin-left: rem(10, $text-size);
+  }
+}

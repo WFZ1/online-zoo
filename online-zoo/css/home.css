@@ -1267,24 +1267,70 @@ html {
  * ----------------------------------------------------------------------------
  */
 .main__step-by-step {
-  width: 56.42857rem;
+  max-width: 59.28571rem;
+  padding: 0 1.42857rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .main__step-by-step {
+    max-width: 56.14286rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .main__step-by-step {
+    margin-bottom: 4.85714rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main__step-by-step {
+    padding: 0 0.71429rem;
+    margin: 3.57143rem 0;
+  }
 }
 
 .step-by-step__title {
   margin-bottom: 0.64583em;
 }
 
+@media screen and (max-width: 480px) {
+  .step-by-step__title {
+    margin-bottom: 0.52083em;
+    font-size: 2.57143rem;
+    line-height: 1.16667em;
+  }
+}
+
 .step-by-step__carousel {
   margin-bottom: 2em;
+}
+
+@media screen and (max-width: 480px) {
+  .step-by-step__carousel {
+    margin-bottom: 1.42857em;
+  }
 }
 
 .step-by-step-carousel__container {
   margin-bottom: 2.07143em;
 }
 
+@media screen and (max-width: 480px) {
+  .step-by-step-carousel__container {
+    margin-bottom: 1.42857em;
+  }
+}
+
 .step-by-step-carousel__text {
   line-height: 1.14286em;
   margin-bottom: 2.07143em;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .step-by-step-carousel__text {
+    margin-bottom: 1em;
+  }
 }
 
 .step-by-step-carousel__image {
@@ -1294,12 +1340,24 @@ html {
   border-radius: 0.35714rem;
 }
 
+@media screen and (max-width: 480px) {
+  .step-by-step-carousel__controls {
+    margin-left: 0.71429rem;
+  }
+}
+
 .step-by-step-carousel__image_top-position_71 {
   object-position: 0 71%;
 }
 
 .step-by-step-carousel__fraction .carousel-fraction__total {
   color: #bdbdbd;
+}
+
+@media screen and (max-width: 480px) {
+  .step-by-step-carousel__btn {
+    margin-left: 0.71429rem;
+  }
 }
 
 /**
