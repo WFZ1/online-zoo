@@ -7,12 +7,38 @@
 .hero {
   position: relative;
   height: rem(940, $text-size);
+  padding-left: rem($desktop-container-gutter, $text-size);
+
+  @include at($max, $widescreen) {
+    height: rem(926, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    height: rem(934, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    height: rem(669, $text-size);
+    padding-left: rem($mobile-container-gutter, $text-size);
+  }
 }
 
 .hero__wrap {
   position: relative;
   height: 100%;
-  margin-left: calc((100vw - #{ rem($wrapper, $text-size) }) / 2);
+  margin-left: calc((100vw - #{ rem($wrapper, $text-size) }) / 2 - #{ rem($desktop-container-gutter, $text-size) });
+
+  @include at($max, $wrapper + $desktop-container-gutter * 2px) {
+    margin-left: 0;
+  }
+
+  @include at($max, $desk) {
+    margin-left: calc((100vw - #{ rem($wrapper_desk, $text-size) }) / 2 - #{ rem($desktop-container-gutter, $text-size) });
+  }
+
+  @include at($max, $wrapper_desk + $desktop-container-gutter * 2px) {
+    margin-left: 0;
+  }
 }
 
 .hero__image {
@@ -28,6 +54,24 @@
   position: absolute;
   top: rem(205, $text-size);
   left: rem(210, $text-size);
+  padding-right: rem($desktop-container-gutter, $text-size);
+
+  @include at($max, $widescreen) {
+    top: rem(128, $text-size);
+  }
+
+  @include at($max, $desk) {
+    left: 0;
+  }
+
+  @include at($max, $tablet) {
+    top: rem(122, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    top: rem(92, $text-size);
+    padding-right: rem($mobile-container-gutter, $text-size);
+  }
 }
 
 .hero__title {
@@ -37,12 +81,36 @@
   font-size: rem(89, $text-size);
   line-height: em(104, 89);
   color: #fefefe;
+
+  @include at($max, $tablet) {
+    margin-bottom: em(30, 64);
+    font-size: rem(64, $text-size);
+    line-height: em(75, 64);
+  }
+
+  @include at($max, $phone - 1) {
+    margin-bottom: em(15, 48);
+    font-size: rem(48, $text-size);
+    line-height: em(56, 48);
+  }
 }
 
 .hero__social-media {
   position: absolute;
   left: 0;
   bottom: rem(110, $text-size);
+
+  @include at($max, $widescreen) {
+    bottom: rem(72.5, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    bottom: rem(100, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    display: none;
+  }
 }
 
 /* CAROUSEL ================================================================================ */
@@ -51,15 +119,42 @@
   position: absolute;
   bottom: rem(110, $text-size);
   right: 0;
+
+  @include at($max, $widescreen) {
+    bottom: rem(65, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    bottom: rem(97, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    bottom: rem(50, $text-size);
+  }
 }
 
 .hero-carousel__container {
   position: relative;
   display: flex;
-  max-width: rem(1080, $text-size);
+  width: 1080 / 1920 * 100vw;
   margin-bottom: rem(20, $text-size);
   padding-left: rem(135, $text-size);
   overflow: hidden;
+  
+  @include at($max, $widescreen) {
+    width: calcFluidFontSize(588, 720, 640, 1200);
+    margin-bottom: rem(25, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    padding-left: rem(71, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    width: calcFluidFontSize(317, 585, 320, 639);
+    margin-bottom: rem(15, $text-size);
+    padding-left: rem(21, $text-size);
+  }
 
   &::before,
   &::after {
@@ -68,6 +163,10 @@
     top: 54%;
     transform: translateY(-50%);
     background-color: #fff;
+
+    @include at($max, $phone - 1) {
+      top: 49%;
+    }
   }
 
   &::before {
@@ -95,12 +194,31 @@
   flex-shrink: 0;
   transition: width .3s, height .3s;
 
+  @include at($max, $widescreen) {
+    width: rem(180, $text-size);
+    height: rem(261, $text-size);
+    margin-top: rem(45, $text-size);
+    margin-right: rem(30, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    width: rem(113, $text-size);
+    height: rem(164, $text-size);
+    margin-top: rem(18, $text-size);
+    margin-right: rem(10, $text-size);
+  }
+
   &::before { background-image: linear-gradient(357.17deg, #000 -56.45%, rgba(0,0,0,0) 65.03%); }
 
   &.carousel__card_active {
     width: rem(245, $text-size);
     height: rem(352, $text-size);
     margin-top: 0;
+
+    @include at($max, $phone - 1) {
+      width: rem(140, $text-size);
+      height: rem(202, $text-size);
+    }
   }
 }
 
@@ -111,10 +229,64 @@
   border-radius: rem(5, $text-size);
 }
 
-.hero-carousel__info { padding-bottom: rem(33, $text-size); }
 .hero-carousel__image_left-position_80 { object-position: 80%; }
+
+.hero-carousel__info { 
+  padding-bottom: rem(33, $text-size);
+  
+  @include at($max, $phone - 1) {
+    padding: rem(10, $text-size) rem(4, $text-size) rem(11, $text-size) rem(8, $text-size);
+  }
+}
+
+.hero-carousel__text {
+  @include at($max, $phone - 1) {
+    margin-bottom: em(9, 12);
+    font-size: rem(12, $text-size);
+    line-height: em(14, 12);
+  }
+}
+
+.hero-carousel__info-link.carousel-info__link_first {
+  @include at($max, $phone - 1) {
+    margin-right: 0;
+    margin-bottom: rem(6, $text-size);
+  }
+}
+
+.hero-carousel__info-text  {
+  @include at($max, $phone - 1) {
+    font-size: rem(10, $text-size);
+    line-height: em(12, 10);
+  }
+}
 
 .hero-carousel__controls {
   display: inline-block;
   margin-left: rem(320, $text-size);
+
+  @include at($max, $widescreen) {
+    margin-left: rem(350, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    margin-left: rem(287, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    margin-left: rem(144, $text-size);
+    line-height: .3;
+  }
+}
+
+.hero-carousel__fraction {
+  @include at($max, $phone - 1) {
+    margin-bottom: 0;
+  }
+}
+
+.hero-carousel__range {
+  @include at($max, $phone - 1) {
+    --length: 140px;
+  }
 }

@@ -18,6 +18,14 @@
   .hidden-phone-sm-and-up { display: $hidden; }
 }
 
+@include at($max, $phone-xl) {
+  .hidden-phone-xl { display: $hidden; }
+}
+
+@include at($min, $phone-xl + 1) {
+  .hidden-phone-xl-and-up { display: $hidden; }
+}
+
 @include at($max, $phone) {
   .hidden-phone { display: $hidden; }
 }

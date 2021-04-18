@@ -21,6 +21,7 @@
  */
 /* PX TO EM ================================================================================ */
 /* PX TO REM ================================================================================ */
+/* RESPONSIVE FONT SIZE ================================================================================ */
 /**
  * --------------------------------------------------------------------------------
  *  FONTS
@@ -222,6 +223,18 @@ html {
 
 @media screen and (min-width: 321px) {
   .hidden-phone-sm-and-up {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hidden-phone-xl {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .hidden-phone-xl-and-up {
     display: none !important;
   }
 }
@@ -678,13 +691,13 @@ html {
 }
 
 .carousel__range {
-  width: 17.5rem;
+  width: var(--length, 245px);
   height: 0.35714rem;
   background-color: rgba(189, 189, 189, 0.57);
 }
 
 .carousel__range::-webkit-slider-thumb {
-  width: calc(245px / var(--max));
+  width: calc(var(--length, 245px) / var(--max));
   height: 0.71429rem;
   margin-top: -0.07143rem;
 }

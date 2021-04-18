@@ -97,12 +97,12 @@
 // RANGE
 
 .carousel__range {
-  width: rem(245, $text-size);
+  width: var(--length, 245px);
   height: rem(5, $text-size);
   background-color: rgba(189,189,189,.57);
 
   &::-webkit-slider-thumb {
-    width: calc(245px / var(--max));
+    width: calc(var(--length, 245px) / var(--max));
     height: rem(10, $text-size);
     margin-top: rem(-1, $text-size);
   }
