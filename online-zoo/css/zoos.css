@@ -29,7 +29,7 @@
 /* ROBOTO ================================================================================ */
 @font-face {
   font-family: Roboto;
-  src: url("../../../assets/fonts/Roboto-Regular.woff2") format("woff2");
+  src: url("../assets/fonts/Roboto-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -37,7 +37,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../../../assets/fonts/Roboto-Italic.woff2") format("woff2");
+  src: url("../assets/fonts/Roboto-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -45,7 +45,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../../../assets/fonts/Roboto-Medium.woff2") format("woff2");
+  src: url("../assets/fonts/Roboto-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -53,7 +53,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../../../assets/fonts/Roboto-MediumItalic.woff2") format("woff2");
+  src: url("../assets/fonts/Roboto-MediumItalic.woff2") format("woff2");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
@@ -61,7 +61,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../../../assets/fonts/Roboto-Bold.woff2") format("woff2");
+  src: url("../assets/fonts/Roboto-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -69,7 +69,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../../../assets/fonts/Roboto-BoldItalic.woff2") format("woff2");
+  src: url("../assets/fonts/Roboto-BoldItalic.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -77,7 +77,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../../../assets/fonts/Roboto-Black.woff2") format("woff2");
+  src: url("../assets/fonts/Roboto-Black.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -85,7 +85,7 @@
 
 @font-face {
   font-family: Roboto;
-  src: url("../../../assets/fonts/Roboto-BlackItalic.woff2") format("woff2");
+  src: url("../assets/fonts/Roboto-BlackItalic.woff2") format("woff2");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -963,9 +963,22 @@ html {
  * ----------------------------------------------------------------------------
  */
 .footer {
-  padding: 7.14286rem 0 5.14286rem;
+  padding: 7.14286rem 1.42857rem 5.14286rem;
   background-color: #333;
   color: #fefefe;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding-top: 6.85714rem;
+    padding-bottom: 3.39286rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 3.57143rem 0.71429rem 1.92857rem;
+  }
 }
 
 .footer__content {
@@ -975,9 +988,32 @@ html {
   margin-bottom: 4.21429rem;
 }
 
+@media screen and (max-width: 1200px) {
+  .footer__content {
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 42.55556% 1fr;
+    grid-gap: 2.85714rem 5.42857rem;
+    margin-bottom: 4.57143rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__content {
+    grid-template-columns: 1fr auto;
+    grid-gap: 1.42857rem;
+    margin-bottom: 4.85714rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__content {
+    grid-column-gap: 0;
+    margin-bottom: 5.64286rem;
+  }
+}
+
 .footer__logo {
-  position: relative;
-  top: -0.71429rem;
+  margin-top: -0.71429rem;
   max-width: max-content;
   color: inherit;
 }
@@ -990,13 +1026,83 @@ html {
   filter: drop-shadow(15px 16px 10px #4f4f4f) grayscale(0.6);
 }
 
+@media screen and (max-width: 1200px) {
+  .footer__btn {
+    grid-row-start: 3;
+    grid-column-start: 2;
+    align-self: flex-start;
+    justify-self: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__btn {
+    grid-row-start: 1;
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__btn {
+    grid-row-start: 5;
+    grid-column: 1/3;
+    margin-top: 1.85714rem;
+  }
+}
+
 .footer-nav {
   align-self: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__nav {
+    margin-top: 1.35714rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__nav {
+    grid-column: 1/3;
+    grid-row-start: 2;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__nav {
+    margin-top: 1.42857rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .footer-nav__item {
   margin-right: 4.5625em;
   font-weight: 500;
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .footer-nav__item {
+    margin-right: 3em;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .footer-nav__item {
+    margin-right: 16.555%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-nav__item {
+    margin-right: 0;
+    margin-bottom: 0.3125em;
+  }
 }
 
 .footer-nav .nav__link {
@@ -1009,12 +1115,39 @@ html {
 }
 
 .footer__form {
+  width: 100%;
   max-width: 27.35714rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__form {
+    grid-row: 2/4;
+    margin-top: 1.85714rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__form {
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__form {
+    margin-top: 0.35714rem;
+  }
 }
 
 .footer__subtitle {
   margin-bottom: 1.85714rem;
   color: inherit;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__subtitle {
+    margin-bottom: 2rem;
+  }
 }
 
 .footer__field {
@@ -1041,6 +1174,12 @@ html {
   color: #bdbdbd;
 }
 
+@media screen and (max-width: 1200px) {
+  .footer__message {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .footer__message-legend {
   padding-left: 0.25em;
   padding-right: 0.41667em;
@@ -1062,6 +1201,12 @@ html {
   align-items: center;
   color: #bdbdbd;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__agree {
+    margin-left: 0;
+  }
 }
 
 .footer__agree-field {
@@ -1096,6 +1241,18 @@ html {
   background: url("../assets/icons/icon-chevron-right-light.svg") no-repeat right center;
 }
 
+@media screen and (max-width: 1200px) {
+  .footer__form-submit {
+    margin-right: 1.14286rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__form-submit {
+    margin-right: 0;
+  }
+}
+
 .footer__form-submit::after {
   content: "";
   width: 3.35714rem;
@@ -1108,6 +1265,25 @@ html {
 
 .footer__form-submit:hover::after {
   width: 5.35714rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__contacts {
+    margin-top: 0.92857rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__contacts {
+    grid-column: 1/3;
+    margin-top: 4.28571rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__contacts {
+    margin-top: 2.5rem;
+  }
 }
 
 .footer-contacts__title {
@@ -1144,6 +1320,21 @@ html {
   margin: 2.14286rem 0;
   border-width: .5px 0 0;
   border-color: inherit;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__hr {
+    margin: 2.28571rem 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer__hr {
+    position: relative;
+    right: -10px;
+    left: 0;
+    width: calc(100% + 10px);
+  }
 }
 
 .footer__copyrights-text {

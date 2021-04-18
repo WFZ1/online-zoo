@@ -5,9 +5,18 @@
  */
 
 .footer {
-  padding: rem(100, $text-size) 0 rem(72, $text-size);
+  padding: rem(100, $text-size) rem($desktop-container-gutter, $text-size) rem(72, $text-size);
   background-color: $content-secondary-bg;
   color: #fefefe;
+
+  @include at($max, $tablet) {
+    padding-top: rem(96, $text-size);
+    padding-bottom: rem(47.5, $text-size);
+  }
+  
+  @include at($max, $phone-xl) {
+    padding: rem(50, $text-size) rem($mobile-container-gutter, $text-size) rem(27, $text-size);
+  }
 }
 
 .footer__content {
@@ -15,11 +24,28 @@
   grid-template-columns: 1fr auto auto;
   grid-gap: rem(56, $text-size) rem(140, $text-size);
   margin-bottom: rem(59, $text-size);
+
+  @include at($max, $desk) {
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: (383 / 900 * 100%) 1fr;
+    grid-gap: rem(40, $text-size) rem(76, $text-size);
+    margin-bottom: rem(64, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    grid-template-columns: 1fr auto;
+    grid-gap: rem(20, $text-size);
+    margin-bottom: rem(68, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    grid-column-gap: 0;
+    margin-bottom: rem(79, $text-size);
+  }
 }
 
 .footer__logo {
-  position: relative;
-  top: rem(-10, $text-size);
+  margin-top: rem(-10, $text-size);
   max-width: max-content;
   color: inherit;
 }
@@ -27,15 +53,69 @@
 .footer__btn {
   min-width: rem(275, $text-size);
   &:hover { filter: drop-shadow(15px 16px 10px #4f4f4f) grayscale(.6); }
+
+  @include at($max, $desk) {
+    grid-row-start: 3;
+    grid-column-start: 2;
+    align-self: flex-start;
+    justify-self: flex-start;
+  }
+
+  @include at($max, $tablet) {
+    grid-row-start: 1;
+    align-self: flex-end;
+  }
+
+  @include at($max, $phone-xl) {
+    grid-row-start: 5;
+    grid-column: 1/3;
+    margin-top: rem(26, $text-size);
+  }
 }
 
 // NAV
 
 .footer-nav { align-self: center; }
 
+.footer__nav {
+  @include at($max, $desk) {
+    margin-top: rem(19, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    grid-column: 1/3;
+    grid-row-start: 2;
+    margin-top: 0;
+  }
+
+  @include at($max, $phone-xl) {
+    margin-top: rem(20, $text-size);
+  }
+}
+
+.footer-nav__list {
+  @include at($max, $tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .footer-nav__item {
   margin-right: em(73, $nav-item-font-size);
   font-weight: 500;
+
+  @include at('', $desk + 1, $widescreen) {
+    margin-right: em(48, $nav-item-font-size);
+  }
+
+  @include at($max, $desk) {
+    margin-right: 16.555%;
+  }
+
+  @include at($max, $tablet) {
+    margin-right: 0;
+    margin-bottom: em(5, $nav-item-font-size);
+  }
 }
 
 .footer-nav .nav__link {
@@ -47,11 +127,32 @@
 
 // FORM
 
-.footer__form { max-width: rem(383, $text-size); }
+.footer__form {
+  width: 100%;
+  max-width: rem(383, $text-size);
+
+  @include at($max, $desk) {
+    grid-row: 2/4;
+    margin-top: rem(26, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+
+  @include at($max, $tablet) {
+    margin-top: rem(5, $text-size);
+  }
+}
 
 .footer__subtitle {
   margin-bottom: rem(26, $text-size);
   color: inherit;
+
+  @include at($max, $desk) {
+    margin-bottom: rem(28, $text-size);
+  }
 }
 
 .footer__field {
@@ -72,6 +173,10 @@
   border: rem(1, $text-size) solid #bdbdbd;
   border-radius: rem(3, $text-size);
   color: $text-secondary-color;
+
+  @include at($max, $desk) {
+    margin-bottom: rem(21, $text-size);
+  }
 }
 
 .footer__message-legend {
@@ -95,6 +200,10 @@
   align-items: center;
   color: $text-secondary-color;
   cursor: pointer;
+
+  @include at($max, $desk) {
+    margin-left: 0;
+  }
 }
 
 .footer__agree-field {
@@ -126,6 +235,14 @@
   cursor: pointer;
   background: url("../assets/icons/icon-chevron-right-light.svg") no-repeat right center;
 
+  @include at($max, $desk) {
+    margin-right: rem(16, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-right: 0;
+  }
+
   &::after {
     content: "";
     width: rem(47, $text-size);
@@ -140,6 +257,21 @@
 }
 
 // CONTACTS
+
+.footer__contacts {
+  @include at($max, $desk) {
+    margin-top: rem(13, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    grid-column: 1/3;
+    margin-top: rem(60, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-top: rem(35, $text-size);
+  }
+}
 
 .footer-contacts__title { margin-bottom: rem(35, $text-size); }
 .footer-contacts__address { margin-bottom: rem(20, $text-size); }
@@ -162,6 +294,17 @@
   margin: rem(30, $text-size) 0;
   border-width: .5px 0 0;
   border-color: inherit;
+
+  @include at($max, $desk) {
+    margin: rem(32, $text-size) 0;
+  }
+
+  @include at($max, $phone-xl) {
+    position: relative;
+    right: -10px;
+    left: 0;
+    width: calc(100% + 10px);
+  }
 }
 
 .footer__copyrights-text {
