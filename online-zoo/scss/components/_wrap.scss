@@ -1,5 +1,15 @@
 /* WRAP ================================================================================ */
 
+%gutter {
+  padding-left: rem($desktop-container-gutter, $text-size);
+  padding-right: rem($desktop-container-gutter, $text-size);
+
+  @include at($max, $phone-xl) {
+    padding-left: rem($mobile-container-gutter, $text-size);
+    padding-right: rem($mobile-container-gutter, $text-size);
+  }
+}
+
 .wrapper,
 .container,
 .large-container {
@@ -14,7 +24,13 @@
   }
 }
 .container { max-width: rem($container, $text-size); }
-.large-container { max-width: rem($large-container, $text-size); }
+
+.large-container { 
+  max-width: rem($large-container + $desktop-container-gutter * 2, $text-size);
+  @extend %gutter;
+}
+
+.gutter { @extend %gutter; }
 
 %inline-box {
   display: inline-flex;

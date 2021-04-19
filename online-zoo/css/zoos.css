@@ -300,6 +300,18 @@ html {
 }
 
 /* WRAP ================================================================================ */
+.large-container, .gutter {
+  padding-left: 1.42857rem;
+  padding-right: 1.42857rem;
+}
+
+@media screen and (max-width: 480px) {
+  .large-container, .gutter {
+    padding-left: 0.71429rem;
+    padding-right: 0.71429rem;
+  }
+}
+
 .wrapper,
 .container,
 .large-container {
@@ -321,7 +333,7 @@ html {
 }
 
 .large-container {
-  max-width: 92.85714rem;
+  max-width: 95.71429rem;
 }
 
 .link, .btn {
