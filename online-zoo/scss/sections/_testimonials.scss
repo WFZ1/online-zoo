@@ -4,19 +4,66 @@
  * ----------------------------------------------------------------------------
  */
 
-.testimonials__title { margin-bottom: em(60, $title-font-size); }
+.testimonials {
+  @include at($max, $widescreen) {
+    max-width: rem(1000 + $desktop-container-gutter * 2, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-top: rem(50, $text-size);
+    margin-bottom: rem(50, $text-size);
+  }
+}
+
+.testimonials__title {
+  margin-bottom: em(60, $title-font-size);
+
+  @include at($max, $tablet) {
+    margin-bottom: em(46, $title-font-size);
+  }
+
+  @include at($max, $phone-xl) {
+    font-size: rem(36, $text-size);
+    line-height: em(42, 36);
+    margin-bottom: em(36, 36);
+  }
+}
 
 .testimonials-carousel {
   position: relative;
-  margin-bottom: em(28, $text-size);
+  margin-bottom: rem(28, $text-size);
+
+  @include at($max, $phone-xl) {
+    margin-bottom: rem(18, $text-size);
+  }
 }
 
 .testimonials-carousel__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: rem(30, $text-size);
-  margin-bottom: em(50, $text-size);
+  margin-bottom: rem(50, $text-size);
   min-height: rem(310, $text-size);
+
+  @include at($max, $widescreen) {
+    max-width: rem($container_desk, $text-size);
+    grid-column-gap: rem(20, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0;
+  }
+
+  @include at('', $phone, $tablet) {
+    margin-left: rem(6, $text-size);
+    margin-right: rem(9, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    min-height: rem(363, $text-size);
+    margin-bottom: rem(40, $text-size);
+  }
 }
 
 .testimonials-carousel__item {
@@ -26,6 +73,15 @@
   background-color: #fefefe;
   box-shadow: 2px 4px 15px rgba(6,12,70,.1);
   border-radius: 5px;
+
+  @include at('', $phone + 1, $widescreen) {
+    padding-left: rem(56, $text-size);
+    padding-right: rem(56, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    padding: rem(50, $text-size) rem(14, $text-size);
+  }
 }
 
 .testimonials-carousel__image {
@@ -37,6 +93,10 @@
   margin-right: auto;
   border-radius: 50%;
   border: 1px solid #bdbdbd;
+
+  @include at($max, $phone-xl) {
+    margin-bottom: rem(47, $text-size);
+  }
 }
 
 .testimonials-carousel__image_vector {
@@ -48,6 +108,12 @@
 .testimonials-carousel__name {
   display: block;
   margin-bottom: em(18, $subtitle-font-size);
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(19, 16);
+    font-size: rem(16, $text-size);
+    line-height: em(19, 16);
+  }
 }
 
 .testimonials-carousel__review { line-height: em(16, $text-font-size); }
