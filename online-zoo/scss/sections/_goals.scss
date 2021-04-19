@@ -4,12 +4,44 @@
  * ----------------------------------------------------------------------------
  */
 
-.goals { padding-bottom: rem(130, $text-size); }
+.goals {
+  padding-left: rem($desktop-container-gutter, $text-size);
+  padding-right: rem($desktop-container-gutter, $text-size);
+  padding-bottom: rem(130, $text-size);
+
+  @include at($max, $desk) {
+    padding-bottom: rem(116, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    padding-bottom: rem(100, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    padding: rem(47, $text-size) rem($mobile-container-gutter, $text-size);
+  }
+}
 
 .goals__wrap {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: rem(30, $text-size);
+
+  @include at($max, $desk) {
+    max-width: rem($wrapper_desk, $text-size);
+    grid-column-gap: rem(20, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    max-width: rem(285, $text-size);
+    grid-template-columns: 1fr;
+    grid-row-gap: rem(50, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    max-width: rem(300, $text-size);
+    grid-row-gap: rem(30, $text-size);
+  }
 }
 
 .goals__image-wrap {
