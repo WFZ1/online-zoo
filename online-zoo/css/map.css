@@ -746,6 +746,14 @@ html {
   filter: drop-shadow(2px 4px 15px rgba(6, 12, 70, 0.15));
 }
 
+@media screen and (max-width: 639px) {
+  .image-hotspots__point {
+    height: 3.35714rem;
+    padding: 0.42857rem 0.46429rem;
+    background-size: cover;
+  }
+}
+
 .image-hotspots__item_active .image-hotspots__point,
 .image-hotspots__item:hover .image-hotspots__point {
   background-image: url("../assets/icons/map/icon-map-marker-active.svg");
@@ -757,9 +765,17 @@ html {
   border-radius: 50%;
 }
 
+@media screen and (max-width: 639px) {
+  .image-hotspots__point-image {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
 .tooltip {
   position: absolute;
   top: 5.42857rem;
+  z-index: 1;
   display: flex;
   width: 31.14286rem;
   min-height: 10.35714rem;
@@ -773,23 +789,93 @@ html {
   transition: opacity .3s, visibility .3s;
 }
 
+@media screen and (max-width: 640px) {
+  .tooltip {
+    top: 5rem;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .tooltip {
+    top: 2.35714rem;
+    width: 17rem;
+    min-height: 8.07143rem;
+    padding: 1.14286rem 1.42857rem 0.85714rem 1.07143rem;
+  }
+}
+
 .image-hotspots__item:hover .tooltip {
   opacity: 1;
   visibility: visible;
 }
 
-.tooltip_side_left {
-  right: 50%;
+@media screen and (min-width: 1920px) {
+  .tooltip_side_left {
+    right: 50%;
+  }
 }
 
-.tooltip_side_right {
-  left: 50%;
+@media screen and (max-width: 1919px) {
+  .tooltip_side_left {
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .tooltip_side_left {
+    left: 38%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tooltip_side_left {
+    left: 15%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .tooltip_side_right {
+    left: 50%;
+  }
+}
+
+@media screen and (max-width: 1919px) {
+  .tooltip_side_right {
+    right: 20%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .tooltip_side_right {
+    right: 38%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tooltip_side_right {
+    right: 15%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .tooltip_side_center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .tooltip__tooltip-image {
   flex-shrink: 0;
   margin-right: 1.42857rem;
   border-radius: 50%;
+}
+
+@media screen and (max-width: 639px) {
+  .tooltip__tooltip-image {
+    margin-right: 0.57143rem;
+    width: 2.85714rem;
+    height: 2.85714rem;
+  }
 }
 
 .tooltip__title {
@@ -800,13 +886,27 @@ html {
   font-size: 1.28571rem;
 }
 
+@media screen and (max-width: 639px) {
+  .tooltip__title {
+    margin-bottom: 0.14286rem;
+    font-size: 1rem;
+    line-height: 1.14286em;
+  }
+}
+
 .tooltip__info {
   display: flex;
   margin-bottom: 0.35714rem;
 }
 
+@media screen and (max-width: 639px) {
+  .tooltip__info {
+    font-size: 0.78571rem;
+    line-height: 1.18182em;
+  }
+}
+
 .tooltip__subtitle {
-  margin-right: 0.35714rem;
   color: #333;
   font-weight: 500;
   line-height: 1.14286rem;

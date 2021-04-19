@@ -12,6 +12,12 @@
   background-repeat: no-repeat;
   cursor: pointer;
   filter: drop-shadow(2px 4px 15px rgba(6,12,70,.15));
+
+  @include at($max, $phone - 1) {
+    height: rem(47, $text-size);
+    padding: rem(6, $text-size) rem(6.5, $text-size);
+    background-size: cover;
+  }
 }
 
 .image-hotspots__item_active .image-hotspots__point,
@@ -23,6 +29,11 @@
   width: rem(43, $text-size);
   height: rem(43, $text-size);
   border-radius: 50%;
+
+  @include at($max, $phone - 1) {
+    width: rem(21, $text-size);
+    height: rem(21, $text-size);
+  }
 }
 
 // TOOLTIP
@@ -30,6 +41,7 @@
 .tooltip {
   position: absolute;
   top: rem(76, $text-size);
+  z-index: 1;
   display: flex;
   width: rem(436, $text-size);
   min-height: rem(145, $text-size);
@@ -41,6 +53,17 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity .3s, visibility .3s;
+
+  @include at($max, $phone) {
+    top: rem(70, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    top: rem(33, $text-size);
+    width: rem(238, $text-size);
+    min-height: rem(113, $text-size);
+    padding: rem(16, $text-size) rem(20, $text-size) rem(12, $text-size) rem(15, $text-size);
+  }
 }
 
 .image-hotspots__item:hover .tooltip {
@@ -48,13 +71,59 @@
   visibility: visible;
 }
 
-.tooltip_side_left { right: 50%; }
-.tooltip_side_right { left: 50%; }
+.tooltip_side_left { 
+  @include at($min, $fullhd) {
+    right: 50%;
+  }
+
+  @include at($max, $fullhd - 1) {
+    left: 20%;
+  }
+
+  @include at($max, $phone) {
+    left: 38%;
+  }
+
+  @include at($max, $phone-xl) {
+    left: 15%;
+  }
+}
+
+.tooltip_side_right {
+  @include at($min, $fullhd) {
+    left: 50%;
+  }
+
+  @include at($max, $fullhd - 1) {
+    right: 20%;
+  }
+
+  @include at($max, $phone) {
+    right: 38%;
+  }
+
+  @include at($max, $phone-xl) {
+    right: 15%;
+  }
+}
+
+.tooltip_side_center {
+  @include at($max, $lap) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
 .tooltip__tooltip-image {
   flex-shrink: 0;
   margin-right: rem(20, $text-size);
   border-radius: 50%;
+
+  @include at($max, $phone - 1) {
+    margin-right: rem(8, $text-size);
+    width: rem(40, $text-size);
+    height: rem(40, $text-size);
+  }
 }
 
 .tooltip__title {
@@ -63,15 +132,25 @@
   color: $title-color;
   font-weight: 900;
   font-size: rem(18, $text-size);
+
+  @include at($max, $phone - 1) {
+    margin-bottom: rem(2, $text-size);
+    font-size: rem(14, $text-size);
+    line-height: em(16, 14);
+  }
 }
 
 .tooltip__info {
   display: flex;
   margin-bottom: rem(5, $text-size);
+
+  @include at($max, $phone - 1) {
+    font-size: rem(11, $text-size);
+    line-height: em(13, 11);
+  }
 }
 
 .tooltip__subtitle {
-  margin-right: rem(5, $text-size);
   color: $title-color;
   font-weight: 500;
   line-height: rem(16, $text-font-size);
