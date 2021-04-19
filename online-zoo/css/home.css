@@ -356,6 +356,12 @@ html {
   max-width: 85.71429rem;
 }
 
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 64.28571rem;
+  }
+}
+
 .large-container {
   max-width: 95.71429rem;
 }
@@ -1409,7 +1415,6 @@ html {
 
 @media screen and (max-width: 1200px) {
   .goals__wrap {
-    max-width: 64.28571rem;
     grid-column-gap: 1.42857rem;
   }
 }
@@ -1606,12 +1611,47 @@ html {
  *  SECTION: STEPS
  * ----------------------------------------------------------------------------
  */
+@media screen and (max-width: 480px) {
+  .steps {
+    padding-top: 3.57143rem;
+    padding-bottom: 3.57143rem;
+  }
+}
+
 .steps__title {
   margin-bottom: 0.625em;
 }
 
+@media screen and (max-width: 1024px) {
+  .steps__title {
+    margin-bottom: 0.3125em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .steps__title {
+    margin-bottom: 0.8125em;
+    font-size: 2.57143em;
+    line-height: 1.16667em;
+  }
+}
+
 .steps__subtext {
   margin-bottom: 6.5em;
+}
+
+@media screen and (max-width: 1200px) {
+  .steps__subtext {
+    margin-bottom: 3.57143em;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .steps__subtext {
+    max-width: 38.42857rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .steps__list {
@@ -1620,6 +1660,27 @@ html {
   grid-column-gap: 4.5rem;
   margin-bottom: 4.28571rem;
   align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .steps__list {
+    grid-column-gap: 1.21429rem;
+    margin-bottom: 3.57143rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .steps__list {
+    grid-template-columns: 1fr;
+    grid-row-gap: 2.14286rem;
+    justify-items: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .steps__list {
+    margin-bottom: 2.85714rem;
+  }
 }
 
 .steps__item {
@@ -1674,9 +1735,23 @@ html {
   background-image: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
 }
 
+@media screen and (max-width: 1024px) {
+  .steps__figure {
+    width: 0.14286rem;
+    height: 2.85714rem;
+  }
+}
+
 .steps__chevron-right {
   width: auto;
   height: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .steps__chevron-right {
+    position: absolute;
+    transform: rotate(90deg) translate(17px, -3px);
+  }
 }
 
 /**

@@ -23,9 +23,16 @@
     max-width: rem($wrapper_desk, $text-size);
   }
 }
-.container { max-width: rem($container, $text-size); }
 
-.large-container { 
+.container {
+  max-width: rem($container, $text-size);
+
+  @include at($max, $desk) {
+    max-width: rem($container_desk, $text-size);
+  }
+}
+
+.large-container {
   max-width: rem($large-container + $desktop-container-gutter * 2, $text-size);
   @extend %gutter;
 }

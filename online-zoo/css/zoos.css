@@ -332,6 +332,12 @@ html {
   max-width: 85.71429rem;
 }
 
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 64.28571rem;
+  }
+}
+
 .large-container {
   max-width: 95.71429rem;
 }

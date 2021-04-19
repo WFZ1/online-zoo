@@ -4,8 +4,40 @@
  * ----------------------------------------------------------------------------
  */
 
-.steps__title { margin-bottom: em(30, $title-font-size); }
-.steps__subtext { margin-bottom: em(91, $text-size); }
+.steps {
+  @include at($max, $phone-xl) {
+    padding-top: rem(50, $text-size);
+    padding-bottom: rem(50, $text-size);
+  }
+}
+
+.steps__title {
+  margin-bottom: em(30, $title-font-size);
+
+  @include at($max, $lap) {
+    margin-bottom: em(15, $title-font-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(39, $title-font-size);
+    font-size: em(36, $text-size);
+    line-height: em(42, 36);
+  }
+}
+
+.steps__subtext {
+  margin-bottom: em(91, $text-size);
+
+  @include at($max, $desk) {
+    margin-bottom: em(50, $text-size);
+  }
+
+  @include at($max, $phone) {
+    max-width: rem(538, $text-size);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 .steps__list {
   display: grid;
@@ -13,6 +45,21 @@
   grid-column-gap: rem(63, $text-size);
   margin-bottom: rem(60, $text-size);
   align-items: center;
+  
+  @include at($max, $desk) {
+    grid-column-gap: rem(17, $text-size);
+    margin-bottom: rem(50, $text-size);
+  }
+
+  @include at($max, $lap) {
+    grid-template-columns: 1fr;
+    grid-row-gap: rem(30, $text-size);
+    justify-items: center;
+  }
+
+  @include at($max, $phone-xl) {
+    margin-bottom: rem(40, $text-size);
+  }
 }
 
 .steps__item {
@@ -65,9 +112,19 @@
   width: 100%;
   height: rem(2, $text-size);
   background-image: $accent-gradient;
+
+  @include at($max, $lap) {
+    width: rem(2, $text-size);
+    height: rem(40, $text-size);
+  }
 }
 
 .steps__chevron-right {
   width: auto;
   height: rem(14, $text-size);
+
+  @include at($max, $lap) {
+    position: absolute;
+    transform: rotate(90deg) translate(17px, -3px);
+  }
 }

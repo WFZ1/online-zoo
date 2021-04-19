@@ -28,7 +28,6 @@
   grid-column-gap: rem(30, $text-size);
 
   @include at($max, $desk) {
-    max-width: rem($wrapper_desk, $text-size);
     grid-column-gap: rem(20, $text-size);
   }
 
