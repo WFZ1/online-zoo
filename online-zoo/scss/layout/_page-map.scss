@@ -4,39 +4,127 @@
  * ----------------------------------------------------------------------------
  */
 
-.page-map__main { padding: rem(60, $text-size) 0 rem(100, $text-size); }
-.page-map__title { margin-bottom: rem(22, $text-size); }
+.page-map__main { 
+  padding: rem(60, $text-size) rem($desktop-container-gutter, $text-size) rem(100, $text-size);
+
+  @include at($max, $tablet) {
+    padding-bottom: rem(80, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    padding-top: rem(35, $text-size);
+    padding-bottom: rem(60, $text-size);
+  }
+}
+
+.page-map__section {
+  @include at($max, $desk) {
+    max-width: rem(800, $text-size);
+  }
+}
+
+.page-map__title {
+  margin-bottom: rem(22, $text-size);
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(10, 24);
+    font-size: rem(24, $text-size);
+    line-height: em(28, 24);
+  }
+}
 
 .page-map__text {
   max-width: rem(790, $text-size);
   margin: 0 auto rem(52, $text-size);
   line-height: em(16, 14);
+
+  @include at($max, $desk) {
+    margin-bottom: em(35, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(38, 12);
+    font-size: rem(12, $text-size);
+    line-height: 1.16667;
+  }
 }
 
 .page-map__carousel {
   margin-bottom: rem(77, $text-size);
   position: relative;
+
+  @include at($max, $desk) {
+    margin-bottom: rem(49, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    margin-bottom: rem(35, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-bottom: rem(32, $text-size);
+  }
 }
 
 .page-map-carousel__container {
   max-width: rem(1073, $text-size);
   margin: 0 auto rem(32, $text-size);
+
+  @include at($max, $desk) {
+    max-width: rem(659, $text-size);
+    margin-bottom: rem(22, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    max-width: rem(515, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    max-width: rem(225, $text-size);
+    margin-bottom: rem(20, $text-size);
+  }
 }
 
 .page-map-carousel__item {
   margin-right: rem(30, $text-size);
   cursor: pointer;
-}
 
-.page-map-carousel__image {
-  width: rem(108, $text-size);
-  height: rem(108, $text-size);
-  object-fit: cover;
-  border-radius: 50%;
-  transition: width .3s, height .3s;
-}
+  @include at($max, $desk) {
+    &:nth-child(5) {
+      margin-right: 0;
+    }
 
-.page-map-carousel__image_left-position_87 { object-position: 87%; }
+    &:nth-child(5)~li {
+      display: none;
+    }
+  }
+
+  @include at($max, $tablet) {
+    margin-right: rem(15, $text-size);
+
+    &:nth-child(4) {
+      margin-right: 0;
+    }
+
+    &:nth-child(5) {
+      display: none;
+    }
+  }
+
+  @include at($max, $phone - 1) {
+    &:nth-child(3) {
+      margin-right: 0;
+    }
+
+    &:nth-child(4) {
+      display: none;
+    }
+  }
+
+  @include at($max, $phone - 1) {
+    margin-right: rem(10, $text-size);
+  }
+}
 
 .page-map-carousel__item_active {
   position: relative;
@@ -45,6 +133,17 @@
   padding: rem(10, $text-size);
   background-image: linear-gradient(90deg, #07eee0 -20%, #df496d 93%);
   border-radius: 50%;
+
+  @include at($max, $tablet) {
+    margin-left: rem(-5, $text-size);
+    margin-right: rem(9, $text-size);
+  }
+
+  @include at($max, $phone - 1) {
+    margin-left: 0;
+    margin-right: rem(10, $text-size);
+    padding: rem(5, $text-size);
+  }
 
   &::after {
     content: "";
@@ -62,8 +161,28 @@
     z-index: 1;
     width: rem(137, $text-size);
     height: rem(137, $text-size);
+
+    @include at($max, $phone - 1) {
+      width: rem(75, $text-size);
+      height: rem(75, $text-size);
+    }
   }
 }
+
+.page-map-carousel__image {
+  width: rem(108, $text-size);
+  height: rem(108, $text-size);
+  object-fit: cover;
+  border-radius: 50%;
+  transition: width .3s, height .3s;
+  
+  @include at($max, $phone - 1) {
+    width: rem(60, $text-size);
+    height: rem(60, $text-size);
+  }
+}
+
+.page-map-carousel__image_left-position_87 { object-position: 87%; }
 
 .page-map-carousel__item_active {
   &:first-child { margin-left: 0; }
@@ -74,29 +193,171 @@
   position: absolute;
   top: 26.5%;
 
+  @include at($max, $phone-xl) {
+    top: 16.4%;
+  }
+
   &.carousel__arrow_type_prev { left: rem(6, $text-size); }
   &.carousel__arrow_type_next { right: rem(6, $text-size); }
 }
 
-.page-map-carousel__controls { margin-left: rem(-34, $text-size); }
-.page-map__image-hotspots { margin-bottom: rem(46, $text-size); }
+.page-map-carousel__controls { 
+  @include at($min, $fullhd) {
+    margin-left: rem(-34, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-left: rem(23, $text-size);
+  }
+}
+
+.page-map__image-hotspots {
+  margin-bottom: rem(46, $text-size);
+
+  @include at($max, $desk) {
+    margin-bottom: rem(35, $text-size);
+  }
+
+  @include at($max, $phone-sm) {
+    position: relative;
+    left: rem(-10, $text-size);
+    right: rem(-10, $text-size);
+    width: rem(300, $text-size);
+  }
+}
+
+.page-map__image {
+  width: 100%;
+  height: calcFluidFontSize(388, 498, 1200, 1920);
+
+  @include at($max, $phone) {
+    height: calcFluidFontSize(146, 290, 320, 640);
+  }
+}
 
 .page-map__hotspot_num_1 {
-  top: 83 / 498 * 100%;
-  left: 132 / 1200 * 100%;
+  $left: 132 / 1200 * 100%;
+
+  top: calcFluidFontSize(47, 83, 1200, 1920);
+  left: $left;
+
+  @include at($max, $desk) {
+    left: $left - 1.5;
+  }
+
+  @include at($max, '840px') {
+    left: calcFluidFontSize(53, 87, 641, 930);
+  }
+
+  @include at($max, $phone) {
+    top: initial;
+    bottom: calcFluidFontSize(97, 189.5, 320, 640);
+  }
+
+  @include at('', $phone-xl + 1, $phone - 1) {
+    left: calcFluidFontSize(25.5, 70, 320, 639);
+  }
+
+  @include at($max, $phone-xl) {
+    left: calcFluidFontSize(25.5, 50, 320, 480);
+  }
 }
 
 .page-map__hotspot_num_2 {
-  top: 103 / 498 * 100%;
-  left: 243 / 1200 * 100%;
+  $left: 245 / 1200 * 100%;
+
+  top: calcFluidFontSize(60, 103, 1200, 1920);
+  left: $left;
+
+  @include at($max, $desk) {
+    left: $left - 1;
+  }
+
+  @include at($max, '840px') {
+    left: calcFluidFontSize(107, 174, 641, 930);
+  }
+
+  @include at($max, $phone) {
+    top: initial;
+    bottom: calcFluidFontSize(88, 180.5, 320, 640);
+  }
+
+  @include at('', $phone-xl + 1, $phone - 1) {
+    left: calcFluidFontSize(52.5, 120, 320, 639);
+  }
+
+  @include at($max, $phone-xl) {
+    left: calcFluidFontSize(52.5, 90, 320, 480);
+  }
 }
 
 .page-map__hotspot_num_3 {
-  top: 190 / 498 * 100%;
-  left: 572 / 1200 * 100%;
+  $left: 572 / 1200 * 100%;
+
+  top: calcFluidFontSize(135, 189.5, 1200, 1920);
+  left: $left;
+
+  @include at($max, $desk) {
+    left: $left - 1;
+  }
+
+  @include at($max, '840px') {
+    left: calcFluidFontSize(270, 420, 641, 930);
+  }
+
+  @include at($max, $phone) {
+    top: initial;
+    bottom: calcFluidFontSize(63.5, 127.5, 320, 640);
+  }
+
+  @include at('', $phone-xl + 1, $phone - 1) {
+    left: calcFluidFontSize(134, 284, 320, 639);
+  }
+
+  @include at($max, $phone-xl) {
+    left: calcFluidFontSize(134, 205, 320, 480);
+  }
 }
 
 .page-map__hotspot_num_4 {
-  top: 99 / 498 * 100%;
-  right: 230 / 1200 * 100%;
+  $right: 230 / 1200 * 100%;
+
+  top: calcFluidFontSize(60, 99, 1200, 1920);
+  right: $right;
+
+  @include at($max, $desk) {
+    right: $right + .5;
+  }
+
+  @include at($max, '840px') {
+    right: calcFluidFontSize(106, 170, 641, 930);
+  }
+
+  @include at($max, $phone) {
+    top: initial;
+    bottom: calcFluidFontSize(91.5, 184.5, 320, 640);
+  }
+
+  @include at('', $phone-xl + 1, $phone - 1) {
+    right: calcFluidFontSize(50, 125, 320, 639);
+  }
+
+  @include at($max, $phone-xl) {
+    right: calcFluidFontSize(50, 88, 320, 480);
+  }
+}
+
+.image-hotspots__point {
+  @include at('', $tablet + 1, $desk) {
+    height: rem(83, $text-size);
+    padding: rem(11, $text-size) rem(11.5, $text-size);
+    background-size: cover;
+  }
+}
+
+.image-hotspots__point-image {
+  @include at('', $tablet + 1, $desk) {
+    width: rem(35, $text-size);
+    height: rem(35, $text-size);
+  }
 }
