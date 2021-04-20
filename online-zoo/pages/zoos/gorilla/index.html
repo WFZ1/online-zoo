@@ -20,12 +20,12 @@
 
   <header class="header page__header">
     <div class="header__wrapper wrapper row">
-      <a class="logo" href="../../../">
+      <a class="header__logo logo" href="../../../">
         <span class="logo__text">Zoo</span>
         <span class="logo__subtext">Online</span>
       </a>
 
-      <nav class="nav header__nav header-nav nav_color_dark">
+      <nav class="nav header__nav header-nav nav_color_dark hidden-phone">
         <ul class="header-nav__list nav__list row">
           <li class="header-nav__item nav__item">
             <a class="nav__link" href="../../../">About</a>
@@ -46,6 +46,10 @@
       </nav>
 
       <input class="toggle-color-mode header__toggle-color-mode slider" type="range" min="0" max="1" value="0" step="1">
+      
+      <button class="header__hamburger-menu hamburger-menu hidden-phone-and-up">
+        <span class="hamburger-menu__bar"></span>
+      </button>
     </div>
   </header>
 
@@ -60,7 +64,7 @@
     <aside class="carousel page-zoo__carousel page-zoo-carousel">
       <ul class="page-zoo-carousel__container column">
         <li class="page-zoo-carousel__item" title="Panda">
-          <a href="../panda">
+          <a class="page-zoo-carousel__link" href="../panda">
             <img class="page-zoo-carousel__image"
                 srcset="../../../assets/images/animals/panda-75w75h.jpg 75w,
                         ../../../assets/images/animals/panda-137w137h.jpg 137w"
@@ -71,7 +75,7 @@
           </a>
         </li>
         <li class="page-zoo-carousel__item" title="Eagle">
-          <a href="../eagle">
+          <a class="page-zoo-carousel__link" href="../eagle">
             <img class="page-zoo-carousel__image"
                 srcset="../../../assets/images/animals/eagle-75w75h.jpg 75w,
                         ../../../assets/images/animals/eagle-137w137h.jpg 137w"
@@ -82,7 +86,7 @@
           </a>
         </li>
         <li class="page-zoo-carousel__item" title="Alligator">
-          <a href="../alligator">
+          <a class="page-zoo-carousel__link" href="../alligator">
             <img class="page-zoo-carousel__image page-zoo-carousel__image_left-position_87"
                 srcset="../../../assets/images/animals/alligator-75w75h.jpg 75w,
                         ../../../assets/images/animals/alligator-140w.jpg 140w"
@@ -93,7 +97,7 @@
           </a>
         </li>
         <li class="page-zoo-carousel__item page-zoo-carousel__item_active" title="Gorilla">
-          <a href="../gorilla">
+          <a class="page-zoo-carousel__link" href="../gorilla">
             <img class="page-zoo-carousel__image"
                 srcset="../../../assets/images/animals/gorilla-2-75w75h.jpg 75w,
                         ../../../assets/images/animals/gorilla-2-137w137h.jpg 137w"

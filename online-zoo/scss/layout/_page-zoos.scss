@@ -4,10 +4,29 @@
  * ----------------------------------------------------------------------------
  */
 
+.page-zoo { background-color: #fbfbfb; }
+ 
 .page-zoo__main {
+  max-width: rem($wrapper-large, $text-size);
+  padding: rem(60, $text-size) rem(20, $text-size) rem(100, $text-size) rem(26, $text-size);
+  margin: auto;
   display: flex;
-  padding: rem(60, $text-size) rem(157, $text-size) rem(100, $text-size) 0;
   align-items: flex-start;
+
+  @include at($max, $widescreen) {
+    padding-left: rem(16, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    padding-left: rem(7, $text-size);
+    padding-bottom: rem(80, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    padding-left: rem(5, $text-size);
+    padding-top: rem(33, $text-size);
+    padding-bottom: rem(60, $text-size);
+  }
 }
 
 // FIXED CAROUSEL
@@ -15,37 +34,65 @@
 .page-zoo__carousel {
   position: sticky;
   top: rem(60, $text-size);
-  left: rem(26, $text-size);
+  margin-right: 9.47537%;
 
-  @include at ($min, '1920px') {
-    left: calc((100vw - 1920px) / 2 + 26px);
+  @include at($max, $widescreen) {
+    margin-right: 5.546%;
+  }
+
+  @include at($max, $tablet) {
+    margin-right: 4.4%;
+  }
+
+  @include at($max, $phone-xl) {
+    margin-right: 8%;
   }
 }
 
-.page-zoo-carousel { width: rem(157, $text-size); }
+.page-zoo-carousel { 
+  width: rem(157, $text-size);
+
+  @include at($max, $widescreen) {
+    width: rem(120, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    width: rem(90, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    width: rem(65, $text-size);
+  }
+}
 
 .page-zoo-carousel__container {
   height: rem(511, $text-size);
   margin: rem(44, $text-size) 0;
   align-items: center;
   overflow: hidden;
+
+  @include at($max, $widescreen) {
+    height: rem(438, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    height: rem(330, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    height: rem(200, $text-size);
+    margin: rem(33, $text-size) 0;
+  }
 }
 
 .page-zoo-carousel__item {
   margin-bottom: rem(10, $text-size);
   cursor: pointer;
-}
 
-.page-zoo-carousel__image {
-  width: rem(108, $text-size);
-  height: rem(108, $text-size);
-  object-fit: cover;
-  border-radius: 50%;
-  transition: width .3s, height .3s;
+  @include at($max, $phone-xl) {
+    margin-bottom: rem(5, $text-size);
+  }
 }
-
-.page-zoo-carousel__image_left-position_87 { object-position: 87%; }
-.page-zoo-carousel__image_left-position_100 { object-position: 100%; }
 
 .page-zoo-carousel__item_active {
   position: relative;
@@ -53,6 +100,18 @@
   background-image: linear-gradient(90deg, #07eee0 -20%, #df496d 93%);
   border-radius: 50%;
   cursor: auto;
+
+  @include at($max, $widescreen) {
+    padding: rem(8, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    padding: rem(6, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    padding: rem(5, $text-size);
+  }
 
   &::after {
     content: "";
@@ -65,13 +124,60 @@
     border-radius: 50%;
   }
 
-  .page-zoo-carousel__image {
+  .page-zoo-carousel__link {
     position: relative;
     z-index: 1;
     width: rem(137, $text-size);
     height: rem(137, $text-size);
+
+    @include at($max, $widescreen) {
+      width: rem(104, $text-size);
+      height: rem(104, $text-size);
+    }
+
+    @include at($max, $tablet) {
+      width: rem(78, $text-size);
+      height: rem(78, $text-size);
+    }
+
+    @include at($max, $phone-xl) {
+      width: rem(55, $text-size);
+      height: rem(55, $text-size);
+    }
   }
 }
+
+.page-zoo-carousel__link {
+  display: block;
+  width: rem(108, $text-size);
+  height: rem(108, $text-size);
+
+  @include at($max, $widescreen) {
+    width: rem(96, $text-size);
+    height: rem(96, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    width: rem(70, $text-size);
+    height: rem(70, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    width: rem(40, $text-size);
+    height: rem(40, $text-size);
+  }
+}
+
+.page-zoo-carousel__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: width .3s, height .3s;
+}
+
+.page-zoo-carousel__image_left-position_87 { object-position: 87%; }
+.page-zoo-carousel__image_left-position_100 { object-position: 100%; }
 
 .page-zoo-carousel__arrow {
   position: absolute;
@@ -81,6 +187,10 @@
   background-size: contain;
   background-repeat: no-repeat;
 
+  @include at($max, $phone-xl) {
+    left: 39%;
+  }
+
   &.carousel__arrow_type_prev { top: rem(0, $text-size); }
   &.carousel__arrow_type_next { bottom: rem(0, $text-size); }
 }
@@ -89,12 +199,51 @@
 
 // CONTENT
 
-.page-zoo__title { margin-bottom: rem(40, $text-size); }
-.page-zoo__content { align-items: flex-start; }
+.page-zoo__section {
+  margin: 0;
+}
+
+.page-zoo__title {
+  margin-bottom: rem(40, $text-size);
+
+  @include at($max, $tablet) {
+    margin-bottom: rem(35, $text-size);
+    margin-left: rem(9, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(20, 24);
+    font-size: rem(24, $text-size);
+    line-height: em(28, 24);
+  }
+}
+
+.page-zoo__content {
+  align-items: flex-start;
+
+  @include at($max, $tablet) {
+    display: block;
+  }
+}
 
 .page-zoo__videos {
   max-width: rem(790, $text-size);
   margin-right: rem(30, $text-size);
+
+  @include at($max, $widescreen) {
+    max-width: rem(527, $text-size);
+    margin-right: rem(20, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: rem(50, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-bottom: rem(30, $text-size);
+  }
 }
 
 .page-zoo__main-video {
@@ -102,6 +251,21 @@
   height: rem(442, $text-size);
   margin-bottom: rem(30, $text-size);
   border-radius: rem(5, $text-size);
+
+  @include at($max, $widescreen) {
+    height: rem(297, $text-size);
+    margin-bottom: rem(27, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    height: rem(280, $text-size);
+    margin-bottom: rem(15, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    height: rem(116, $text-size);
+    margin-bottom: rem(10, $text-size);
+  }
 }
 
 .page-zoo__thumbnails {
@@ -109,6 +273,21 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: rem(26, $text-size);
   margin-bottom: rem(30, $text-size);
+
+  @include at($max, $widescreen) {
+    grid-column-gap: rem(18, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    grid-column-gap: rem(16, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0;
+    grid-column-gap: rem(9, $text-size);
+    margin-bottom: rem(20, $text-size);
+  }
 }
 
 .page-zoo__thumbnail {
@@ -116,9 +295,27 @@
   height: rem(141, $text-size);
   object-fit: cover;
   border-radius: rem(5, $text-size);
+
+  @include at($max, $widescreen) {
+    height: rem(94, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    height: rem(89, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    height: rem(56.25, $text-size);
+  }
 }
 
-.page-zoo__dots { justify-content: center; }
+.page-zoo__dots {
+  justify-content: center;
+
+  @include at('', $tablet + 1, $widescreen) {
+    margin-left: rem(-22, $text-size);
+  }
+}
 
 .page-zoo__dot {
   width: rem(8, $text-size);
@@ -138,17 +335,64 @@
 .page-zoo__description {
   max-width: rem(380, $text-size);
   margin-bottom: rem(35, $text-size);
+
+  @include at($max, $widescreen) {
+    max-width: rem(255, $text-size);
+    margin-bottom: rem(20, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    max-width: 100%;
+    margin-bottom: rem(30, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-bottom: rem(20, $text-size);
+  }
 }
 
 .page-zoo__subtitle {
   margin-top: 0;
   margin-bottom: rem(6, $text-size);
+
+  @include at($max, $phone-xl) {
+    margin-bottom: rem(9, 14);
+    font-size: rem(14, $text-size);
+    line-height: em(16, 14);
+  }
 }
 
 .page-zoo__text {
   line-height: rem(16, 14);
   margin-bottom: rem(13, $text-size);
+
+  @include at($max, $widescreen) {
+    margin-bottom: rem(17, $text-size);
+  }
+
+  @include at($max, $tablet) {
+    margin-bottom: rem(13, $text-size);
+  }
+
+  @include at($max, $phone-xl) {
+    margin-bottom: em(16, 12);
+    font-size: rem(12, $text-size);
+    line-height: em(14, 12);
+  }
 }
 
-.page-zoo__text_last { margin-right: rem(20, $text-size); }
-.page-zoo__btn { min-width: rem(194, $text-size); }
+.page-zoo__text_last {
+  margin-right: rem(20, $text-size);
+
+  @include at($max, $widescreen) {
+    margin-right: 0;
+  }
+}
+
+.page-zoo__btn {
+  min-width: rem(194, $text-size);
+
+  @include at($max, $widescreen) {
+    min-width: rem(185, $text-size);
+  }
+}

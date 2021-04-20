@@ -299,6 +299,30 @@ html {
   }
 }
 
+.hamburger-menu::before, .hamburger-menu::after, .hamburger-menu__bar {
+  height: 0.21429rem;
+  background-color: #333;
+}
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  width: 2.85714rem;
+  padding: 0;
+}
+
+.hamburger-menu::before, .hamburger-menu::after {
+  content: "";
+  width: 100%;
+  margin-bottom: 0.42857rem;
+}
+
+.hamburger-menu__bar {
+  width: 2.35714rem;
+  order: 1;
+  align-self: flex-end;
+}
+
 /* WRAP ================================================================================ */
 .large-container, .gutter {
   padding-left: 1.42857rem;
