@@ -44,6 +44,10 @@
     margin-right: 4.4%;
   }
 
+  @include at($max, $phone) {
+    top: rem(120, $text-size);
+  }
+
   @include at($max, $phone-xl) {
     margin-right: 8%;
   }

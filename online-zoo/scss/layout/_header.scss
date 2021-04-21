@@ -12,6 +12,14 @@
   @include at($max, $phone-sm) {
     padding: 0 rem($mobile-container-gutter, $text-size);
   }
+
+  @include at($max, $phone) {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #fbfbfb;
+  }
 }
 
 .header__wrapper { padding : rem(15, $text-size) 0 rem(23, $text-size); }
