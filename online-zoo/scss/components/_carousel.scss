@@ -61,14 +61,16 @@
 .carousel__arrow {
   width: rem(18, $text-size);
   height: rem(30, $text-size);
-  background-image: url("../assets/icons/icon-chevron-right.svg");
+  -webkit-mask-image: url("../assets/icons/icon-chevron-right.svg");
+  mask-image: url("../assets/icons/icon-chevron-right.svg");
+  background-color: var(--arrow-color);
   cursor: pointer;
 }
 
 .carousel__arrow_invert_top { transform: rotate(-90deg); }
 .carousel__arrow_invert_bottom { transform: rotate(90deg); }
 .carousel__arrow_invert_left { transform: scale(-1, 1); }
-.carousel__arrow_disabled { filter: invert(55%) sepia(15%) saturate(8%) hue-rotate(8deg) brightness(91%) contrast(92%); }
+.carousel__arrow_disabled { background-color: $arrow-color-disable; }
 
 // FRACTION
 
@@ -79,12 +81,13 @@
   font-weight: 900;
   font-size: rem(24, $text-size);
   line-height: em(28, 24);
+  color: var(--slider-number-color);
 
   &::after { content: "/"; }
 }
 
-.carousel-fraction__current_color_light { color: #fefefe; }
-.carousel-fraction__current_color_dark { color: #333; }
+.carousel-fraction__current_color_light { color: $slider-number-color-light; }
+.carousel-fraction__current_color_dark { color: $slider-number-color-dark; }
 
 .carousel-fraction__total {
   margin-left: em(-3, 14);
@@ -105,6 +108,7 @@
     width: calc(var(--length, 245px) / var(--max));
     height: rem(10, $text-size);
     margin-top: rem(-1, $text-size);
+    background-color: var(--slider-thumb-bg);
   }
 }
 

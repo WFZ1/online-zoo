@@ -70,7 +70,7 @@
   height: 100%;
   padding: rem(47, $text-size) rem(73, $text-size);
   cursor: pointer;  
-  background-color: #fefefe;
+  background-color: var(--testimonials-card-bg);
   box-shadow: 2px 4px 15px rgba(6,12,70,.1);
   border-radius: 5px;
 

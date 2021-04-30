@@ -1,7 +1,7 @@
 /* LOGO ================================================================================ */
 
 .logo {
-  color: $title-color;
+  color: var(--title-color);
   font-weight: 900;
   text-transform: lowercase;
 }

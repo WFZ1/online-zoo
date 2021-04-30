@@ -6,11 +6,54 @@
 
 html {
   font-family: $font-main;
-  color: $text-color;
   font-size: $default-text-font-size;
 }
 
-.page { overflow-x: hidden; }
+.page { 
+  overflow-x: hidden;
+
+  &.page_light-mode {
+    --main-primary-bg: #{ $main-primary-bg-light };
+    --toggle-color-mode-bg: #{ $toggle-color-mode-bg-light };
+    --toggle-color-mode-thumb: #{ $toggle-color-mode-thumb-light };
+    --content-primary-bg: #{ $content-primary-bg-light };
+    --nav-item-color: #{ $nav-item-color-dark };
+    --title-color: #{ $title-color-dark };
+    --subtitle-color: #{ $subtitle-color-dark };
+    --slider-number-color: #{ $slider-number-color-dark };
+    --slider-thumb-bg: #{ $slider-thumb-bg-dark };
+    --testimonials-card-bg: #{ $testimonials-card-bg-light };
+    --tooltip-bg: #{ $tooltip-bg-light };
+    --arrow-color: #{ $arrow-color-dark };
+    --map-area-color: #{ $map-area-color-dark };
+    --map-active-area-fill: #{ $map-active-area-fill-light };
+    --map-active-area-stroke: #{ $map-active-area-stroke-dark };
+    --page-main-bg: #{ $page-main-bg-light };
+
+    color: $text-color-dark;
+  }
+
+  &.page_dark-mode {
+    --main-primary-bg: #{ $main-primary-bg-dark };
+    --toggle-color-mode-bg: #{ $toggle-color-mode-bg-dark };
+    --toggle-color-mode-thumb: #{ $toggle-color-mode-thumb-dark };
+    --content-primary-bg: #{ $content-primary-bg-dark };
+    --nav-item-color: #{ $nav-item-color-light };
+    --title-color: #{ $title-color-light };
+    --subtitle-color: #{ $subtitle-color-light };
+    --slider-number-color: #{ $slider-number-color-light };
+    --slider-thumb-bg: #{ $slider-thumb-bg-light };
+    --testimonials-card-bg: #{ $testimonials-card-bg-dark };
+    --tooltip-bg: #{ $tooltip-bg-dark };
+    --arrow-color: #{ $arrow-color-light };
+    --map-area-color: #{ $map-area-color-light };
+    --map-active-area-fill: #{ $map-active-area-fill-dark };
+    --map-active-area-stroke: #{ $map-active-area-stroke-light };
+    --page-main-bg: #{ $page-main-bg-dark };
+
+    color: $text-color-light;
+  }
+}
 
 .header,
 .main,
@@ -18,4 +61,4 @@ html {
   min-width: rem(320, $text-size);
 }
 
-.main { background-color: #fbfbfb; }
+.main { background-color: var(--main-primary-bg); }

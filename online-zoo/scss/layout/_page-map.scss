@@ -6,6 +6,7 @@
 
 .page-map__main { 
   padding: rem(60, $text-size) rem($desktop-container-gutter, $text-size) rem(100, $text-size);
+  background-color: var(--page-main-bg);
 
   @include at($max, $tablet) {
     padding-bottom: rem(80, $text-size);
@@ -152,7 +153,7 @@
     bottom: rem(3, $text-size);
     left: rem(3, $text-size);
     right: rem(3, $text-size);
-    background-color: #fbfbfb;
+    background-color: var(--page-main-bg);
     border-radius: 50%;
   }
 
@@ -233,6 +234,17 @@
   @include at($max, $phone) {
     height: calcFluidFontSize(146, 290, 320, 640);
   }
+}
+
+.map__area {
+  fill: var(--map-area-color);
+  stroke: var(--map-area-color);
+}
+
+.map__area_active {
+  fill: var(--map-active-area-fill);
+  stroke: var(--map-active-area-stroke);
+  stroke-width: $map-active-area-stroke-width;
 }
 
 .page-map__hotspot_num_1 {

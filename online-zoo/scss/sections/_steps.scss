@@ -88,7 +88,7 @@
   padding: rem(40, $text-size);
   align-items: center;
   justify-content: center;
-  background-color: $content-primary-bg;
+  background-color: var(--content-primary-bg);
   border-radius: 50%;
 }
 

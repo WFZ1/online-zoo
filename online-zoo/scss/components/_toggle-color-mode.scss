@@ -5,14 +5,14 @@
   height: rem(30, $text-size);
   margin-top: rem(10, $text-size);
   padding: rem(5, $text-size) rem(6, $text-size);
-  background-color: #f2f2f2;
+  background-color: var(--toggle-color-mode-bg);
   border-radius: rem(190, $text-size);
 
   &::-webkit-slider-thumb {
     width: rem(20, $text-size);
     height: rem(20, $text-size);
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--toggle-color-mode-thumb);
     box-shadow: 2px 4px 15px rgba(6,12,70,.15);
   }
 }

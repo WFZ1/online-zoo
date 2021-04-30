@@ -4,7 +4,9 @@
  * ----------------------------------------------------------------------------
  */
 
-.page-zoo { background-color: #fbfbfb; }
+.page-zoo {
+  background-color: var(--page-main-bg);
+}
  
 .page-zoo__main {
   max-width: rem($wrapper-large, $text-size);
@@ -12,6 +14,7 @@
   margin: auto;
   display: flex;
   align-items: flex-start;
+  background-color: var(--page-main-bg);
 
   @include at($max, $widescreen) {
     padding-left: rem(16, $text-size);
@@ -124,7 +127,7 @@
     bottom: rem(3, $text-size);
     left: rem(3, $text-size);
     right: rem(3, $text-size);
-    background-color: #fbfbfb;
+    background-color: var(--page-main-bg);
     border-radius: 50%;
   }
 
@@ -187,8 +190,9 @@
   position: absolute;
   left: 45%;
   width: rem(15, $text-size);
-  height: rem(23, $text-size);
-  background-size: contain;
+  height: rem(25, $text-size);
+  -webkit-mask-size: contain;
+  mask-size: contain;
   background-repeat: no-repeat;
 
   @include at($max, $phone-xl) {

@@ -4,11 +4,11 @@
   font-size: rem($title-font-size, $text-size);
   font-weight: 900;
   line-height: em(56, 48);
-  color: $title-color;
+  color: var(--title-color);
 }
 
 .subtitle {
   font-size: rem($subtitle-font-size, $text-size);
   font-weight: 900;
-  color: $subtitle-color;
+  color: var(--subtitle-color);
 }

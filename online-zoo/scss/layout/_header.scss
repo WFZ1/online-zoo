@@ -7,6 +7,7 @@
 .header {
   position: relative;
   padding: 0 rem($desktop-container-gutter, $text-size);
+  background-color: var(--main-primary-bg);
   box-shadow: 0px 4px 8px rgba(44,101,77,.08);
 
   @include at($max, $phone-sm) {
@@ -18,7 +19,6 @@
     position: sticky;
     top: 0;
     z-index: 2;
-    background-color: #fbfbfb;
   }
 }
 
@@ -56,7 +56,7 @@
 .header-nav__item_active,
 .header-nav__item:hover {
   font-weight: 900;
-  border-bottom-color: $nav-item-color-dark;
+  border-bottom-color: var(--nav-item-color);
 }
 
 .header-nav__item_active .nav__link { cursor: auto; }

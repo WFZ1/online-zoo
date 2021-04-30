@@ -49,6 +49,17 @@
   }
 }
 
+.map__area {
+  fill: var(--map-area-color);
+  stroke: var(--map-area-color);
+}
+
+.map__area_active {
+  fill: var(--map-active-area-fill);
+  stroke: var(--map-active-area-stroke);
+  stroke-width: $map-active-area-stroke-width;
+}
+
 .map__hotspot_num_1 {
   $left: 122 / 1200 * 100%;
 

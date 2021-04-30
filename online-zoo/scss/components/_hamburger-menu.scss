@@ -1,6 +1,6 @@
 %hamburger-menu-bar {
   height: rem(3, $text-size);
-  background-color: $nav-item-color-dark;
+  background-color: var(--nav-item-color);
 }
 
 .hamburger-menu {

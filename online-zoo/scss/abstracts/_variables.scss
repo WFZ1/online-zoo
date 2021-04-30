@@ -6,14 +6,21 @@
 
 /* COLORS ================================================================================ */
 
-$text-color: #4f4f4f;
+$text-color-dark: #4f4f4f;
+$text-color-light: #f2f2f2;
+
 $text-secondary-color: #bdbdbd;
+
 $accent-color: #4bd8b5;
 $accent-gradient: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+$border-accent: linear-gradient(103.3deg, #07EEE0 -15.1%, #DF496D 92.15%);
 
-$title-color: #333;
-$title-secondary-color: #313131;
-$subtitle-color: #333;
+$title-color-dark: #333;
+$title-color-light: #fefefe;
+
+$subtitle-color-light: #fefefe;
+$subtitle-color-dark: #333;
+
 $subtitle-secondary-color: #828282;
 
 $btn-color: #fff;
@@ -28,22 +35,48 @@ $btn-bg: $accent-gradient;
 $nav-item-color-dark: #333;
 $nav-item-color-light: #fefefe;
 
-$content-primary-bg: #f2f2f2;
+$page-main-bg-light: #fbfbfb;
+$page-main-bg-dark: #4f4f4f;
+
+$main-primary-bg-light: #fbfbfb;
+$main-primary-bg-dark: #333;
+
+$content-primary-bg-light: #f2f2f2;
+$content-primary-bg-dark: #4f4f4f;
+
 $content-secondary-bg: #333;
 
-$border-accent: linear-gradient(103.3deg, #07EEE0 -15.1%, #DF496D 92.15%);
-$map-marker-color: #EB5757;
+$toggle-color-mode-bg-light: #f2f2f2;
+$toggle-color-mode-bg-dark: #4f4f4f;
+$toggle-color-mode-thumb-light: #fff;
+$toggle-color-mode-thumb-dark: #1b1b1b;
 
-$arrow-color: #333;
+$arrow-color-light: #fefefe;
+$arrow-color-dark: #333;
 $arrow-color-disable: #828282;
 
 $dots-color: #c4c4c4;
 $dots-color-active: $accent-gradient;
 
-$slider-track: rgba(189, 189, 189, .57);
-$slider-btn: #333;
-$slider-number:#333;
+$slider-thumb-bg-light: #fefefe;
+$slider-thumb-bg-dark: #333;
+$slider-number-color-light: #fefefe;
+$slider-number-color-dark: #333;
 $slider-total-number: #828282;
+
+$tooltip-bg-light: #fefefe;
+$tooltip-bg-dark: #333;
+
+$testimonials-card-bg-light: #fefefe;
+$testimonials-card-bg-dark: #3c3c3c;
+
+$map-marker-color: #EB5757;
+$map-area-color-light: #e1e1e1;
+$map-area-color-dark: #333;
+$map-active-area-fill-light: #dadada;
+$map-active-area-fill-dark: #333;
+$map-active-area-stroke-light: #fefefe;
+$map-active-area-stroke-dark: #333;
 
 /* TYPOGRAPHY ================================================================================ */
 
@@ -62,6 +95,7 @@ $btn-font-size: 18;
 
 $field-font-size: 14;
 $nav-item-font-size: 16;
+$map-active-area-stroke-width: 2;
 
 /* VIEWPORT ================================================================================ */
 

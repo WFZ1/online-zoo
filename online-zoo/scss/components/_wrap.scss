@@ -58,5 +58,5 @@
 .section_highlighted {
   padding-top: rem(100, $text-size);
   padding-bottom: rem(100, $text-size);
-  background-color: $content-primary-bg;
+  background-color: var(--content-primary-bg);
 }

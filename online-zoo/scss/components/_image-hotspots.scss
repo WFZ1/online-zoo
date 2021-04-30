@@ -8,24 +8,39 @@
 .image-hotspots__point {
   height: rem(95, $text-size);
   padding: rem(12.5, $text-size) rem(12, $text-size);
-  background-image: url("../assets/icons/map/icon-map-marker.svg");
-  background-repeat: no-repeat;
   cursor: pointer;
   filter: drop-shadow(2px 4px 15px rgba(6,12,70,.15));
+  background-image: url("../assets/icons/map/icon-map-marker.svg");
+  background-repeat: no-repeat;
 
   @include at($max, $phone - 1) {
     height: rem(47, $text-size);
     padding: rem(6, $text-size) rem(6.5, $text-size);
     background-size: cover;
   }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-mask-image: url("../assets/icons/map/icon-map-marker-mask.svg");
+    mask-image: url("../assets/icons/map/icon-map-marker-mask.svg");
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    transition: background-color .3s;
+  }
 }
 
-.image-hotspots__item_active .image-hotspots__point,
-.image-hotspots__item:hover .image-hotspots__point {
-  background-image: url("../assets/icons/map/icon-map-marker-active.svg");
+.image-hotspots__item_active .image-hotspots__point::before,
+.image-hotspots__item:hover .image-hotspots__point::before {
+  background-color: $map-marker-color;
 }
 
 .image-hotspots__point-image {
+  position: relative;
   width: rem(43, $text-size);
   height: rem(43, $text-size);
   border-radius: 50%;
@@ -47,7 +62,7 @@
   min-height: rem(145, $text-size);
   padding: rem(40, $text-size) rem(44, $text-size);
   align-items: flex-start;
-  background-color: #fefefe;
+  background-color: var(--tooltip-bg);
   box-shadow: 2px 4px 15px rgba(6,12,70,.15);
   border-radius: 8px;
   opacity: 0;
@@ -129,7 +144,7 @@
 .tooltip__title {
   display: block;
   margin-bottom: rem(8, $text-size);
-  color: $title-color;
+  color: var(--title-color);
   font-weight: 900;
   font-size: rem(18, $text-size);
 
@@ -151,7 +166,7 @@
 }
 
 .tooltip__subtitle {
-  color: $title-color;
+  color: var(--title-color);
   font-weight: 500;
   line-height: rem(16, $text-font-size);
 }
