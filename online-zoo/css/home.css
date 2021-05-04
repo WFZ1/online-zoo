@@ -1242,95 +1242,65 @@ html {
 /* CAROUSEL ================================================================================ */
 .hero-carousel {
   position: absolute;
-  bottom: 7.85714rem;
   right: 0;
+  bottom: 7.85714rem;
+  width: 56.25vw;
+  padding-left: 9.64286rem;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1440px) {
   .hero-carousel {
     bottom: 4.64286rem;
+    width: calc( 0.23571 * 100vw + 437.14286px);
   }
 }
 
 @media screen and (max-width: 768px) {
   .hero-carousel {
     bottom: 6.92857rem;
+    padding-left: 5.07143rem;
   }
 }
 
 @media screen and (max-width: 639px) {
   .hero-carousel {
     bottom: 3.57143rem;
+    width: calc( 0.84013 * 100vw + 48.15987px);
+    padding-left: 1.5rem;
   }
 }
 
 .hero-carousel__container {
   position: relative;
   display: flex;
-  width: 56.25vw;
+  height: 25.14286rem;
   margin-bottom: 1.42857rem;
-  padding-left: 9.64286rem;
-  overflow: hidden;
+  transition: transform .8s;
 }
 
 @media screen and (max-width: 1440px) {
   .hero-carousel__container {
-    width: calc( 0.23571 * 100vw + 437.14286px);
     margin-bottom: 1.78571rem;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .hero-carousel__container {
-    padding-left: 5.07143rem;
-  }
-}
-
 @media screen and (max-width: 639px) {
   .hero-carousel__container {
-    width: calc( 0.84013 * 100vw + 48.15987px);
+    height: 14.42857rem;
     margin-bottom: 1.07143rem;
-    padding-left: 1.5rem;
   }
-}
-
-.hero-carousel__container::before, .hero-carousel__container::after {
-  content: "";
-  position: absolute;
-  top: 54%;
-  transform: translateY(-50%);
-  background-color: #fff;
-}
-
-@media screen and (max-width: 639px) {
-  .hero-carousel__container::before, .hero-carousel__container::after {
-    top: 49%;
-  }
-}
-
-.hero-carousel__container::before {
-  right: 0;
-  left: 7px;
-  height: 1px;
-}
-
-.hero-carousel__container::after {
-  left: 0;
-  width: 5px;
-  height: 5px;
-  padding: 3px;
-  border-radius: 50%;
-  border: 1px solid #fff;
-  background-clip: content-box;
 }
 
 .hero-carousel__card {
+  position: relative;
   width: 10rem;
   height: 14.5rem;
   margin-top: 6.42857rem;
   margin-right: 3.28571rem;
   flex-shrink: 0;
-  transition: width .3s, height .3s;
+  transition-duration: 1s;
+  transition-property: width, height, margin-top, opacity;
 }
 
 @media screen and (max-width: 1440px) {
@@ -1366,6 +1336,10 @@ html {
     width: 10rem;
     height: 14.42857rem;
   }
+}
+
+.hero-carousel__card_hidden {
+  opacity: 0;
 }
 
 .hero-carousel__image {
@@ -1411,26 +1385,103 @@ html {
   }
 }
 
+.hero-carousel__track {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+@media screen and (max-width: 639px) {
+  .hero-carousel__track {
+    top: 40%;
+  }
+}
+
+.hero-carousel__track::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-left: 7px;
+  background-color: #fff;
+}
+
+.hero-carousel__track-point {
+  position: absolute;
+  top: -6.5px;
+  box-sizing: content-box;
+  width: 5px;
+  height: 5px;
+  padding: 3px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-clip: content-box;
+  background-color: #fff;
+}
+
+.hero-carousel__track-point:first-child {
+  left: 0;
+}
+
+.hero-carousel__track-point:nth-child(2) {
+  left: 14.17857rem;
+}
+
+.hero-carousel__track-point:nth-child(3) {
+  left: 31.21429rem;
+}
+
+.hero-carousel__track-point:nth-child(4) {
+  left: 48.25rem;
+}
+
+.hero-carousel__track-point:nth-child(5) {
+  left: 61.53571rem;
+}
+
+.hero-carousel__track-point:nth-child(6) {
+  left: 74.82143rem;
+}
+
+.hero-carousel__track-point:nth-child(7) {
+  left: 88.10714rem;
+}
+
+.hero-carousel__track-point:nth-child(8) {
+  left: 101.39286rem;
+}
+
+.hero-carousel__track-point:nth-child(9) {
+  left: 114.67857rem;
+}
+
+.hero-carousel__track-point:nth-child(10) {
+  left: 127.96429rem;
+}
+
 .hero-carousel__controls {
   display: inline-block;
-  margin-left: 22.85714rem;
+  margin-left: 13.21429rem;
 }
 
 @media screen and (max-width: 1440px) {
   .hero-carousel__controls {
-    margin-left: 25rem;
+    margin-left: 15.35714rem;
   }
 }
 
 @media screen and (max-width: 768px) {
   .hero-carousel__controls {
-    margin-left: 20.5rem;
+    margin-left: 15.42857rem;
   }
 }
 
 @media screen and (max-width: 639px) {
   .hero-carousel__controls {
-    margin-left: 10.28571rem;
+    margin-left: 8.78571rem;
     line-height: .3;
   }
 }

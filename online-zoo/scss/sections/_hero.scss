@@ -117,82 +117,55 @@
 
 .hero-carousel {
   position: absolute;
-  bottom: rem(110, $text-size);
   right: 0;
+  bottom: rem(110, $text-size);
+  width: 1080 / 1920 * 100vw;
+  padding-left: rem(135, $text-size);
+  overflow: hidden;
 
   @include at($max, $widescreen) {
     bottom: rem(65, $text-size);
+    width: calcFluidFontSize(588, 720, 640, 1200);
   }
 
   @include at($max, $tablet) {
     bottom: rem(97, $text-size);
+    padding-left: rem(71, $text-size);
   }
 
   @include at($max, $phone - 1) {
     bottom: rem(50, $text-size);
+    width: calcFluidFontSize(317, 585, 320, 639);
+    padding-left: rem(21, $text-size);
   }
 }
 
 .hero-carousel__container {
   position: relative;
   display: flex;
-  width: 1080 / 1920 * 100vw;
+  height: rem(352, $text-size);
   margin-bottom: rem(20, $text-size);
-  padding-left: rem(135, $text-size);
-  overflow: hidden;
+  transition: transform .8s;
   
   @include at($max, $widescreen) {
-    width: calcFluidFontSize(588, 720, 640, 1200);
     margin-bottom: rem(25, $text-size);
   }
 
-  @include at($max, $tablet) {
-    padding-left: rem(71, $text-size);
-  }
-
   @include at($max, $phone - 1) {
-    width: calcFluidFontSize(317, 585, 320, 639);
+    height: rem(202, $text-size);
     margin-bottom: rem(15, $text-size);
-    padding-left: rem(21, $text-size);
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    top: 54%;
-    transform: translateY(-50%);
-    background-color: #fff;
-
-    @include at($max, $phone - 1) {
-      top: 49%;
-    }
-  }
-
-  &::before {
-    right: 0;
-    left: 7px;
-    height: 1px;
-  }
-
-  &::after {
-    left: 0;
-    width: 5px;
-    height: 5px;
-    padding: 3px;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    background-clip: content-box;
   }
 }
 
 .hero-carousel__card {
+  position: relative;
   width: rem(140, $text-size);
   height: rem(203, $text-size);
   margin-top: rem(90, $text-size);
   margin-right: rem(46, $text-size);
   flex-shrink: 0;
-  transition: width .3s, height .3s;
+  transition-duration: 1s;
+  transition-property: width, height, margin-top, opacity;
 
   @include at($max, $widescreen) {
     width: rem(180, $text-size);
@@ -220,6 +193,10 @@
       height: rem(202, $text-size);
     }
   }
+}
+
+.hero-carousel__card_hidden {
+  opacity: 0;
 }
 
 .hero-carousel__image {
@@ -261,20 +238,69 @@
   }
 }
 
+.hero-carousel__track {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  @include at($max, $phone - 1) {
+    top: 40%;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-left: 7px;
+    background-color: #fff;
+  }
+}
+
+.hero-carousel__track-point {
+  position: absolute;
+  top: -6.5px;
+  box-sizing: content-box;
+  width: 5px;
+  height: 5px;
+  padding: 3px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-clip: content-box;
+  background-color: #fff;
+
+  $point-4-offset-x: 675.5;
+
+  &:first-child { left: 0; }
+  &:nth-child(2) { left: rem(198.5, $text-size); }
+  &:nth-child(3) { left: rem(437, $text-size); }
+  &:nth-child(4) { left: rem($point-4-offset-x, $text-size); }
+
+  // Start from 5th through 9th elem.
+  @for $i from 1 through 6 {
+    &:nth-child(#{ $i + 4 }) {
+      left: rem($point-4-offset-x + (140 + 46) * $i, $text-size);
+    }
+  }
+}
+
 .hero-carousel__controls {
   display: inline-block;
-  margin-left: rem(320, $text-size);
+  margin-left: rem(185, $text-size);
 
   @include at($max, $widescreen) {
-    margin-left: rem(350, $text-size);
+    margin-left: rem(215, $text-size);
   }
 
   @include at($max, $tablet) {
-    margin-left: rem(287, $text-size);
+    margin-left: rem(216, $text-size);
   }
 
   @include at($max, $phone - 1) {
-    margin-left: rem(144, $text-size);
+    margin-left: rem(123, $text-size);
     line-height: .3;
   }
 }
