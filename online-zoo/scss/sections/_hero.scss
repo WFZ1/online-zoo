@@ -145,7 +145,7 @@
   display: flex;
   height: rem(352, $text-size);
   margin-bottom: rem(20, $text-size);
-  transition: transform .8s;
+  transition: transform .5s;
   
   @include at($max, $widescreen) {
     margin-bottom: rem(25, $text-size);
@@ -164,8 +164,8 @@
   margin-top: rem(90, $text-size);
   margin-right: rem(46, $text-size);
   flex-shrink: 0;
-  transition-duration: 1s;
-  transition-property: width, height, margin-top, opacity;
+  transition-duration: .5s;
+  transition-property: width, height, margin-top, opacity, visibility;
 
   @include at($max, $widescreen) {
     width: rem(180, $text-size);
@@ -197,6 +197,7 @@
 
 .hero-carousel__card_hidden {
   opacity: 0;
+  visibility: hidden;
 }
 
 .hero-carousel__image {
@@ -214,6 +215,8 @@
   @include at($max, $phone - 1) {
     padding: rem(10, $text-size) rem(4, $text-size) rem(11, $text-size) rem(8, $text-size);
   }
+
+  .carousel__card_active & { transition-delay: .35s; }
 }
 
 .hero-carousel__text {
@@ -238,31 +241,34 @@
   }
 }
 
+.hero-carousel__track::before,
+.hero-carousel__track-point {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .hero-carousel__track {
   position: absolute;
-  top: 45%;
+  top: 44.5%;
   left: 0;
   right: 0;
   transform: translateY(-50%);
-  z-index: 1;
 
   @include at($max, $phone - 1) {
-    top: 40%;
+    top: 39%;
   }
 
   &::before {
     content: "";
-    display: block;
+    left: rem(7, $text-size);
     width: 100%;
     height: 1px;
-    margin-left: 7px;
     background-color: #fff;
   }
 }
 
 .hero-carousel__track-point {
-  position: absolute;
-  top: -6.5px;
   box-sizing: content-box;
   width: 5px;
   height: 5px;
@@ -272,18 +278,47 @@
   background-clip: content-box;
   background-color: #fff;
 
-  $point-4-offset-x: 675.5;
+  // Points placement
 
-  &:first-child { left: 0; }
-  &:nth-child(2) { left: rem(198.5, $text-size); }
-  &:nth-child(3) { left: rem(437, $text-size); }
-  &:nth-child(4) { left: rem($point-4-offset-x, $text-size); }
+  &:first-child {
+    left: 0;
+  }
 
-  // Start from 5th through 9th elem.
-  @for $i from 1 through 6 {
-    &:nth-child(#{ $i + 4 }) {
-      left: rem($point-4-offset-x + (140 + 46) * $i, $text-size);
+  @mixin placeSliderPoints($point-offset-x, $slide-width, $slide-margin-right, $active-slide-width, $point-width, $container-padding-left) {
+    $half-slide-width: $slide-width / 2;
+    $half-active-slide-width: $active-slide-width / 2;
+    $half-point-width: $point-width / 2;
+
+    @for $i from 2 through 9 {
+      @if $i == 2 {
+        $point-offset-x: $container-padding-left + $half-slide-width - $half-point-width;
+      }
+      @else if $i > 2 {
+        @if $i < 5 {  // active slide has more width, need calculate it
+          $point-offset-x: $point-offset-x + $half-slide-width + $slide-margin-right + $half-active-slide-width;
+        } @else { // default calculating
+          $point-offset-x: $point-offset-x + $slide-width + $slide-margin-right;
+        }
+      } 
+      
+      &:nth-child(#{ $i }) {
+        left: rem($point-offset-x, $text-size);
+      }
     }
+  }
+
+  @include placeSliderPoints(0, 140, 46, 245, 13, 135);
+
+  @include at($max, $widescreen) {
+    @include placeSliderPoints(0, 180, 30, 245, 13, 135);
+  }
+
+  @include at($max, $tablet) {
+    @include placeSliderPoints(0, 180, 30, 245, 13, 71);
+  }
+
+  @include at($max, $phone - 1) {
+    @include placeSliderPoints(0, 113, 10, 140, 13, 21);
   }
 }
 

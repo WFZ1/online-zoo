@@ -1276,7 +1276,7 @@ html {
   display: flex;
   height: 25.14286rem;
   margin-bottom: 1.42857rem;
-  transition: transform .8s;
+  transition: transform .5s;
 }
 
 @media screen and (max-width: 1440px) {
@@ -1299,8 +1299,8 @@ html {
   margin-top: 6.42857rem;
   margin-right: 3.28571rem;
   flex-shrink: 0;
-  transition-duration: 1s;
-  transition-property: width, height, margin-top, opacity;
+  transition-duration: .5s;
+  transition-property: width, height, margin-top, opacity, visibility;
 }
 
 @media screen and (max-width: 1440px) {
@@ -1340,6 +1340,7 @@ html {
 
 .hero-carousel__card_hidden {
   opacity: 0;
+  visibility: hidden;
 }
 
 .hero-carousel__image {
@@ -1361,6 +1362,10 @@ html {
   .hero-carousel__info {
     padding: 0.71429rem 0.28571rem 0.78571rem 0.57143rem;
   }
+}
+
+.carousel__card_active .hero-carousel__info {
+  transition-delay: .35s;
 }
 
 @media screen and (max-width: 639px) {
@@ -1385,33 +1390,36 @@ html {
   }
 }
 
+.hero-carousel__track::before,
+.hero-carousel__track-point {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .hero-carousel__track {
   position: absolute;
-  top: 45%;
+  top: 44.5%;
   left: 0;
   right: 0;
   transform: translateY(-50%);
-  z-index: 1;
 }
 
 @media screen and (max-width: 639px) {
   .hero-carousel__track {
-    top: 40%;
+    top: 39%;
   }
 }
 
 .hero-carousel__track::before {
   content: "";
-  display: block;
+  left: 0.5rem;
   width: 100%;
   height: 1px;
-  margin-left: 7px;
   background-color: #fff;
 }
 
 .hero-carousel__track-point {
-  position: absolute;
-  top: -6.5px;
   box-sizing: content-box;
   width: 5px;
   height: 5px;
@@ -1458,8 +1466,85 @@ html {
   left: 114.67857rem;
 }
 
-.hero-carousel__track-point:nth-child(10) {
-  left: 127.96429rem;
+@media screen and (max-width: 1440px) {
+  .hero-carousel__track-point:nth-child(2) {
+    left: 15.60714rem;
+  }
+  .hero-carousel__track-point:nth-child(3) {
+    left: 32.92857rem;
+  }
+  .hero-carousel__track-point:nth-child(4) {
+    left: 50.25rem;
+  }
+  .hero-carousel__track-point:nth-child(5) {
+    left: 65.25rem;
+  }
+  .hero-carousel__track-point:nth-child(6) {
+    left: 80.25rem;
+  }
+  .hero-carousel__track-point:nth-child(7) {
+    left: 95.25rem;
+  }
+  .hero-carousel__track-point:nth-child(8) {
+    left: 110.25rem;
+  }
+  .hero-carousel__track-point:nth-child(9) {
+    left: 125.25rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-carousel__track-point:nth-child(2) {
+    left: 11.03571rem;
+  }
+  .hero-carousel__track-point:nth-child(3) {
+    left: 28.35714rem;
+  }
+  .hero-carousel__track-point:nth-child(4) {
+    left: 45.67857rem;
+  }
+  .hero-carousel__track-point:nth-child(5) {
+    left: 60.67857rem;
+  }
+  .hero-carousel__track-point:nth-child(6) {
+    left: 75.67857rem;
+  }
+  .hero-carousel__track-point:nth-child(7) {
+    left: 90.67857rem;
+  }
+  .hero-carousel__track-point:nth-child(8) {
+    left: 105.67857rem;
+  }
+  .hero-carousel__track-point:nth-child(9) {
+    left: 120.67857rem;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .hero-carousel__track-point:nth-child(2) {
+    left: 5.07143rem;
+  }
+  .hero-carousel__track-point:nth-child(3) {
+    left: 14.82143rem;
+  }
+  .hero-carousel__track-point:nth-child(4) {
+    left: 24.57143rem;
+  }
+  .hero-carousel__track-point:nth-child(5) {
+    left: 33.35714rem;
+  }
+  .hero-carousel__track-point:nth-child(6) {
+    left: 42.14286rem;
+  }
+  .hero-carousel__track-point:nth-child(7) {
+    left: 50.92857rem;
+  }
+  .hero-carousel__track-point:nth-child(8) {
+    left: 59.71429rem;
+  }
+  .hero-carousel__track-point:nth-child(9) {
+    left: 68.5rem;
+  }
 }
 
 .hero-carousel__controls {
