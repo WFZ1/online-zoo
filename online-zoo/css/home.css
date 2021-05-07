@@ -165,6 +165,19 @@ html {
 
 .page {
   overflow-x: hidden;
+  --featured-item-width: -1230px;
+}
+
+@media screen and (max-width: 1440px) {
+  .page {
+    --featured-item-width: -920px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page {
+    --featured-item-width: -904px;
+  }
 }
 
 .page.page_light-mode {
@@ -1820,6 +1833,12 @@ html {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .featured-items-carousel__container {
+    overflow-x: visible;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .featured-items-carousel__container {
     margin-bottom: 2.5rem;
@@ -1853,9 +1872,11 @@ html {
 }
 
 .featured-items-carousel__card {
+  display: none;
   width: 19.85714rem;
   height: 28.5rem;
   overflow: hidden;
+  animation: .6s ease-out;
 }
 
 @media screen and (max-width: 1440px) {
@@ -1867,6 +1888,11 @@ html {
 
 .featured-items-carousel__card::before {
   background-image: linear-gradient(348.75deg, #000 10.15%, rgba(0, 0, 0, 0) 59%);
+}
+
+.featured-items-carousel__card_active,
+.featured-items-carousel__card_next {
+  display: block;
 }
 
 .featured-items-carousel__image {
@@ -1907,6 +1933,61 @@ html {
 @media screen and (max-width: 640px) {
   .featured-items-carousel__controls {
     margin-left: 0.35714rem;
+  }
+}
+
+/* ANIMATION ================================================================================ */
+.featured-items-carousel__card_to-left {
+  animation-name: carouselToLeft;
+}
+
+.featured-items-carousel__card_to-left-double {
+  animation-name: carouselToLeftDouble;
+}
+
+.featured-items-carousel__card_from-left {
+  animation-name: carouselToLeft;
+  animation-direction: reverse;
+}
+
+.featured-items-carousel__card_to-right {
+  animation-name: carouselFromRight;
+  animation-direction: reverse;
+}
+
+.featured-items-carousel__card_to-right-double {
+  animation-name: carouselToLeftDouble;
+  animation-direction: reverse;
+}
+
+.featured-items-carousel__card_from-right {
+  animation-name: carouselFromRight;
+}
+
+@keyframes carouselToLeft {
+  from {
+    left: 0;
+  }
+  to {
+    left: var(--featured-item-width);
+  }
+}
+
+@keyframes carouselToLeftDouble {
+  from {
+    left: var(--featured-item-width);
+  }
+  to {
+    left: calc(var(--featured-item-width) * 2);
+  }
+}
+
+@keyframes carouselFromRight {
+  from {
+    right: var(--featured-item-width);
+  }
+  to {
+    right: 0;
   }
 }
 

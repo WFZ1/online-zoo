@@ -54,6 +54,10 @@
     margin-bottom: rem(27, $text-size);
   }
 
+  @include at($max, $lap) {
+    overflow-x: visible;
+  }
+
   @include at($max, $phone) {
     margin-bottom: rem(35, $text-size);
   }
@@ -77,9 +81,11 @@
 }
 
 .featured-items-carousel__card {
+  display: none;
   width: rem(278, $text-size);
   height: rem(399, $text-size);
   overflow: hidden;
+  animation: .6s ease-out;
 
   @include at($max, $widescreen) {
     width: rem(210, $text-size);
@@ -87,6 +93,11 @@
   }
 
   &::before { background-image: linear-gradient(348.75deg, #000 10.15%, rgba(0,0,0,0) 59%); }
+}
+
+.featured-items-carousel__card_active,
+.featured-items-carousel__card_next {
+  display: block;
 }
 
 .featured-items-carousel__image {
@@ -122,4 +133,41 @@
   @include at($max, $phone) {
     margin-left: rem(5, $text-size);
   }
+}
+
+/* ANIMATION ================================================================================ */
+
+.featured-items-carousel__card_to-left { animation-name: carouselToLeft; }
+.featured-items-carousel__card_to-left-double { animation-name: carouselToLeftDouble; }
+
+.featured-items-carousel__card_from-left {
+  animation-name: carouselToLeft;
+  animation-direction: reverse;
+}
+
+.featured-items-carousel__card_to-right {
+  animation-name: carouselFromRight;
+  animation-direction: reverse;
+}
+
+.featured-items-carousel__card_to-right-double {
+  animation-name: carouselToLeftDouble;
+  animation-direction: reverse;
+}
+
+.featured-items-carousel__card_from-right { animation-name: carouselFromRight; }
+
+@keyframes carouselToLeft {
+  from { left: 0; }
+  to { left: var(--featured-item-width); }
+}
+
+@keyframes carouselToLeftDouble {
+  from { left: var(--featured-item-width); }
+  to { left: calc(var(--featured-item-width) * 2); }
+}
+
+@keyframes carouselFromRight {
+  from { right: var(--featured-item-width); }
+  to { right: 0 }
 }

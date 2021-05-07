@@ -11,6 +11,15 @@ html {
 
 .page { 
   overflow-x: hidden;
+  --featured-item-width: -1230px;
+
+  @include at($max, $widescreen) {
+    --featured-item-width: -920px;
+  }
+
+  @include at($max, $phone-xl) {
+    --featured-item-width: -904px;
+  }
 
   &.page_light-mode {
     --main-primary-bg: #{ $main-primary-bg-light };

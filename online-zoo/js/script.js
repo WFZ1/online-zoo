@@ -1,6 +1,4 @@
 (function () {
-  alert('Прошу проверить работу 8-9 мая, к сожалению на данный момент работа не доделана, надеюсь на Ваше понимание');
-
   /**
    * --------------------------------------------------------------------------------
    *  FUNCTIONS
@@ -37,11 +35,12 @@
 
   const heroSlider = {
     container: $('.hero-carousel__container'),
-    slideClass: '.hero-carousel__card',
-    activeSlide: $('.carousel__card_active', this.container),
-    range: $('.carousel__range', this.container),
-    fraction: $('.carousel-fraction__current', this.container)
+    slideClass: '.hero-carousel__card'
   }
+
+  heroSlider.activeSlide = $('.carousel__card_active', heroSlider.container);
+  heroSlider.range = $('.carousel__range', heroSlider.container.parentElement);
+  heroSlider.fraction = $('.carousel-fraction__current', heroSlider.container.parentElement);
 
   /* GO TO NEXT SLIDE ================================================================================ */
 
@@ -119,4 +118,97 @@
   });
 
   window.addEventListener('resize', resetSlider);
+
+  /**
+   * --------------------------------------------------------------------------------
+   *  FEATURED ITEMS CAROUSEL
+   * --------------------------------------------------------------------------------
+   */
+
+  const featuredItemsCarousel = {
+    container: $('.featured-items-carousel'),
+    items: document.querySelectorAll('.featured-items-carousel__card'),
+    currentItem: 0,
+    inputVal: 0,
+    isEnabled: true
+  };
+
+  featuredItemsCarousel.prevBtn = $('.carousel__arrow_type_prev', featuredItemsCarousel.container);
+  featuredItemsCarousel.nextBtn = $('.carousel__arrow_type_next', featuredItemsCarousel.container);
+  featuredItemsCarousel.range = $('.carousel__range', featuredItemsCarousel.container);
+  featuredItemsCarousel.fraction = $('.carousel-fraction__current', featuredItemsCarousel.container);
+
+  function changeCurrentItem (n) {
+    this.currentItem = (n + this.items.length) % this.items.length;
+
+    // Input (range)
+    this.inputVal = this.currentItem / 4 + 1;
+    this.range.value = this.inputVal;
+    this.fraction.innerText = this.inputVal < 10 ? '0' + this.inputVal : this.inputVal;
+  }
+  
+  function hideItem (direction) {
+    this.isEnabled = false;
+    this.range.disabled = true;
+
+    for (let i = this.currentItem; i < this.currentItem + 4; i++) {
+      this.items[i].classList.add(direction);
+      this.items[i].addEventListener('animationend', e => {
+        e.currentTarget.classList.remove('featured-items-carousel__card_active', direction);
+      });
+    }
+  }
+
+  function showItem (direction) {
+    for (let i = this.currentItem; i < this.currentItem + 4; i++) {
+      this.items[i].classList.add('featured-items-carousel__card_next', direction);
+      this.items[i].addEventListener('animationend', e => {
+        const el = e.currentTarget;
+        el.classList.remove('featured-items-carousel__card_next', direction);
+        el.classList.add('featured-items-carousel__card_active');
+        this.isEnabled = true;
+        this.range.disabled = false;
+      });
+    }
+  }
+
+  function nextItem () {
+    const directionHide = (this.currentItem === this.items.length - 4) ? 'featured-items-carousel__card_to-left-double' : 'featured-items-carousel__card_to-left';
+
+    hideItem.call(this, directionHide);
+    changeCurrentItem.call(this, this.currentItem + 4);
+
+    const directionShow = (this.currentItem === 0) ? 'featured-items-carousel__card_from-right' : 'featured-items-carousel__card_to-left';
+
+    showItem.call(this, directionShow);
+  }
+
+  function previousItem () {
+    const directionHide = (this.currentItem === 0) ? 'featured-items-carousel__card_to-right' : 'featured-items-carousel__card_from-left';
+
+    hideItem.call(featuredItemsCarousel, directionHide);
+    changeCurrentItem.call(featuredItemsCarousel, featuredItemsCarousel.currentItem - 4);
+
+    const directionShow = (this.currentItem === this.items.length - 4) ? 'featured-items-carousel__card_to-right-double' : 'featured-items-carousel__card_from-left';
+
+    showItem.call(featuredItemsCarousel, directionShow);
+  }
+
+  featuredItemsCarousel.prevBtn.addEventListener('click', () => {
+    if (featuredItemsCarousel.isEnabled) previousItem.call(featuredItemsCarousel);
+  });
+  
+  featuredItemsCarousel.nextBtn.addEventListener('click', () => {
+    if (featuredItemsCarousel.isEnabled) nextItem.call(featuredItemsCarousel);
+  });
+
+  featuredItemsCarousel.range.addEventListener('input', e => {
+    if (featuredItemsCarousel.isEnabled) {
+      if (e.currentTarget.value > featuredItemsCarousel.inputVal) {
+        featuredItemsCarousel.nextBtn.click();
+      } else {
+        featuredItemsCarousel.prevBtn.click();
+      }
+    }
+  });
 }());
