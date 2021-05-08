@@ -303,6 +303,7 @@
   height: rem(141, $text-size);
   object-fit: cover;
   border-radius: rem(5, $text-size);
+  cursor: pointer;
 
   @include at($max, $widescreen) {
     height: rem(94, $text-size);

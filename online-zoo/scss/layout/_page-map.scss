@@ -67,9 +67,10 @@
   }
 }
 
-.page-map-carousel__container {
+.page-map-carousel__wrap {
   max-width: rem(1073, $text-size);
   margin: 0 auto rem(32, $text-size);
+  overflow: hidden;
 
   @include at($max, $desk) {
     max-width: rem(659, $text-size);
@@ -125,6 +126,8 @@
   @include at($max, $phone - 1) {
     margin-right: rem(10, $text-size);
   }
+
+  &:last-child { margin-right: 0; }
 }
 
 .page-map-carousel__item_active {

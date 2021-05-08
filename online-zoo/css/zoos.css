@@ -1284,6 +1284,7 @@ html {
   height: 10.07143rem;
   object-fit: cover;
   border-radius: 0.35714rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1440px) {

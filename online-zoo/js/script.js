@@ -1,5 +1,5 @@
 (function () {
-  alert('Прошу проверить работу 8-9 мая, к сожалению на данный момент работа не доделана, надеюсь на Ваше понимание');
+  alert('Прошу проверить работу 9 мая, если есть такая возможность, к сожалению на данный момент в процессе доделывания, надеюсь на Ваше понимание');
 
   /**
    * --------------------------------------------------------------------------------
@@ -243,4 +243,126 @@
       }
     });
   }
+
+  /**
+   * --------------------------------------------------------------------------------
+   *  MAP CAROUSEL
+   * --------------------------------------------------------------------------------
+   */
+
+  // DEFAULT OPTIONS FOR THE CAROUSEL
+
+  mapCarousel.defaults = {
+    speed: 750
+  };
+
+  function mapCarousel (el) {
+    this.root = document.querySelector(el);
+  
+    // CAROUSEL OBJECTS
+
+    this.container = this.root.querySelector('.page-map-carousel__container');
+    this.elems = this.container.children;
+    this.elemFirst = this.elems[0];
+    this.arrowLeft = this.root.querySelector('.carousel__arrow_type_prev');
+    this.arrowRight = this.root.querySelector('.carousel__arrow_type_next');
+    this.range = this.root.querySelector('.carousel__range');
+    this.fraction = this.root.querySelector('.carousel-fraction__current');
+  
+    // INITIALIZATION
+
+    this.options = mapCarousel.defaults;
+    mapCarousel.initialize(this);
+  }
+
+  /* INITIALIZATION ================================================================================ */
+  
+  mapCarousel.initialize = function (that) {
+    that.elemCount = that.elems.length;
+    const elemStyle = window.getComputedStyle(that.elemFirst);
+    that.elemWidth = that.elemFirst.offsetWidth + parseInt(elemStyle.marginRight);
+    that.currentElem = 0;
+
+    const getTime = () => new Date().getTime();
+    let bgTime = getTime();
+  
+    // START INITIALIZATION
+
+    that.arrowLeft.addEventListener('click', () => {
+      const fnTime = getTime();
+
+      if(fnTime - bgTime > that.options.speed) {
+        bgTime = fnTime;
+        that.elemPrev();
+      }
+    }, false);
+
+    that.arrowRight.addEventListener('click', () => {
+      const fnTime = getTime();
+
+      if(fnTime - bgTime > that.options.speed) {
+        bgTime = fnTime;
+        that.elemNext();
+      }
+    }, false);
+  };
+
+  /* PREV ELEMENT ================================================================================ */
+  
+  mapCarousel.prototype.elemPrev = function (num) {
+    num = num || 1;
+    this.currentElem -= num;
+
+    if(this.currentElem < 0) this.currentElem = this.elemCount - 1;
+
+    let elm;
+    let buf;
+    const this$ = this;
+
+    for(let i = 0; i < num; i++) {
+      elm = this.container.lastElementChild;
+      buf = elm.cloneNode(true);
+      this.container.insertBefore(buf, this.container.firstElementChild);
+      this.container.removeChild(elm);
+    };
+
+    this.container.style.marginLeft = `-${ this.elemWidth * num }px`;
+    this.container.style.cssText = `transition: margin ${ this.options.speed }ms ease;`;
+    this.container.style.marginLeft = 0;
+
+    setTimeout (() => {
+      this$.container.style.cssText = 'transition: none;'
+    }, this.options.speed)
+  };
+
+  /* NEXT ELEMENT ================================================================================ */
+
+  mapCarousel.prototype.elemNext = function (num) {
+    num = num || 1;
+  
+    this.currentElem += num;
+    if (this.currentElem >= this.elemCount) this.currentElem = 0;
+    
+    let elm;
+    let buf;
+    const this$ = this;
+
+    this.container.style.cssText = `transition: margin ${ this.options.speed }ms ease;`;
+    this.container.style.marginLeft = `-${ this.elemWidth * num }px`;
+
+    setTimeout (() => {
+      this$.container.style.cssText = 'transition: none;';
+
+      for (let i = 0; i < num; i++) {
+        elm = this$.container.firstElementChild;
+        buf = elm.cloneNode(true);
+        this$.container.appendChild(buf);
+        this$.container.removeChild(elm)
+      };
+
+      this$.container.style.marginLeft = 0;
+    }, this.options.speed);
+  };
+  
+  new mapCarousel('.page-map-carousel');
 }());

@@ -1183,26 +1183,27 @@ html {
   }
 }
 
-.page-map-carousel__container {
+.page-map-carousel__wrap {
   max-width: 76.64286rem;
   margin: 0 auto 2.28571rem;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1200px) {
-  .page-map-carousel__container {
+  .page-map-carousel__wrap {
     max-width: 47.07143rem;
     margin-bottom: 1.57143rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .page-map-carousel__container {
+  .page-map-carousel__wrap {
     max-width: 36.78571rem;
   }
 }
 
 @media screen and (max-width: 639px) {
-  .page-map-carousel__container {
+  .page-map-carousel__wrap {
     max-width: 16.07143rem;
     margin-bottom: 1.42857rem;
   }
@@ -1247,6 +1248,10 @@ html {
   .page-map-carousel__item {
     margin-right: 0.71429rem;
   }
+}
+
+.page-map-carousel__item:last-child {
+  margin-right: 0;
 }
 
 .page-map-carousel__item_active {
