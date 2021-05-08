@@ -1,5 +1,58 @@
 (function () {
-  alert('Прошу проверить работу 9 мая, если есть такая возможность, к сожалению на данный момент в процессе доделывания, надеюсь на Ваше понимание');
+  /**
+   * --------------------------------------------------------------------------------
+   *  MEDIA QUERIES
+   * --------------------------------------------------------------------------------
+   */
+
+  const mql = {
+    phone: window.matchMedia('screen and (max-width: 640px)'),
+    tablet: window.matchMedia('screen and (max-width: 768px)'),
+    lap: window.matchMedia('screen and (max-width: 1024px)'),
+    desk: window.matchMedia('screen and (max-width: 1200px)'),
+    widescreen: window.matchMedia('screen and (max-width: 1440px)')
+  }
+
+  function matchesBreakpoint(breakpoint) {
+    switch (breakpoint) {
+      case 'phone':
+        return mql.phone.matches;
+
+      case 'tablet':
+        return mql.tablet.matches;
+        
+      case 'lap':
+        return mql.lap.matches;
+
+      case 'desk':
+        return mql.desk.matches;
+
+      case 'widescreen':
+        return mql.widescreen.matches;
+    }
+  }
+
+  function getCurrentBreakpoint() {
+    if (mql.phone.matches) {
+      return 'phone';
+    }
+
+    if (window.matchMedia('screen and (min-width: 641px) and (max-width: 768px)').matches) {
+      return 'tablet';
+    }
+
+    if (window.matchMedia('screen and (min-width: 769px) and (max-width: 1024px)').matches) {
+      return 'lap';
+    }
+
+    if (window.matchMedia('screen and (min-width: 1025px) and (max-width: 1200px)').matches) {
+      return 'desk';
+    }
+
+    if (window.matchMedia('screen and (min-width: 1201px) and (max-width: 1440px)').matches) {
+      return 'widescreen';
+    }
+  }
 
   /**
    * --------------------------------------------------------------------------------
@@ -250,119 +303,216 @@
    * --------------------------------------------------------------------------------
    */
 
-  // DEFAULT OPTIONS FOR THE CAROUSEL
+  if (document.body.matches('.page-map')) {
 
-  mapCarousel.defaults = {
-    speed: 750
-  };
+    // DEFAULT OPTIONS FOR THE CAROUSEL
 
-  function mapCarousel (el) {
-    this.root = document.querySelector(el);
-  
-    // CAROUSEL OBJECTS
-
-    this.container = this.root.querySelector('.page-map-carousel__container');
-    this.elems = this.container.children;
-    this.elemFirst = this.elems[0];
-    this.arrowLeft = this.root.querySelector('.carousel__arrow_type_prev');
-    this.arrowRight = this.root.querySelector('.carousel__arrow_type_next');
-    this.range = this.root.querySelector('.carousel__range');
-    this.fraction = this.root.querySelector('.carousel-fraction__current');
-  
-    // INITIALIZATION
-
-    this.options = mapCarousel.defaults;
-    mapCarousel.initialize(this);
-  }
-
-  /* INITIALIZATION ================================================================================ */
-  
-  mapCarousel.initialize = function (that) {
-    that.elemCount = that.elems.length;
-    const elemStyle = window.getComputedStyle(that.elemFirst);
-    that.elemWidth = that.elemFirst.offsetWidth + parseInt(elemStyle.marginRight);
-    that.currentElem = 0;
-
-    const getTime = () => new Date().getTime();
-    let bgTime = getTime();
-  
-    // START INITIALIZATION
-
-    that.arrowLeft.addEventListener('click', () => {
-      const fnTime = getTime();
-
-      if(fnTime - bgTime > that.options.speed) {
-        bgTime = fnTime;
-        that.elemPrev();
-      }
-    }, false);
-
-    that.arrowRight.addEventListener('click', () => {
-      const fnTime = getTime();
-
-      if(fnTime - bgTime > that.options.speed) {
-        bgTime = fnTime;
-        that.elemNext();
-      }
-    }, false);
-  };
-
-  /* PREV ELEMENT ================================================================================ */
-  
-  mapCarousel.prototype.elemPrev = function (num) {
-    num = num || 1;
-    this.currentElem -= num;
-
-    if(this.currentElem < 0) this.currentElem = this.elemCount - 1;
-
-    let elm;
-    let buf;
-    const this$ = this;
-
-    for(let i = 0; i < num; i++) {
-      elm = this.container.lastElementChild;
-      buf = elm.cloneNode(true);
-      this.container.insertBefore(buf, this.container.firstElementChild);
-      this.container.removeChild(elm);
+    mapCarousel.defaults = {
+      speed: 150,
+      itemClass: '.page-map-carousel__item',
+      hotspotClass: '.page-map__hotspot',
+      activeItemClass: 'page-map-carousel__item_active',
+      activeHotspotClass: 'image-hotspots__item_active'
     };
 
-    this.container.style.marginLeft = `-${ this.elemWidth * num }px`;
-    this.container.style.cssText = `transition: margin ${ this.options.speed }ms ease;`;
-    this.container.style.marginLeft = 0;
-
-    setTimeout (() => {
-      this$.container.style.cssText = 'transition: none;'
-    }, this.options.speed)
-  };
-
-  /* NEXT ELEMENT ================================================================================ */
-
-  mapCarousel.prototype.elemNext = function (num) {
-    num = num || 1;
-  
-    this.currentElem += num;
-    if (this.currentElem >= this.elemCount) this.currentElem = 0;
+    function mapCarousel (el) {
+      this.root = document.querySelector(el);
     
-    let elm;
-    let buf;
-    const this$ = this;
+      // CAROUSEL OBJECTS
 
-    this.container.style.cssText = `transition: margin ${ this.options.speed }ms ease;`;
-    this.container.style.marginLeft = `-${ this.elemWidth * num }px`;
+      this.container = this.root.querySelector('.page-map-carousel__container');
+      this.elems = this.container.children;
+      this.elemFirst = this.elems[0];
+      this.arrowLeft = this.root.querySelector('.carousel__arrow_type_prev');
+      this.arrowRight = this.root.querySelector('.carousel__arrow_type_next');
+      this.range = this.root.querySelector('.carousel__range');
+      this.fraction = this.root.querySelector('.carousel-fraction__current');
+      this.mapContainer = document.querySelector('.page-map__image-hotspots');
+      this.hotspots = this.mapContainer.querySelectorAll('.page-map__hotspot');
+      this.btn = document.querySelector('.page-map__btn');
 
-    setTimeout (() => {
-      this$.container.style.cssText = 'transition: none;';
+      this.options = mapCarousel.defaults;
+      mapCarousel.initialize(this);
+    }
 
-      for (let i = 0; i < num; i++) {
-        elm = this$.container.firstElementChild;
-        buf = elm.cloneNode(true);
-        this$.container.appendChild(buf);
-        this$.container.removeChild(elm)
-      };
+    /* INITIALIZATION ================================================================================ */
+    
+    mapCarousel.initialize = that => {
+      that.elemCount = that.elems.length;
+      const elemStyle = window.getComputedStyle(that.elemFirst);
+      that.elemWidth = that.elemFirst.offsetWidth + parseInt(elemStyle.marginRight);
 
-      this$.container.style.marginLeft = 0;
-    }, this.options.speed);
-  };
+      that.currentElem = 1;
+      that.newElem = 1;
+
+      const getTime = () => new Date().getTime();
+      let bgTime = getTime();
+
+      function checkElapsedTime (fn) {
+        const fnTime = getTime();
+
+        if (fnTime - bgTime > that.options.speed) {
+          bgTime = fnTime;
+          fn.call(that);
+        }
+      }
+
+      function changeActiveItem (e) {
+        let el;
+        let activeClass;
+
+        if (e.currentTarget === that.container) {
+          el = getContainEl(e.target, that.options.itemClass, that.container);
+          activeClass = that.options.activeItemClass;
+        } else {
+          el = getContainEl(e.target, that.options.hotspotClass, that.mapContainer);
+          activeClass = that.options.activeHotspotClass;
+        }
+
+        if (el && !el.matches(activeClass)) {
+          const curIndex = el.dataset.index - 1;
+          const diff = Math.abs(curIndex - that.currentElem);
+          (curIndex > that.currentElem) ? that.elemNext(diff) : that.elemPrev(diff);
+        }
+      }
+    
+      // LISTENERS
+
+      that.arrowLeft.addEventListener('click', () => checkElapsedTime(that.elemPrev), false);
+      that.arrowRight.addEventListener('click', () => checkElapsedTime(that.elemNext), false);
+      that.container.addEventListener('click', changeActiveItem, false);
+      that.range.addEventListener('input', () => that.elems[that.range.value - 1].click());
+      that.mapContainer.addEventListener('click', changeActiveItem, false);
+    };
+
+    /* PREV ELEMENT ================================================================================ */
+    
+    mapCarousel.prototype.elemPrev = function (num = 1) {
+      const oldElem = this.currentElem;
+
+      if (this.newElem !== 0) this.newElem = this.currentElem;
+
+      if (mql.desk.matches && this.newElem === 0) {
+        let elm;
+        let buf;
+        const this$ = this;
   
-  new mapCarousel('.page-map-carousel');
+        for(let i = 0; i < num; i++) {
+          elm = this.container.lastElementChild;
+          buf = elm.cloneNode(true);
+          this.container.insertBefore(buf, this.container.firstElementChild);
+          this.container.removeChild(elm);
+        };
+  
+        this.container.style.marginLeft = `-${ this.elemWidth * num }px`;
+        this.container.style.cssText = `transition: margin ${ this.options.speed }ms ease;`;
+        this.container.style.marginLeft = 0;
+  
+        setTimeout (() => {
+          this$.container.style.cssText = 'transition: none;'
+        }, this.options.speed)
+      }
+      
+      this.hotspots[this.currentElem].classList.remove(this.options.activeHotspotClass);
+
+      this.currentElem -= num;
+      if(this.currentElem < 0) this.currentElem = this.elemCount - 1;
+
+      this.hotspots[this.currentElem].classList.add(this.options.activeHotspotClass);
+
+      if (mql.desk.matches && this.newElem === 0) {
+        this.elems[1].classList.remove(this.options.activeItemClass);
+        this.elems[this.newElem].classList.add(this.options.activeItemClass);
+      } else {
+        this.elems[oldElem].classList.remove(this.options.activeItemClass);
+        this.elems[this.currentElem].classList.add(this.options.activeItemClass);
+      }
+      
+      // Input (range)
+
+      this.range.value = this.currentElem + 1;
+      this.fraction.innerText = (this.currentElem + 1 < 10) ? '0' + (this.currentElem + 1) : this.currentElem + 1;
+
+      // Btn. change url
+
+      const btnIsActive = !!this.elems[this.currentElem].dataset.name;
+
+      if (btnIsActive) {
+        this.btn.classList.remove('page-map__btn_disabled');
+        const btnSrcArr = this.btn.pathname.split('/');
+        btnSrcArr[btnSrcArr.length - 1] = this.elems[this.currentElem].dataset.name;
+        this.btn.pathname = btnSrcArr.join('/');
+      } else {
+        this.btn.classList.add('page-map__btn_disabled');
+      }
+    };
+
+    /* NEXT ELEMENT ================================================================================ */
+
+    mapCarousel.prototype.elemNext = function (num = 1) {
+      const oldElem = this.currentElem;
+
+      if (this.newElem === 0) this.newElem++;
+      else if (this.newElem !== 5) this.newElem = this.currentElem + 1;
+
+      if (mql.desk.matches && this.newElem >= 5) {
+        let elm;
+        let buf;
+        const this$ = this;
+
+        this.container.style.cssText = `transition: margin ${ this.options.speed }ms ease;`;
+        this.container.style.marginLeft = `-${ this.elemWidth * num }px`;
+
+        setTimeout (() => {
+          this$.container.style.cssText = 'transition: none;';
+
+          for (let i = 0; i < num; i++) {
+            elm = this$.container.firstElementChild;
+            buf = elm.cloneNode(true);
+            this$.container.appendChild(buf);
+            this$.container.removeChild(elm)
+          };
+
+          this$.container.style.marginLeft = 0;
+        }, this.options.speed);
+      }
+
+      this.hotspots[this.currentElem].classList.remove(this.options.activeHotspotClass);
+
+      this.currentElem += num;
+      if (this.currentElem >= this.elemCount) this.currentElem = 0;
+
+      this.hotspots[this.currentElem].classList.add(this.options.activeHotspotClass);
+
+      if (mql.desk.matches && this.newElem >= 5) {
+        this.elems[4].classList.remove(this.options.activeItemClass);
+        this.elems[5].classList.add(this.options.activeItemClass);
+      } else {
+        this.elems[oldElem].classList.remove(this.options.activeItemClass);
+        this.elems[this.currentElem].classList.add(this.options.activeItemClass);
+      }
+
+      // Input (range)
+
+      this.range.value = this.currentElem + 1;
+      this.fraction.innerText = (this.currentElem + 1 < 10) ? '0' + (this.currentElem + 1) : this.currentElem + 1;
+
+      // Btn. change url
+
+      const btnIsActive = !!this.elems[this.currentElem].dataset.name;
+
+      if (btnIsActive) {
+        this.btn.classList.remove('page-map__btn_disabled');
+        const btnSrcArr = this.btn.pathname.split('/');
+        btnSrcArr[btnSrcArr.length - 1] = this.elems[this.currentElem].dataset.name;
+        this.btn.pathname = btnSrcArr.join('/');
+      } else {
+        this.btn.classList.add('page-map__btn_disabled');
+      }
+
+      
+    };
+    
+    new mapCarousel('.page-map-carousel');
+  }
 }());
