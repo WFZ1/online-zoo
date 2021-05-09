@@ -115,13 +115,29 @@
     /* GO TO PREV SLIDE ================================================================================ */
     
     const goPrevSlide = curSlide => {
-      if (+curSlide.dataset.index > 1) {
-        heroSlider.container.children[curSlide.dataset.index - 2].classList.remove('hero-carousel__card_hidden');
+      const sliderElems = heroSlider.container.children;
+
+      for (let i = curSlide.dataset.index - 2; i < sliderElems.length; i++) {
+        if (sliderElems[i]) {
+          sliderElems[i].classList.remove('hero-carousel__card_hidden');
+        }
       }
+
+      // if (+curSlide.dataset.index > 1) {
+      //   heroSlider.container.children[curSlide.dataset.index - 2].classList.remove('hero-carousel__card_hidden');
+      // }
 
       const translateX = +heroSlider.container.style.transform.replace(/(translateX\()?(px\))?/g, '');
       const curSlideMargin = +window.getComputedStyle(curSlide).marginRight.replace('px', '');
-      const offsetX = translateX + curSlide.clientWidth + curSlideMargin;
+      // const offsetX = translateX + (curSlide.clientWidth + curSlideMargin) * heroSlider.activeSlide.dataset.index;
+      let offsetX;
+
+      if (heroSlider.activeSlide.dataset.index > 2) {
+        offsetX = (curSlide.offsetLeft - curSlide.clientWidth - curSlideMargin) * -1;
+      } else {
+        offsetX =  curSlide.offsetLeft + curSlide.clientWidth + curSlideMargin;
+      }
+
       heroSlider.container.style.transform = `translateX(${ offsetX }px)`;
     }
 
